@@ -10,7 +10,14 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
     "sourceMap": true,
+    "paths": {
+      "ngx-generic-tools/*": ["dist/ngx-generic-tools/*"],
+      "ngx-generic-tools": ["dist/ngx-generic-tools"]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,

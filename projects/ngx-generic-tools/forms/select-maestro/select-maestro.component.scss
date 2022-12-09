@@ -1,0 +1,32 @@
+p {
+  font-family: Lato;
+}
+
+input {
+  background: #ffffff;
+  height: 50px;
+  // padding: 0 16px;
+}
+
+div {
+  background-color: #ffffff;
+  padding-left: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-icon {
+  color: rgba(0, 0, 0, .54);
+  line-height: 1 !important;
+}
+
+.mat-option {
+  white-space: unset !important;
+  overflow: unset !important;
+  text-overflow: ellipsis !important;
+  height: unset !important;
+  line-height: 1.2 !important;
+  padding: 12px;
+}
