@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "testing" : "ng serve testing-project",
+    "build": "ng build ngx-generic-tools",
     "build-library": "ng build ngx-generic-tools",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

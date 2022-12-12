@@ -4,7 +4,7 @@
         (openedChange)="toggledSelect($event)">
 
         <div *ngIf="buscador">
-            <input placeholder="Escribe..." [formControl]="controlInput" matInput type="text"
+            <input placeholder="Escribe..." [formControl]="controlInput" id="inputBusqueda" type="text"
                 (keyup)="search($event.target['value'])" (keydown)="$event.stopPropagation()" autocomplete="off">
         </div>
 

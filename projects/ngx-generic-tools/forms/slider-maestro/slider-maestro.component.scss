@@ -1,0 +1,38 @@
+.sliderBox {
+    margin-top: 2vh;
+    margin-bottom: 3vh !important;
+
+    mat-hint {
+        display: block;
+    }
+
+    mat-slider {
+        display: block;
+        margin: auto;
+        margin-top: 2vh;
+    }
+}
+
+::ng-deep {
+    .mdc-slider__value-indicator {
+        --mat-mdc-slider-value-indicator-opacity: 0.6;
+        transform: scale(0.75)!important;
+    }
+
+ 
+}
+
+
+//Si es módo de lectura, pone en gris to la pesca y deshabilita los eventos para que no se pueda clicar
+.modoLectura {
+    pointer-events: none;
+
+    ::ng-deep {
+
+        .mat-mdc-slider-label,
+        .mat-mdc-slider,
+        .mat-slider-track-fill {
+            background-color: gray !important;
+        }
+    }
+}

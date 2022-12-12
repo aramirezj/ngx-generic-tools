@@ -187,10 +187,10 @@ export class SelectMaestroComponent implements OnInit, OnDestroy {
             //Es una busqueda customizadas, por lo que en el segundo parametro pasamos la query
             this.datosFiltrados = this.datosListado.filter(this.customSearch.bind(null, value))
         } else {
-            let filter = value.toLowerCase();
+            let filter = value.toString().toLowerCase();
             if (!this.secondLabel) {
                 this.datosFiltrados = this.datosListado.filter(option =>
-                    this.label ? option[this.label].toLowerCase().indexOf(filter) > -1 : option.toLowerCase().indexOf(filter) > -1
+                    this.label ? option[this.label].toLowerCase().indexOf(filter) > -1 : option.toString().toLowerCase().indexOf(filter.toString()) > -1
                 );
             } else {
                 this.datosFiltrados = this.datosListado.filter(option =>

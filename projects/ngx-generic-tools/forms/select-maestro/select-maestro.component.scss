@@ -5,12 +5,12 @@ p {
 input {
   background: #ffffff;
   height: 50px;
-  // padding: 0 16px;
 }
 
 div {
   background-color: #ffffff;
-  padding-left: 16px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 mat-form-field {
@@ -29,4 +29,11 @@ mat-icon {
   height: unset !important;
   line-height: 1.2 !important;
   padding: 12px;
+}
+
+#inputBusqueda {
+  box-sizing: border-box;
+  padding: 8px;
+  border: none;
+  width: 100%;
 }

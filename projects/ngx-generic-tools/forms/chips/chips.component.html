@@ -1,0 +1,12 @@
+<div class="chipBox">
+    <span *ngIf="descripcion">({{descripcion}})</span>
+    <mat-chip-listbox [selectable]="seleccionable">
+        <mat-chip [disabled]="disabled" [highlighted]="control.value === true"
+            [ngClass]="{'green':control.value === true}" (click)="setNewValue(true)">Si
+        </mat-chip>
+        <mat-chip [disabled]="disabled" [highlighted]="control.value === false"
+            [ngClass]="{'red':control.value === false}" (click)="setNewValue(false)">No
+        </mat-chip>
+    </mat-chip-listbox>
+    <mat-error *ngIf="control.hasError('required') && control.touched">Este campo es obligatorio</mat-error>
+</div>
