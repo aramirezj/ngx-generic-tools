@@ -1,0 +1,8 @@
+<button *ngIf="menuAcciones && accion.funcion !== 'huecoVacio' " mat-menu-item (click)="doAccion()"
+    [class]="disabled ? 'disabled' : ''">
+    <mat-icon class="iconoMenu">{{accion.icono}}</mat-icon>
+    <span>{{accion.descripcion}}</span>
+</button>
+
+<em *ngIf="!menuAcciones && accion.funcion !== 'configurar'" [matTooltip]="accion.descripcion" (click)="doAccion()"
+    matTooltipPosition="above" [class]="disabled ? 'material-icons disabled' : 'material-icons'">{{accion.icono}}</em>

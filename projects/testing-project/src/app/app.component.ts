@@ -13,6 +13,11 @@ export class AppComponent {
 
   miForm: Formulario = new Formulario(TF.CREACION, ['nombre', 'fecha'], ['Nombre', 'Fecha'], 'Creación');
 
+
+  datos:any[] = [{nombre:'xd',apellidos:'omgggg'},{nombre:'xdawdd',apellidos:'omgggggg'},{nombre:'xddd',apellidos:'om  gggg'},{nombre:'ddxd',apellidos:'omgggg'}];
+  modelo:string[] =  ['nombre','apellidos'];
+  visual:string[] =  ['Nombre','Apellidos'];
+
   constructor(private sharedService: SharedService) {
 
   }

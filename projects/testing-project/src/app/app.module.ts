@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { NgxGTFormsModule } from 'projects/ngx-generic-tools/forms/forms.module';
 import { SharedService } from 'ngx-generic-tools/shared';
+import { NgxGTTableModule } from 'projects/ngx-generic-tools/tables/tables.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SharedService } from 'ngx-generic-tools/shared';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgxGTFormsModule
+    NgxGTFormsModule,
+    NgxGTTableModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

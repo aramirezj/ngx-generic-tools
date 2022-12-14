@@ -10,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class BuscadorComponent implements OnInit {
   /** Elemento para notificar al componente que invoca la tabla */
-  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public notify: EventEmitter<string> = new EventEmitter<string>();
   /** Formulario para el buscador simple */
   form: FormGroup;
   constructor() { }
@@ -24,6 +24,7 @@ export class BuscadorComponent implements OnInit {
  * @param valor Valor sobre el que filtrar
  */
   busqueda(valor: string): void {
+   // console.log(valor)
     if (valor) valor = valor.toLowerCase();
     this.notify.emit(valor);
   }

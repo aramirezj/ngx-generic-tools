@@ -1,0 +1,174 @@
+<app-buscador *ngIf="buscador" (notify)="busqueda($event)"></app-buscador>
+
+<div [id]="idTabla" class="tablaMaterial">
+    <!-- Encabezado de la tabla -->
+    <div class="filaEncabezado">
+        <span *ngIf="modoCasillas" class="elementoEncabezado">
+            <mat-checkbox (click)="$event.stopPropagation();" [checked]="casillaMaestra.all"
+                [indeterminate]="casillaMaestra.indeterminate" (change)="clickTodasCasillas($event)">
+            </mat-checkbox>
+        </span>
+        <!-- Columnas según modelo-->
+        <div *ngFor="let titulo of visual;let i=index"
+            [class]="'elementoEncabezado pointer ' +this.idTabla+ '-columna-'+modelo[i]">
+            <span [innerHTML]="titulo" (click)="cambiaOrden(modelo[i])"></span>
+            <!--Lógica de flechas para la ordenación y el palo para el redimensionamiento-->
+            <ng-container [ngTemplateOutlet]="resizeYOrden" [ngTemplateOutletContext]="{i:i}"></ng-container>
+        </div>
+
+        <!-- Encabezados de los objetos complejos -->
+        <div *ngFor="let objeto of objetos;let i = index"
+            [class]="'elementoEncabezado pointer '+idTabla+'-columna-'+objeto.nombreModelo">
+            <span>{{objeto.nombreVisual}}</span>
+            <ng-container [ngTemplateOutlet]="resizeYOrden" [ngTemplateOutletContext]="{i:i+modelo.length}">
+            </ng-container>
+        </div>
+        <!-- Encabezado para los selects maestros -->
+        <div *ngFor="let selectMaestro of selectsMaestros;let i = index"
+            [class]="'elementoEncabezado selectPro '+idTabla+'-columna-'+selectMaestro.columnaModelo">
+            <span>{{selectMaestro.columnaVisual}}</span>
+            <ng-container [ngTemplateOutlet]="resizeYOrden"
+                [ngTemplateOutletContext]="{i:i+modelo.length+(objetos ? objetos.length : 0),sinOrden:true}">
+            </ng-container>
+        </div>
+
+        <!--Encabezado de las acciones -->
+        <div *ngIf="accionesParsed?.length"
+            [class]="'elementoEncabezado elementosAcciones '+idTabla+'-columna-acciones'">
+            <span>Acciones</span>
+        </div>
+
+
+    </div>
+
+    <!-- Condicional para la paginación, para saber que elementos mostrar en pantalla -->
+    <div class="contenidoTabla">
+        <ng-container *ngFor="let elemento of datosAMostrar;let i = index">
+            <ng-container
+                [ngTemplateOutlet]="paginacionAsincrona || !paginador ? paginacionAsincronaT : paginacionLocalT"
+                [ngTemplateOutletContext]="{elemento:elemento,i:i}"></ng-container>
+        </ng-container>
+    </div>
+</div>
+<mat-paginator *ngIf="paginador" [length]="pageEvent.length" [pageSize]="pageEvent.pageSize"
+    [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageEvent.pageIndex" (page)="paginacion($event)">
+</mat-paginator>
+
+
+<!-- PAGINACIONLOCAL Template para la evaluación de datos si utiliza la paginación local -->
+<ng-template #paginacionLocalT let-elemento='elemento' let-i='i'>
+    <div *ngIf="((pageEvent.pageIndex+1)*pageEvent.pageSize) > i && i >= ((pageEvent.pageIndex)*pageEvent.pageSize)"
+        [class]="elemento === elementoSeleccionado ? 'filaContenido filaSeleccionada pointer' : seleccionable ? 'filaContenido pointer' : 'filaContenido' "
+        (click)="seleccion(elemento)" (contextmenu)="open($event, elemento); $event.preventDefault();">
+        <!--Contenido del TD-->
+        <ng-template [ngTemplateOutlet]="TDContenido" [ngTemplateOutletContext]="{elemento:elemento}">
+        </ng-template>
+    </div>
+</ng-template>
+
+<!-- PAGINACIONASINCRONA Template para la evaluación de datos si usa la paginación asincrona-->
+<ng-template #paginacionAsincronaT let-elemento='elemento' let-i='i'>
+    <div [class]="elemento === elementoSeleccionado ? 'filaContenido filaSeleccionada pointer' : seleccionable ? 'filaContenido pointer' : 'filaContenido' "
+        (click)="seleccion(elemento)" (contextmenu)="open($event, elemento); $event.preventDefault();">
+        <!--Contenido del TD-->
+        <ng-template [ngTemplateOutlet]="TDContenido" [ngTemplateOutletContext]="{elemento:elemento}">
+        </ng-template>
+    </div>
+</ng-template>
+
+<!-- TDCONTENIDO Template utilizada para cargar el TD en cuestión -->
+<ng-template #TDContenido let-elemento='elemento'>
+    <span *ngIf="modoCasillas" class="elementoContenido">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="clickCasilla(elemento,$event)"
+            [checked]="elemento['tSeleccionado']">
+        </mat-checkbox>
+    </span>
+
+    <div *ngFor="let atributo of modelo;let i=index" [class]="'elementoContenido ' +this.idTabla+ '-columna-'+atributo">
+        <!-- Recibe el modelo splitted por si tuviera que hacer una indexación -->
+        <ng-template #modeloSplitted let-splitted="splitted" let-atributo="atributo">
+            <ng-container [ngSwitch]="splitted.length">
+                <app-elemento-tabla *ngSwitchCase=1 [campo]="elemento[atributo]" [atributo]="atributo"
+                    [formatoTabla]="formatos">
+                </app-elemento-tabla>
+                <app-elemento-tabla *ngSwitchCase=2 [campo]="elemento[splitted[0]]?.[splitted[1]]" [atributo]="atributo"
+                    [formatoTabla]="formatos">
+                </app-elemento-tabla>
+                <app-elemento-tabla *ngSwitchCase=3 [campo]="elemento[splitted[0]]?.[splitted[1]]?.[splitted[2]]"
+                    [atributo]="atributo" [formatoTabla]="formatos">
+                </app-elemento-tabla>
+                <app-elemento-tabla *ngSwitchCase=4
+                    [campo]="elemento[splitted[0]]?.[splitted[1]]?.[splitted[2]]?.[splitted[3]]" [atributo]="atributo"
+                    [formatoTabla]="formatos">
+                </app-elemento-tabla>
+                <app-elemento-tabla *ngSwitchCase=5
+                    [campo]="elemento[splitted[0]][splitted[1]]?.[splitted[2]]?.[splitted[3]]?.[splitted[4]]"
+                    [atributo]="atributo" [formatoTabla]="formatos">
+                </app-elemento-tabla>
+            </ng-container>
+        </ng-template>
+
+        <!-- Invoca al template que recibe el splitted y carga los elementos TD-->
+        <ng-container [ngTemplateOutlet]="modeloSplitted"
+            [ngTemplateOutletContext]="{atributo:atributo,splitted:atributo.split('.')}">
+        </ng-container>
+    </div>
+
+    <!-- Objetos complejos de la tabla -->
+    <div *ngFor="let objeto of objetos;let j=index"
+        [class]="'elementoContenido ' +idTabla+ '-columna-'+objeto.nombreModelo">
+        <span (click)="$event.stopPropagation()">
+            <a class="nombreObjeto" (click)="openInspeccion(elemento,j)" *ngIf="elemento[objeto.nombreModelo]">
+                {{objeto.peticion === undefined ? elemento[objeto.nombreModelo][objeto.nombreAMostrar] :
+                elemento[objeto.nombreModelo]}}</a>
+        </span>
+    </div>
+
+    <!-- Selects Pro de la tabla-->
+    <div *ngFor="let SP of selectsMaestros;let x=index"
+        [class]="'elementoContenido selectPro '+idTabla+ '-columna-'+SP.columnaModelo">
+        <span (click)="$event.stopPropagation()">
+            <app-select-maestro [datos]="SP.peticion" [label]="SP.label" [value]="SP.value"
+                [peticionCambio]="SP.peticionCambio" [elementoAsociado]="elemento" [modeloAsociado]="SP.columnaModelo"
+                [precargaUnico]="SP.precargaUnico" [control]="SP.control"
+                (elementoAsociadoCambiado)="sustituyeElemento($event.viejo,$event.nuevo)">
+            </app-select-maestro>
+        </span>
+    </div>
+
+    <!-- Acciones de la tabla -->
+    <div *ngIf="accionesParsed?.length" (click)="$event.stopPropagation()"
+        [class]="'elementoContenido elementosAcciones ' + idTabla +'-columna-acciones'">
+        <ng-container *ngIf="menuAcciones && accionesParsed">
+            <em class="material-icons" [matMenuTriggerFor]="menu">more_vert</em>
+            <mat-menu #menu="matMenu">
+                <app-accion-tabla *ngFor="let accion of accionesParsed" [accion]="accion" [elemento]="elemento"
+                    [menuAcciones]="menuAcciones" (clicked)="doAccion(elemento,$event)"></app-accion-tabla>
+            </mat-menu>
+        </ng-container>
+        <ng-container *ngIf="!menuAcciones">
+            <app-accion-tabla *ngFor="let accion of accionesParsed" [accion]="accion" [elemento]="elemento"
+                (clicked)="doAccion(elemento,$event)"></app-accion-tabla>
+        </ng-container>
+    </div>
+</ng-template>
+
+
+<!-- Template para invocar el palito de redimensión -->
+<ng-template #resizeYOrden let-i='i' let-sinOrden='sinOrden'>
+    <em *ngIf="ordenActual.modelo !== modelo[i] && !sinOrden" class="material-icons flecha">north</em>
+    <em *ngIf="ordenActual.modelo === modelo[i] && !sinOrden"
+        class="material-icons flechaActivada">{{ordenActual.direccion ===
+        'ASC' ? 'north' : 'south'}}</em>
+    <span class="resize-handle" (mousedown)="onRedimensionarColumna($event, i);$event.stopPropagation();"></span>
+</ng-template>
+
+<!-- Menu contextual -->
+<ng-template #menuContextual let-elemento>
+	<section class="menuContextual">
+        <div *ngFor="let accion of accionesParsed">
+            <app-accion-tabla [accion]="accion" [elemento]="elemento" [menuAcciones]="true"
+            (clicked)="doAccion(elemento,$event)"></app-accion-tabla>
+        </div>
+	</section>
+</ng-template>
