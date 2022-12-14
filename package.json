@@ -1,6 +1,7 @@
 {
   "name": "ngx-workspace",
   "version": "0.0.0",
+  "author": "Alejandro Ramírez Jiménez https://www.linkedin.com/in/aramirezjimenez/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

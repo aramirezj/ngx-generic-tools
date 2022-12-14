@@ -13,6 +13,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 //Components
 import { SelectMaestroComponent } from './select-maestro/select-maestro.component';
 import { TableComponent } from './table/table.component';
@@ -21,12 +23,12 @@ import { ChipsComponent } from './chips/chips.component';
 import { SliderMaestroComponent } from './slider-maestro/slider-maestro.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { BotoneraFlotanteComponent } from './botonera-flotante/botonera-flotante.component';
-
-
+import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { EditarGenericoComponent } from './editar-generico/editar-generico.component';
-import { MatNativeDateModule } from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import { ConversionDirective } from './directives/conversion.directive';
+import { MatErrorMessagesDirective } from './public_api';
+
 
 
 
@@ -54,7 +56,9 @@ const components: any[] = [
   BuscadorComponent,
   BotoneraFlotanteComponent,
   EditarGenericoComponent,
-  ConversionDirective
+  ConfirmacionComponent,
+  ConversionDirective,
+  MatErrorMessagesDirective
 ]
 
 @NgModule({
@@ -68,6 +72,6 @@ const components: any[] = [
   exports: [
     ...components,
     ...materialModules
-  ],providers:[]
+  ], providers: []
 })
 export class NgxGTFormsModule { }

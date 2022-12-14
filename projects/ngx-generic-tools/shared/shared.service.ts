@@ -9,7 +9,7 @@ import { Accion, Formulario } from 'ngx-generic-tools/models';
 import { EditarGenericoComponent } from 'ngx-generic-tools/forms';
 //import { Formulario, TF } from './model/Formulario';
 //import { EditarGenericoComponent } from './forms/editar-generico/editar-generico.component';
-//import { ConfirmacionComponent } from './forms/confirmacion/confirmacion.component';
+import { ConfirmacionComponent } from 'ngx-generic-tools/forms';
 
 //import { IframeComponent } from './iframe/iframe.component';
 //import { TablaGenericaComponent } from './tablas/tabla-dialogo/tabla-dialogo.component';
@@ -55,6 +55,25 @@ export class SharedService {
      */
     muestraFormulario(form: Formulario, size?: string): Observable<any> {
         return this.openGenericDialog(EditarGenericoComponent, form, size ? size : '45vw', null, null, true);
+    }
+
+    /**
+    * Función que gestiona la apertura de un dialogo de confirmación
+    *
+    * @param tipo El identificador del catálogo de mensajes, si no lo encuentra, el tipo actua de mensajes
+    * @param elemento Elemento del que se pide confirmación
+    * @param atributo Atributo del que se cogerá el identificador en caso de ser necesario
+    * @param visual Texto a mostrar para el atributo
+    * @returns Observable del dialogo
+    */
+    muestraConfirmacion(tipo: string, elemento?: any, atributo?: string, visual?: string, options?: string[]): Observable<any> {
+        const dialogRef = this.dialog.open(ConfirmacionComponent, this.openDialog(30));
+        if (elemento?.[atributo] === undefined && tipo === 'eliminarGenerico2') tipo = 'eliminarGenerico';
+        let mensaje = elemento ? this.mensajes[tipo].replace('??', visual).replace('??', elemento[atributo]) : this.mensajes[tipo];
+        mensaje = mensaje ? mensaje : tipo;
+        dialogRef.componentInstance.mensaje = mensaje;
+        dialogRef.componentInstance.options = options;
+        return dialogRef.afterClosed();
     }
 
 

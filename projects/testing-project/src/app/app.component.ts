@@ -18,8 +18,10 @@ export class AppComponent {
   }
   ngOnInit() {
     this.miForm.cambiarTipo(TC.FECHA,['fecha']);
-    this.sharedService.muestraFormulario(this.miForm).subscribe(resp => {
+   /* this.sharedService.muestraFormulario(this.miForm).subscribe(resp => {
       console.log(resp);
-    })
+    })*/
+    this.sharedService.muestraConfirmacion('AceptaS??').subscribe();
+    
   }
 }

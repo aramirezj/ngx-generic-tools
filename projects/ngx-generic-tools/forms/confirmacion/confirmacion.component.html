@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{mensaje}}</h2>
+<mat-dialog-actions align="end" *ngIf="!options">
+    <button mat-raised-button color="accent" (click)="close()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="save()">Aceptar</button>
+</mat-dialog-actions>
+
+<mat-dialog-actions *ngIf="options" fxLayout="row" fxLayoutAlign="end">
+    <button *ngFor="let option of options" mat-raised-button color="primary"
+        (click)="save(option)">{{option}}</button>
+    <button mat-raised-button color="accent"
+        (click)="close()">Cancelar</button>
+</mat-dialog-actions>
