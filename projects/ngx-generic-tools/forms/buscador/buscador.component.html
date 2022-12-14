@@ -3,11 +3,8 @@
         <mat-form-field class="busquedaField" appearance="outline">
             <mat-label>Escriba aquí el texto de búsqueda...</mat-label>
             <input matInput formControlName="busqueda" (keyup)="busqueda($event.target['value'])">
-            <span matPrefix>
-                <mat-icon>search</mat-icon>
-            </span>
-            <button mat-button type="button" *ngIf="form.get('busqueda').value" matSuffix mat-icon-button
-                aria-label="Borrar" (click)="form.reset()" (click)="busqueda('')">
+            <button *ngIf="form.get('busqueda').value" type="button" matSuffix mat-icon-button aria-label="Borrar"
+                (click)="form.reset()" (click)="busqueda('')">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>

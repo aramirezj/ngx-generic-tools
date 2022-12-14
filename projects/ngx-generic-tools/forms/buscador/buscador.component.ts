@@ -10,18 +10,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class BuscadorComponent implements OnInit {
   /** Elemento para notificar al componente que invoca la tabla */
-  @Output() notify: EventEmitter<any> = new EventEmitter<{ tipo: string, resultado: any }>();
+  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
   /** Formulario para el buscador simple */
   form: FormGroup;
-  /** Booleano para controlar el mostrado del buscador avanzado */
-  muestraAvanzado: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
-    console.log('xd');
-    this.form = new FormGroup({
-      busqueda: new FormControl()
-    });
+    this.form = new FormGroup({ busqueda: new FormControl() });
   }
 
   /**
@@ -30,7 +25,7 @@ export class BuscadorComponent implements OnInit {
  */
   busqueda(valor: string): void {
     if (valor) valor = valor.toLowerCase();
-    this.notify.emit({ tipo: 'simple', resultado: valor });
+    this.notify.emit(valor);
   }
 
 }

@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgxGTFormsModule } from 'projects/ngx-generic-tools/forms/forms.module';
+import { SharedService } from 'ngx-generic-tools/shared';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { NgxGTFormsModule } from 'projects/ngx-generic-tools/forms/forms.module'
     AppRoutingModule,
     NgxGTFormsModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

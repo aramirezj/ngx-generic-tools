@@ -1,0 +1,134 @@
+<!--Formulario generado con el modelo Formulario-->
+<h2 mat-dialog-title>{{formulario.titulo}}</h2>
+<mat-dialog-content>
+    <form *ngIf="tableForm" [formGroup]="tableForm">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between">
+            <ng-container *ngFor="let atributo of modeloDato;let i = index;">
+                <ng-container [ngSwitch]="formulario.controles[atributo].tipo">
+                    <!--Control de Texto-->
+                    <mat-form-field class="eleFormulario" *ngSwitchCase="'texto'" appearance="outline">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <input matInput [formControlName]="atributo"
+                            [arjaConversion]="formulario.controles[atributo]?.subFormato"
+                            [maxlength]="tableForm?.get(modeloDato[i])?.errors?.['maxlength']?.requiredLength ?? null">
+                        <mat-error matErrorMessages></mat-error>
+                    </mat-form-field>
+                    <!--Control de Número-->
+                    <mat-form-field class="eleFormulario" *ngSwitchCase="'numero'" appearance="outline">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <input matInput [arjaConversion]="TC_F.NUMERO" [formControlName]="atributo">
+                        <mat-error matErrorMessages></mat-error>
+                    </mat-form-field>
+                    <!--Control de Checkbox -->
+                    <mat-checkbox class="eleFormulario" *ngSwitchCase="'checkbox'" [formControlName]="atributo">
+                        {{formulario.controles[atributo].label}}</mat-checkbox>
+                    <!--Control de Fecha-->
+                    <mat-form-field *ngSwitchCase="'fecha'" appearance="outline" class="eleFormulario">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <input matInput [formControlName]="atributo" [matDatepicker]="picker" placeholder="dd/mm/aaaa"
+                            [max]="maxDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #picker></mat-datepicker>
+                        <mat-error>La fecha es inválida</mat-error>
+                    </mat-form-field>
+                    <!--Control de Select simple-->
+                    <mat-form-field *ngSwitchCase="'select'" appearance="outline" class="eleFormulario">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <mat-select [formControlName]="atributo">
+                            <mat-option *ngFor="let valor of formulario.controles[atributo].listado" [value]="valor">
+                                {{valor}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error matErrorMessages></mat-error>
+                    </mat-form-field>
+                    <!--Control de Select Objeto-->
+                    <mat-form-field *ngSwitchCase="'selectObjeto'" appearance="outline" class="eleFormulario">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <mat-select [formControlName]="atributo">
+                            <!--Select de objetos-->
+                            <mat-option *ngFor="let valor of formulario.controles[atributo].listado"
+                                [value]="formulario.controles[atributo].value === 'all' ? valor : valor[formulario.controles[atributo].value]">
+                                {{valor[formulario.controles[atributo].label] +
+                                (formulario.controles[atributo].secondLabel ?
+                                valor[formulario.controles[atributo].secondLabel] ? ' - ' +
+                                valor[formulario.controles[atributo].secondLabel] : '' : '')}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error matErrorMessages></mat-error>
+                    </mat-form-field>
+                    <!--Control de Select Booleano-->
+                    <mat-form-field *ngSwitchCase="'selectBoolean'" appearance="outline" class="eleFormulario">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <mat-select [formControlName]="atributo">
+                            <mat-option [value]="true">Si</mat-option>
+                            <mat-option [value]="false">No</mat-option>
+                        </mat-select>
+                        <mat-error matErrorMessages></mat-error>
+                    </mat-form-field>
+                    <!--Control de Text Area-->
+                    <mat-form-field class="eleFormulario" *ngSwitchCase="'textArea'" appearance="outline">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <textarea matInput [formControlName]="atributo"
+                            [arjaConversion]="formulario.controles[atributo]?.subFormato"
+                            [maxlength]="tableForm?.get(modeloDato[i])?.errors?.['maxlength']?.requiredLength ?? null"></textarea>
+                        <mat-error matErrorMessages></mat-error>
+                    </mat-form-field>
+                    <!--Control de Select Maestro-->
+                    <app-select-maestro *ngSwitchCase="'selectMaestro'" [datos]="formulario.controles[atributo].listado"
+                        [control]="tableForm.get(atributo)" [label]="formulario.controles[atributo].label"
+                        [secondLabel]="formulario.controles[atributo].secondLabel"
+                        [preset]="formulario.controles[atributo].preset" [value]="formulario.controles[atributo].value"
+                        [placeholder]="visualDato[i]" [key]="formulario.controles[atributo].key"
+                        [multiple]="formulario.controles[atributo].multiple" class="eleFormulario">
+                    </app-select-maestro>
+
+                    <!-- Control de select autocompletado-->
+                    <mat-form-field *ngSwitchCase="'selectAutocompletado'" appearance="outline" class="eleFormulario">
+                        <mat-label>{{visualDato[i]}}</mat-label>
+                        <input type="text" matInput [formControlName]="atributo" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let opcion of formulario.controles[atributo].listado" [value]="opcion">
+                                {{opcion}}</mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                    <!-- Control de Slider-->
+                    <div class="slider eleFormulario" *ngSwitchCase="'slider'"
+                        fxFlex="formulario.controles[atributo].fxFlex ? formulario.controles[atributo].fxFlex : fxFlex"
+                        fxFill>
+                        <app-slider-maestro [control]="tableForm.get(atributo)" [label]="visualDato[i]"
+                            [min]="formulario.controles[atributo].listado[0]"
+                            [max]="formulario.controles[atributo].listado[1]"
+                            [hint]="formulario.controles[atributo].secondLabel">
+                        </app-slider-maestro>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </form>
+    <p *ngIf="!tableForm">No se ha podido iniciar el formulario correctamente.</p>
+</mat-dialog-content>
+<mat-dialog-actions *ngIf="!soloLectura else noEditable">
+    <button *ngFor="let action of formulario.extraActions" mat-raised-button color="primary" class="btnCancelar"
+        (click)="doExtraAction(action)">
+        {{action.label}}
+    </button>
+    <button *ngIf="borrar" mat-raised-button color="accent" class="btnCancelar" (click)="ejecutaAPI(true)">Borrar
+    </button>
+    <span class="example-spacer"></span>
+    <div class="botones">
+        <button mat-raised-button color="accent" class="btnCancelar" (click)="close()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="save()">Aceptar</button>
+    </div>
+</mat-dialog-actions>
+
+<ng-template #noEditable>
+    <mat-dialog-actions>
+        <button *ngFor="let action of formulario.extraActions" mat-raised-button color="primary" class="btnCancelar"
+            (click)="doExtraAction(action)">
+            {{action.label}}
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary" class="btnCerrar" (click)="close()">Cerrar</button>
+    </mat-dialog-actions>
+</ng-template>
