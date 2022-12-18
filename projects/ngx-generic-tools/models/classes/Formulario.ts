@@ -48,7 +48,7 @@ export enum GTTF {
     INSPECCION = 'inspeccion'
 }
 
-/** Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en EditarGenericoComponent */
+/** Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en GTEditarGenericoComponent */
 export class GTFormulario {
     /** Elemento que se trata en caso de ser de tipo edición o inspección el formulario */
     elemento: any;

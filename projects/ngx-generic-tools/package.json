@@ -1,12 +1,33 @@
 {
   "name": "ngx-generic-tools",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",
     "@angular/material": "^15.0.2"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
-  }
+    "tslib": "^2.3.0",
+    "@angular/material": "^15.0.2",
+    "rxjs": "~7.5.0"
+  },
+  "author": "Alejandro Ramírez Jiménez https://www.linkedin.com/in/aramirezjimenez/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aramirezj/ngx-generic-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aramirezj/ngx-generic-tools/issues"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "angular",
+    "angular-material",
+    "generic",
+    "table",
+    "forms"
+  ],
+  "homepage": "https://github.com/aramirezj/ngx-generic-tools",
+  "license": "MIT"
 }

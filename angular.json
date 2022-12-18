@@ -9,7 +9,7 @@
       "projectType": "library",
       "root": "projects/ngx-generic-tools",
       "sourceRoot": "projects/ngx-generic-tools/src",
-      "prefix": "lib",
+      "prefix": "gt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

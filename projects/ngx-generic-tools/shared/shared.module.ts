@@ -15,4 +15,4 @@ import { SharedService } from './shared.service';
   exports: [TextoSlicePipe  ],
   providers:[SharedService]
 })
-export class NgxGTSharedModule { }
+export class GTSharedModule { }

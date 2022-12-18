@@ -18,13 +18,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 //Components
 import { GTSelectMaestroComponent } from './select-maestro/select-maestro.component';
-
 import { GTChipsComponent } from './chips/chips.component';
 import { GTSliderMaestroComponent } from './slider-maestro/slider-maestro.component';
 import { GTBuscadorComponent } from './buscador/buscador.component';
 import { GTBotoneraComponent } from './botonera-flotante/botonera-flotante.component';
 import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
-import { EditarGenericoComponent } from './editar-generico/editar-generico.component';
+import { GTEditarGenericoComponent } from './editar-generico/editar-generico.component';
 
 import { GTConversionDirective } from './directives/conversion.directive';
 import { GTMatErrorMessagesDirective } from './public_api';
@@ -54,7 +53,7 @@ const components: any[] = [
   GTSliderMaestroComponent,
   GTBuscadorComponent,
   GTBotoneraComponent,
-  EditarGenericoComponent,
+  GTEditarGenericoComponent,
   GTConfirmacionComponent,
   GTConversionDirective,
   GTMatErrorMessagesDirective
@@ -73,4 +72,4 @@ const components: any[] = [
     ...materialModules
   ], providers: []
 })
-export class NgxGTFormsModule { }
+export class GTFormsModule { }

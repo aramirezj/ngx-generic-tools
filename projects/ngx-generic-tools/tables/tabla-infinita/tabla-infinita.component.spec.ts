@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TablaInfinitaComponent } from './tabla-infinita.component';
+import { GTTablaInfinitaComponent } from './tabla-infinita.component';
 
-describe('TablaInfinitaComponent', () => {
-  let component: TablaInfinitaComponent;
-  let fixture: ComponentFixture<TablaInfinitaComponent>;
+describe('GTTablaInfinitaComponent', () => {
+  let component: GTTablaInfinitaComponent;
+  let fixture: ComponentFixture<GTTablaInfinitaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TablaInfinitaComponent ]
+      declarations: [ GTTablaInfinitaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TablaInfinitaComponent);
+    fixture = TestBed.createComponent(GTTablaInfinitaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

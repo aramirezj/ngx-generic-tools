@@ -2,11 +2,32 @@
   "name": "ngx-workspace",
   "version": "0.0.0",
   "author": "Alejandro Ramírez Jiménez https://www.linkedin.com/in/aramirezjimenez/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aramirezj/ngx-generic-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aramirezj/ngx-generic-tools/issues"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "angular",
+    "angular-material",
+    "generic",
+    "table",
+    "forms"
+  ],
+  "homepage": "https://github.com/aramirezj/ngx-generic-tools",
+  "license": "MIT",
+
+
+  
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "testing" : "ng serve testing-project",
-    "build": "ng build ngx-generic-tools",
+    "build": "ng build ngx-generic-tools --configuration production",
     "build-library": "ng build ngx-generic-tools",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

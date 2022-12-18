@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FormGroup, UntypedFormArray } from '@angular/forms';
 import { GTAccion, GTFormulario } from 'ngx-generic-tools/models';
-import { EditarGenericoComponent } from 'ngx-generic-tools/forms';
+import { GTEditarGenericoComponent } from 'ngx-generic-tools/forms';
 //import { GTFormulario, GTTF } from './model/Formulario';
-//import { EditarGenericoComponent } from './forms/editar-generico/editar-generico.component';
+//import { GTEditarGenericoComponent } from './forms/editar-generico/editar-generico.component';
 import { GTConfirmacionComponent } from 'ngx-generic-tools/forms';
 
 //import { IframeComponent } from './iframe/iframe.component';
@@ -54,7 +54,7 @@ export class SharedService {
      * @returns Observable del dialogo
      */
     muestraFormulario(form: GTFormulario, size?: string): Observable<any> {
-        return this.openGenericDialog(EditarGenericoComponent, form, size ? size : '45vw', null, null, true);
+        return this.openGenericDialog(GTEditarGenericoComponent, form, size ? size : '45vw', null, null, true);
     }
 
     /**

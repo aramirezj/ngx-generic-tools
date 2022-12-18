@@ -12,7 +12,7 @@ import { GTTablaComponent } from './tabla/tabla.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
-import { TablaInfinitaComponent } from './tabla-infinita/tabla-infinita.component';
+import { GTTablaInfinitaComponent } from './tabla-infinita/tabla-infinita.component';
 
 
 
@@ -20,7 +20,7 @@ const components = [
   GTAccionTablaComponent,
   GTElementoTablaComponent,
   GTTablaComponent,
-  TablaInfinitaComponent
+  GTTablaInfinitaComponent
 ]
 
 const materialModules = [
@@ -44,4 +44,4 @@ const materialModules = [
   exports: components,
   providers: []
 })
-export class NgxGTTableModule { }
+export class GTTableModule { }

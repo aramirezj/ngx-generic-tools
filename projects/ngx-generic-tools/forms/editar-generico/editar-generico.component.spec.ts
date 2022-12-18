@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { EditarGenericoComponent } from './editar-generico.component';
+import { GTEditarGenericoComponent } from './editar-generico.component';
 
-describe('EditarGenericoComponent', () => {
-  let component: EditarGenericoComponent;
-  let fixture: ComponentFixture<EditarGenericoComponent>;
+describe('GTEditarGenericoComponent', () => {
+  let component: GTEditarGenericoComponent;
+  let fixture: ComponentFixture<GTEditarGenericoComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditarGenericoComponent ]
+      declarations: [ GTEditarGenericoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditarGenericoComponent);
+    fixture = TestBed.createComponent(GTEditarGenericoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

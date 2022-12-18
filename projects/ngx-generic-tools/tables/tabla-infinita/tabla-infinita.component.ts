@@ -31,11 +31,11 @@ import { GTTablaMaestra } from '../TablaMaestra';
     ],
     inputs: GTTablaMaestra.inputComunes
 })
-export class TablaInfinitaComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
+export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
     /** Instancia de la Tabla Hija */
     @ViewChild(GTTablaComponent, { static: false }) tablaHija: GTTablaComponent;
     /** Instancia de la Tabla Infinita hija */
-    @ViewChild(TablaInfinitaComponent, { static: false }) tablaInfinitaHija: TablaInfinitaComponent;
+    @ViewChild(GTTablaInfinitaComponent, { static: false }) tablaInfinitaHija: GTTablaInfinitaComponent;
     /** Acciones con condiciones */
     @Input() nivelesAccionesCondicionales: GTAccion[][];
     /** Acciones que se iran sumando a las tablas hijas */
@@ -356,7 +356,7 @@ export class TablaInfinitaComponent extends GTTablaMaestra implements OnInit, Af
      *
      * @returns La instancia de la última tabla
      */
-    obtenUltimaTabla(): TablaInfinitaComponent | GTTablaComponent {
+    obtenUltimaTabla(): GTTablaInfinitaComponent | GTTablaComponent {
         if (this.tablaHija) return this.tablaHija
         else if (this.tablaInfinitaHija) return this.tablaInfinitaHija.obtenUltimaTabla();
         else return this;

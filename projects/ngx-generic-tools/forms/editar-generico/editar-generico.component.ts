@@ -11,7 +11,7 @@ import { GTFormulario, GTElementoFormulario, GTTC, GTTF,GTTC_F, GTPeticionExpans
     templateUrl: './editar-generico.component.html',
     styleUrls: ['./editar-generico.component.scss']
 })
-export class EditarGenericoComponent implements OnInit, AfterViewChecked {
+export class GTEditarGenericoComponent implements OnInit, AfterViewChecked {
     GTTC_F:typeof GTTC_F = GTTC_F;
     /** Evento de click de borrado  */
     @Output() eventoBorrado = new EventEmitter<string>();
@@ -38,7 +38,7 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
     /** Fecha máxima para los campos fechas para evitar 5 digitos en años */
     maxDate: Date = new Date(9999, 12, 31);
     constructor(
-        private dialogRef: MatDialogRef<EditarGenericoComponent>,
+        private dialogRef: MatDialogRef<GTEditarGenericoComponent>,
         private cdRef: ChangeDetectorRef,
         @Inject(MAT_DIALOG_DATA) data,
         private snackBar: MatSnackBar,
