@@ -1,9 +1,9 @@
 import { ValidatorFn, Validators } from '@angular/forms';
-import { ElementoFormulario } from './ElementoFormulario';
-import { PeticionExpansion } from './PeticionExpansion';
+import { GTElementoFormulario } from './ElementoFormulario';
+import { GTPeticionExpansion } from './PeticionExpansion';
 
-/** Lista de controles que soporta el modelo Formulario */
-export enum TC {
+/** Lista de controles que soporta el modelo GTFormulario */
+export enum GTTC {
     TEXTO = 'texto',
     NUMERO = 'numero',
     EURO = 'euro',
@@ -25,7 +25,7 @@ export enum TC {
 }
 
 /** Lista de formatos de los tipos de controles */
-export enum TC_F {
+export enum GTTC_F {
     MAYUSCULA = 'mayuscula',
     MINUSCULA = 'minuscula',
     NUMERO = 'numero',
@@ -41,19 +41,19 @@ export enum TC_F {
     CIF = 'CIF'
 }
 
-/** Listado de tipos posibles para un Formulario */
-export enum TF {
+/** Listado de tipos posibles para un GTFormulario */
+export enum GTTF {
     CREACION = 'creacion',
     EDICION = 'edicion',
     INSPECCION = 'inspeccion'
 }
 
 /** Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en EditarGenericoComponent */
-export class Formulario {
+export class GTFormulario {
     /** Elemento que se trata en caso de ser de tipo edición o inspección el formulario */
     elemento: any;
-    /** Lista de ElementoFormulario con el que trabaja */
-    controles: ElementoFormulario[] = [];
+    /** Lista de GTElementoFormulario con el que trabaja */
+    controles: GTElementoFormulario[] = [];
     /** Elemento original, se utiliza en los formularios de edición para tener constancia del elemento original */
     elementoOriginal: any;
     /** Número de columnas que tendrá el formulario a mostrar */
@@ -64,15 +64,15 @@ export class Formulario {
     idRequerir: string;
     /** Conjunto de peticiones para ejecutar al previo cierre del dialogo, se ordenan según el tipo del formulario */
     peticionesAPI?: {
-        creacion?: PeticionExpansion,
-        edicion?: PeticionExpansion
+        creacion?: GTPeticionExpansion,
+        edicion?: GTPeticionExpansion
     } = {};
     /** En el caso de estar seteado se permitirá el borrado con la petición definida en peticionesAPI de edición*/
     permiteBorrado?: boolean = false;
     /** Funciones extras que se ejecutarán a través de botones */
     extraActions: { label: string, function: Function, close: boolean }[] = [];
     constructor(
-        public tipo: TF | string,
+        public tipo: GTTF | string,
         public modelo: string[],
         public visual: string[],
         public titulo: string,
@@ -80,7 +80,7 @@ export class Formulario {
     ) {
         this.modelo = modelo.map(this.sanitizaModelo);
         this.modelo.forEach(atributo => {
-            this.addElemento(atributo, new ElementoFormulario(atributo, TC.TEXTO, this.tipo === TF.INSPECCION));
+            this.addElemento(atributo, new GTElementoFormulario(atributo, GTTC.TEXTO, this.tipo === GTTF.INSPECCION));
         });
         this.visual.forEach(atributo => atributo = atributo.replace('<br>', ' '));
         this.elemento = {};
@@ -120,7 +120,7 @@ export class Formulario {
      *
      * @param elemento Nombre del elemento a recuperar
      */
-    getElemento(elemento: string): ElementoFormulario {
+    getElemento(elemento: string): GTElementoFormulario {
         return this.controles[elemento];
     }
 
@@ -132,7 +132,7 @@ export class Formulario {
      * @param nombre nombre del control del elemento
      * @param elemento elemento a insertar
      */
-    addElemento(nombre: string, elemento: ElementoFormulario): ElementoFormulario {
+    addElemento(nombre: string, elemento: GTElementoFormulario): GTElementoFormulario {
         if (this.controles[nombre]) {
             elemento.fxFlex = this.controles[nombre].fxFlex;
         }
@@ -145,7 +145,7 @@ export class Formulario {
      * @param nombre nombre del control del elemento
      * @param elemento elemento a insertar
      */
-    addElementos(nombres: string[], elementos: ElementoFormulario[]): void {
+    addElementos(nombres: string[], elementos: GTElementoFormulario[]): void {
         let i = 0;
         nombres.forEach(nombre => { this.controles[nombre] = elementos[i]; i++; });
     }
@@ -181,10 +181,10 @@ export class Formulario {
      * @param tipo Tipo al que cambiar. EJ: 'fecha | euro | porcentaje | orden | texto | numero | checkbox | select | selectPro | selectBooleano'
      * @param atributos Lista de nombres de controles
      */
-    cambiarTipo(tipo: TC | string, atributos: string[]): void {
-        if (tipo === TC.EURO || tipo === TC.PORCENTAJE || tipo === TC.ORDEN) {
+    cambiarTipo(tipo: GTTC | string, atributos: string[]): void {
+        if (tipo === GTTC.EURO || tipo === GTTC.PORCENTAJE || tipo === GTTC.ORDEN) {
             atributos.forEach(atributo => {
-                const ele: ElementoFormulario = this.getElemento(atributo);
+                const ele: GTElementoFormulario = this.getElemento(atributo);
                 if (ele) ele.setFormatoNumero(tipo);
             });
         } else {
@@ -200,8 +200,8 @@ export class Formulario {
      * @param tipo Tipo de formulario, puede ser creación, edición e inspección
      * @param titulo Titulo a mostrar para el formulario
      */
-    cambiarTipoFormulario(elemento?: any, tipo?: TF | string, titulo?: string): void {
-        if (this.tipo === TF.INSPECCION && tipo !== TF.INSPECCION) {
+    cambiarTipoFormulario(elemento?: any, tipo?: GTTF | string, titulo?: string): void {
+        if (this.tipo === GTTF.INSPECCION && tipo !== GTTF.INSPECCION) {
             for (const value of Object.values(this.controles)) {
                 value.disabled = false;
                 value.control.enable();
@@ -229,7 +229,7 @@ export class Formulario {
      * @param atributos Lista de nombres de controles al que modificarselo
      * @param mask Objeto opcional con parametros especificos de formato (suffix, decimal, thousands...)
      */
-    setFormato(formato: TC | string, atributos: string[], mask?: object): void {
+    setFormato(formato: GTTC | string, atributos: string[], mask?: object): void {
         atributos.forEach(atributo => this.getElemento(atributo).setFormatoNumero(formato, mask));
     }
 

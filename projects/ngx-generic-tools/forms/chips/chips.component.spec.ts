@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ChipsComponent } from './chips.component';
+import { GTChipsComponent } from './chips.component';
 
-describe('ChipsComponent', () => {
-  let component: ChipsComponent;
-  let fixture: ComponentFixture<ChipsComponent>;
+describe('GTChipsComponent', () => {
+  let component: GTChipsComponent;
+  let fixture: ComponentFixture<GTChipsComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChipsComponent ]
+      declarations: [ GTChipsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChipsComponent);
+    fixture = TestBed.createComponent(GTChipsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

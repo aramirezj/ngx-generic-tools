@@ -3,14 +3,14 @@ import { Overlay } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { BehaviorSubject } from 'rxjs';
-import { Accion, Formulario, TF, PeticionExpansion, SelectMaestroTabla } from 'ngx-generic-tools/models';
+import { GTAccion, GTFormulario, GTTF, GTPeticionExpansion, GTSelectMaestroTabla } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
-import { TablaComponent } from '../tabla/tabla.component';
-import { TablaMaestra } from '../TablaMaestra';
+import { GTTablaComponent } from '../tabla/tabla.component';
+import { GTTablaMaestra } from '../TablaMaestra';
 
 /** Componente de la Tabla encargada del listado y tratado de elementos */
 @Component({
-    selector: 'app-tabla-infinita',
+    selector: 'gt-tabla-infinita',
     templateUrl: './tabla-infinita.component.html',
     styleUrls: ['./tabla-infinita.component.scss'],
     animations: [
@@ -29,19 +29,19 @@ import { TablaMaestra } from '../TablaMaestra';
                 ]
             )])
     ],
-    inputs: TablaMaestra.inputComunes
+    inputs: GTTablaMaestra.inputComunes
 })
-export class TablaInfinitaComponent extends TablaMaestra implements OnInit, AfterViewInit {
+export class TablaInfinitaComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
     /** Instancia de la Tabla Hija */
-    @ViewChild(TablaComponent, { static: false }) tablaHija: TablaComponent;
+    @ViewChild(GTTablaComponent, { static: false }) tablaHija: GTTablaComponent;
     /** Instancia de la Tabla Infinita hija */
     @ViewChild(TablaInfinitaComponent, { static: false }) tablaInfinitaHija: TablaInfinitaComponent;
     /** Acciones con condiciones */
-    @Input() nivelesAccionesCondicionales: Accion[][];
+    @Input() nivelesAccionesCondicionales: GTAccion[][];
     /** Acciones que se iran sumando a las tablas hijas */
     @Input() nivelesAcciones: Array<string[]>;
     /** Niveles de conjuntos de selects pro para ir transmitiendoselas a las tablas hijas */
-    @Input() nivelesSelectsMaestro: SelectMaestroTabla[][];
+    @Input() nivelesSelectsMaestro: GTSelectMaestroTabla[][];
     /** Columnas a mostrar en la tabla */
     @Input() visuales: string[][];
     /** Columnas del modelo de la colección que recibe */
@@ -53,13 +53,13 @@ export class TablaInfinitaComponent extends TablaMaestra implements OnInit, Afte
     /** Colección para saber los nombres de los atributos por los que ordenar para las acciones de subir y bajar */
     @Input() nivelesOrden: string[];
     /** Petición que se ejecutará al expandir la tabla */
-    @Input() peticionExpansion: PeticionExpansion;
+    @Input() peticionExpansion: GTPeticionExpansion;
     /** Atributo para ir teniendo constancia de en que paso de la anidación estamos, comienza en 0 */
     @Input() indiceAnidacion: number = 0;
     /** Colección de peticiones de expansion de las cuales ir anidando */
-    @Input() peticionesInfinitas: PeticionExpansion[];
+    @Input() peticionesInfinitas: GTPeticionExpansion[];
     /** Colección de peticiones de actualización para la ordenacion */
-    @Input() peticionesActualizacion: PeticionExpansion[];
+    @Input() peticionesActualizacion: GTPeticionExpansion[];
     /** Flag que indicará si los hijos siempre serán iguales al padre */
     @Input() herencia: boolean;
     /** Colección para saber el modoNumeroHijos de las siguientes tablas */
@@ -125,7 +125,7 @@ export class TablaInfinitaComponent extends TablaMaestra implements OnInit, Afte
         this.selectsMaestros = this.nivelesSelectsMaestro ? this.nivelesSelectsMaestro[this.indiceAnidacion] : null;
         this.acciones = [];
         this.modoNumeroHijos = this.nivelesModoNumeroHijos ? this.nivelesModoNumeroHijos[this.indiceAnidacion] : this.modoNumeroHijos;
-        this.accionesParsed = this.nivelesAccionesCondicionales ? this.nivelesAccionesCondicionales[this.indiceAnidacion] : Accion.parseAcciones(this.nivelesAcciones[this.indiceAnidacion]);
+        this.accionesParsed = this.nivelesAccionesCondicionales ? this.nivelesAccionesCondicionales[this.indiceAnidacion] : GTAccion.parseAcciones(this.nivelesAcciones[this.indiceAnidacion]);
         this.accionesCondicionales = this.nivelesAccionesCondicionales ? this.nivelesAccionesCondicionales[this.indiceAnidacion] : this.accionesCondicionales;
         this.orden = this.nivelesOrden ? this.nivelesOrden[this.indiceAnidacion] : this.orden;
         this.peticionActualizacion = this.peticionesActualizacion ? this.peticionesActualizacion[this.indiceAnidacion] : this.peticionActualizacion;
@@ -193,7 +193,7 @@ export class TablaInfinitaComponent extends TablaMaestra implements OnInit, Afte
                             }
                         });
                     } else {
-                        const form = new Formulario(TF.EDICION, this.modelo, this.visual, 'Edición del elemento');
+                        const form = new GTFormulario(GTTF.EDICION, this.modelo, this.visual, 'Edición del elemento');
                         form.elemento = elemento;
                         this.sharedService.muestraFormulario(form).subscribe(resp => {
                             if (resp) {
@@ -356,7 +356,7 @@ export class TablaInfinitaComponent extends TablaMaestra implements OnInit, Afte
      *
      * @returns La instancia de la última tabla
      */
-    obtenUltimaTabla(): TablaInfinitaComponent | TablaComponent {
+    obtenUltimaTabla(): TablaInfinitaComponent | GTTablaComponent {
         if (this.tablaHija) return this.tablaHija
         else if (this.tablaInfinitaHija) return this.tablaInfinitaHija.obtenUltimaTabla();
         else return this;

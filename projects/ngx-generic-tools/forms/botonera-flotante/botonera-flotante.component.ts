@@ -1,30 +1,30 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
-import { Accion, Vagon } from 'ngx-generic-tools/models';
+import { GTAccion, GTVagon } from 'ngx-generic-tools/models';
 
 /** Botonera utilizada en steppers */
 @Component({
-    selector: 'app-botonera-flotante',
+    selector: 'gt-botonera-flotante',
     templateUrl: './botonera-flotante.component.html',
     styleUrls: ['./botonera-flotante.component.scss']
 })
-export class BotoneraFlotanteComponent implements OnInit {
+export class GTBotoneraComponent implements OnInit {
     /** Acciones para cuando está al principio del stepper */
-    accionesInicio: Accion[] = [new Accion('guardar'), new Accion('continuar'), new Accion('salirBotonera')];
+    accionesInicio: GTAccion[] = [new GTAccion('guardar'), new GTAccion('continuar'), new GTAccion('salirBotonera')];
     /** Acciones para cuando está a la mitad del stepper */
-    accionesMitad: Accion[] = [new Accion('guardar'), new Accion('volver'), new Accion('continuar'), new Accion('salirBotonera')];
+    accionesMitad: GTAccion[] = [new GTAccion('guardar'), new GTAccion('volver'), new GTAccion('continuar'), new GTAccion('salirBotonera')];
     /** Acciones para cuando está al final del stepper */
-    accionesFinal: Accion[] = [new Accion('guardar'), new Accion('volver'), new Accion('salirBotonera')];
+    accionesFinal: GTAccion[] = [new GTAccion('guardar'), new GTAccion('volver'), new GTAccion('salirBotonera')];
     /** Serán las acciones que actualmente se deban mostrar */
-    accionesActuales: Accion[];
+    accionesActuales: GTAccion[];
 
     /** Acciones que deberán estar disponibles */
     @Input() acciones: string[]
     /** Listado de vagones */
-    @Input() vagones: Vagon[];
+    @Input() vagones: GTVagon[];
     /** Para saber que vagon se está mostrando actualmente */
     @Input() vagonActivo: number;
     /** Lista de acciones extras constantes de un determinado componente */
-    @Input() accionesConstantes: Accion[];
+    @Input() accionesConstantes: GTAccion[];
     /** Elemento para notificar al componente que invoca la tabla */
     @Output() notify: EventEmitter<any> = new EventEmitter<any>();
 
@@ -41,7 +41,7 @@ export class BotoneraFlotanteComponent implements OnInit {
 
 
 
-        this.accionesActuales = this.acciones ? Accion.parseAcciones(this.acciones) : this.accionesInicio;
+        this.accionesActuales = this.acciones ? GTAccion.parseAcciones(this.acciones) : this.accionesInicio;
     }
 
 

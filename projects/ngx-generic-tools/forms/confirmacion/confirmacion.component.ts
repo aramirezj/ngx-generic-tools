@@ -3,16 +3,16 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 /** Clase utilizada para mostrar un breve dialogo de confirmación */
 @Component({
-  selector: 'app-confirmacion',
+  selector: 'gt-confirmacion',
   templateUrl: './confirmacion.component.html',
   styleUrls: ['./confirmacion.component.scss']
 })
-export class ConfirmacionComponent implements OnInit {
+export class GTConfirmacionComponent implements OnInit {
   /** Mensaje a mostrar */
   mensaje: string;
   /** Lista de opciones para crear dos botones */
   options: string[];
-  constructor(private dialogRef: MatDialogRef<ConfirmacionComponent>) { }
+  constructor(private dialogRef: MatDialogRef<GTConfirmacionComponent>) { }
 
   ngOnInit(): void {
   }

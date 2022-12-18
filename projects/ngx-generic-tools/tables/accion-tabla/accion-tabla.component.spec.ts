@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AccionTablaComponent } from './accion-tabla.component';
+import { GTAccionTablaComponent } from './accion-tabla.component';
 
-describe('AccionTablaComponent', () => {
-  let component: AccionTablaComponent;
-  let fixture: ComponentFixture<AccionTablaComponent>;
+describe('GTAccionTablaComponent', () => {
+  let component: GTAccionTablaComponent;
+  let fixture: ComponentFixture<GTAccionTablaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccionTablaComponent ]
+      declarations: [ GTAccionTablaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccionTablaComponent);
+    fixture = TestBed.createComponent(GTAccionTablaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

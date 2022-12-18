@@ -1,8 +1,8 @@
 import { FormGroup } from '@angular/forms';
-import { Accion } from './Accion';
+import { GTAccion } from './Accion';
 
 /** Clase utilizada para identificar un vagon de un stepper */
-export class Vagon {
+export class GTVagon {
     /** Nombre del vagon */
     nombreAMostrar?: string;
     /** Nombre identificativo del vagon */
@@ -12,7 +12,7 @@ export class Vagon {
     /** El formulario que tiene asociado */
     formulario?: FormGroup;
     /** Acciones disponibles, si está, la botonera mostrará estas acciones, si no, las de base */
-    accionesDisponibles?: Accion[];
+    accionesDisponibles?: GTAccion[];
     constructor(
         public option?: string,
         public orden?: number,

@@ -5,11 +5,11 @@ import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FormGroup, UntypedFormArray } from '@angular/forms';
-import { Accion, Formulario } from 'ngx-generic-tools/models';
+import { GTAccion, GTFormulario } from 'ngx-generic-tools/models';
 import { EditarGenericoComponent } from 'ngx-generic-tools/forms';
-//import { Formulario, TF } from './model/Formulario';
+//import { GTFormulario, GTTF } from './model/Formulario';
 //import { EditarGenericoComponent } from './forms/editar-generico/editar-generico.component';
-import { ConfirmacionComponent } from 'ngx-generic-tools/forms';
+import { GTConfirmacionComponent } from 'ngx-generic-tools/forms';
 
 //import { IframeComponent } from './iframe/iframe.component';
 //import { TablaGenericaComponent } from './tablas/tabla-dialogo/tabla-dialogo.component';
@@ -49,11 +49,11 @@ export class SharedService {
     /**
      * Función que abre un EditarGenerico a traves de un formulario
      *
-     * @param form Formulario a mostrar
+     * @param form GTFormulario a mostrar
      * @param size VW del dialogo
      * @returns Observable del dialogo
      */
-    muestraFormulario(form: Formulario, size?: string): Observable<any> {
+    muestraFormulario(form: GTFormulario, size?: string): Observable<any> {
         return this.openGenericDialog(EditarGenericoComponent, form, size ? size : '45vw', null, null, true);
     }
 
@@ -67,7 +67,7 @@ export class SharedService {
     * @returns Observable del dialogo
     */
     muestraConfirmacion(tipo: string, elemento?: any, atributo?: string, visual?: string, options?: string[]): Observable<any> {
-        const dialogRef = this.dialog.open(ConfirmacionComponent, this.openDialog(30));
+        const dialogRef = this.dialog.open(GTConfirmacionComponent, this.openDialog(30));
         if (elemento?.[atributo] === undefined && tipo === 'eliminarGenerico2') tipo = 'eliminarGenerico';
         let mensaje = elemento ? this.mensajes[tipo].replace('??', visual).replace('??', elemento[atributo]) : this.mensajes[tipo];
         mensaje = mensaje ? mensaje : tipo;
@@ -184,7 +184,7 @@ export class SharedService {
     /**
      * Función que devuelve una colección con los nombres de los campos que tengan error
      *
-     * @param formToInvestigate Formulario a procesar
+     * @param formToInvestigate GTFormulario a procesar
      * @param scroll Si debe hacer scroll hasta el elemento
      */
     findInvalidControlsRecursive(formToInvestigate: FormGroup | UntypedFormArray, scroll?: boolean): string[] {

@@ -1,9 +1,9 @@
 
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { TC, TC_F } from './Formulario';
-/** Clase utilizada por la clase Formulario para tener una lista de controles y gestionarlos */
-export class ElementoFormulario {
+import { GTTC, GTTC_F } from './Formulario';
+/** Clase utilizada por la clase GTFormulario para tener una lista de controles y gestionarlos */
+export class GTElementoFormulario {
   /** FormControl que tendrá vinculado el elemento */
   control: FormControl;
   /** Formato número que podrá tener */
@@ -11,12 +11,12 @@ export class ElementoFormulario {
   /** Flex que podrá tener asociado para establecer un tamaño al campo, si no lo tiene, coge el por defecto del formulario */
   fxFlex: number = null;
   /** Si debe convertirse a mayusculas o minusculas */
-  subFormato: TC_F;
+  subFormato: GTTC_F;
   /** Lista de configuraciones default que puede llevar, actualmente solo TV */
   preset: string;
   constructor(
     public nombre: string,
-    public tipo?: TC | string,
+    public tipo?: GTTC | string,
     public disabled?: boolean,
     public listado?: Observable<any> | any[],
     public label?: string,
@@ -25,7 +25,7 @@ export class ElementoFormulario {
     public multiple?: boolean,
     public key?:string
   ) {
-    this.tipo = this.tipo ?? TC.TEXTO;
+    this.tipo = this.tipo ?? GTTC.TEXTO;
     this.control = new FormControl({ value: null, disabled: this.disabled });
     //Si no tiene label asumimos que es un TV
     this.label = this.label ? this.label : 'valDesCom';
@@ -41,7 +41,7 @@ export class ElementoFormulario {
    * @param tipo Tipo a elegir
    * @param mask Objeto con un formato personalizado
    */
-  setFormatoNumero(tipo: TC_F | string, mask?: object): void {
+  setFormatoNumero(tipo: GTTC_F | string, mask?: object): void {
     switch (tipo) {
       case 'euro':
         this.formatoNumero = { suffix: '€', decimal: ',', precision: 2 };
@@ -56,7 +56,7 @@ export class ElementoFormulario {
         this.formatoNumero = { thousands: '' };
         break;
     }
-    this.tipo = TC.NUMERO;
+    this.tipo = GTTC.NUMERO;
     if (mask) {
       Object.entries(mask).forEach(([clave, valor]) => {
         this.formatoNumero[clave] = valor;

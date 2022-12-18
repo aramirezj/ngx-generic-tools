@@ -1,4 +1,4 @@
-<app-buscador *ngIf="buscador" (notify)="busqueda($event)"></app-buscador>
+<gt-buscador *ngIf="buscador" (notify)="busqueda($event)"></gt-buscador>
 
 <div [id]="idTabla" class="tablaMaterial">
     <!-- Encabezado de la tabla -->
@@ -88,23 +88,23 @@
         <!-- Recibe el modelo splitted por si tuviera que hacer una indexación -->
         <ng-template #modeloSplitted let-splitted="splitted" let-atributo="atributo">
             <ng-container [ngSwitch]="splitted.length">
-                <app-elemento-tabla *ngSwitchCase=1 [campo]="elemento[atributo]" [atributo]="atributo"
+                <gt-elemento-tabla *ngSwitchCase=1 [campo]="elemento[atributo]" [atributo]="atributo"
                     [formatoTabla]="formatos">
-                </app-elemento-tabla>
-                <app-elemento-tabla *ngSwitchCase=2 [campo]="elemento[splitted[0]]?.[splitted[1]]" [atributo]="atributo"
+                </gt-elemento-tabla>
+                <gt-elemento-tabla *ngSwitchCase=2 [campo]="elemento[splitted[0]]?.[splitted[1]]" [atributo]="atributo"
                     [formatoTabla]="formatos">
-                </app-elemento-tabla>
-                <app-elemento-tabla *ngSwitchCase=3 [campo]="elemento[splitted[0]]?.[splitted[1]]?.[splitted[2]]"
+                </gt-elemento-tabla>
+                <gt-elemento-tabla *ngSwitchCase=3 [campo]="elemento[splitted[0]]?.[splitted[1]]?.[splitted[2]]"
                     [atributo]="atributo" [formatoTabla]="formatos">
-                </app-elemento-tabla>
-                <app-elemento-tabla *ngSwitchCase=4
+                </gt-elemento-tabla>
+                <gt-elemento-tabla *ngSwitchCase=4
                     [campo]="elemento[splitted[0]]?.[splitted[1]]?.[splitted[2]]?.[splitted[3]]" [atributo]="atributo"
                     [formatoTabla]="formatos">
-                </app-elemento-tabla>
-                <app-elemento-tabla *ngSwitchCase=5
+                </gt-elemento-tabla>
+                <gt-elemento-tabla *ngSwitchCase=5
                     [campo]="elemento[splitted[0]][splitted[1]]?.[splitted[2]]?.[splitted[3]]?.[splitted[4]]"
                     [atributo]="atributo" [formatoTabla]="formatos">
-                </app-elemento-tabla>
+                </gt-elemento-tabla>
             </ng-container>
         </ng-template>
 
@@ -128,11 +128,11 @@
     <div *ngFor="let SP of selectsMaestros;let x=index"
         [class]="'elementoContenido selectPro '+idTabla+ '-columna-'+SP.columnaModelo">
         <span (click)="$event.stopPropagation()">
-            <app-select-maestro [datos]="SP.peticion" [label]="SP.label" [value]="SP.value"
+            <gt-select-maestro [datos]="SP.peticion" [label]="SP.label" [value]="SP.value"
                 [peticionCambio]="SP.peticionCambio" [elementoAsociado]="elemento" [modeloAsociado]="SP.columnaModelo"
                 [precargaUnico]="SP.precargaUnico" [control]="SP.control"
                 (elementoAsociadoCambiado)="sustituyeElemento($event.viejo,$event.nuevo)">
-            </app-select-maestro>
+            </gt-select-maestro>
         </span>
     </div>
 
@@ -142,13 +142,13 @@
         <ng-container *ngIf="menuAcciones && accionesParsed">
             <em class="material-icons" [matMenuTriggerFor]="menu">more_vert</em>
             <mat-menu #menu="matMenu">
-                <app-accion-tabla *ngFor="let accion of accionesParsed" [accion]="accion" [elemento]="elemento"
-                    [menuAcciones]="menuAcciones" (clicked)="doAccion(elemento,$event)"></app-accion-tabla>
+                <gt-accion-tabla *ngFor="let accion of accionesParsed" [accion]="accion" [elemento]="elemento"
+                    [menuAcciones]="menuAcciones" (clicked)="doAccion(elemento,$event)"></gt-accion-tabla>
             </mat-menu>
         </ng-container>
         <ng-container *ngIf="!menuAcciones">
-            <app-accion-tabla *ngFor="let accion of accionesParsed" [accion]="accion" [elemento]="elemento"
-                (clicked)="doAccion(elemento,$event)"></app-accion-tabla>
+            <gt-accion-tabla *ngFor="let accion of accionesParsed" [accion]="accion" [elemento]="elemento"
+                (clicked)="doAccion(elemento,$event)"></gt-accion-tabla>
         </ng-container>
     </div>
 </ng-template>
@@ -167,8 +167,8 @@
 <ng-template #menuContextual let-elemento>
 	<section class="menuContextual">
         <div *ngFor="let accion of accionesParsed">
-            <app-accion-tabla [accion]="accion" [elemento]="elemento" [menuAcciones]="true"
-            (clicked)="doAccion(elemento,$event)"></app-accion-tabla>
+            <gt-accion-tabla [accion]="accion" [elemento]="elemento" [menuAcciones]="true"
+            (clicked)="doAccion(elemento,$event)"></gt-accion-tabla>
         </div>
 	</section>
 </ng-template>

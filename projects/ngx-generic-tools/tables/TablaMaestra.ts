@@ -5,27 +5,27 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
 import { BehaviorSubject, filter, fromEvent, Subscription, take } from 'rxjs';
 import { forkJoin } from 'rxjs';
-import { BuscadorComponent, SelectMaestroComponent } from 'ngx-generic-tools/forms';
-import { Accion, Formulario, TF, ObjetoTabla, PeticionExpansion, PeticionPaginacion, SelectMaestroTabla, FormatosTabla } from 'ngx-generic-tools/models';
+import { GTBuscadorComponent, GTSelectMaestroComponent } from 'ngx-generic-tools/forms';
+import { GTAccion, GTFormulario, GTTF, GTObjetoTabla, GTPeticionExpansion, GTPeticionPaginacion, GTSelectMaestroTabla, GTFormatosTabla } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
 
 
 /** Tabla Maestra de la que partirán las demás implementando sus atributos y funciones comunes */
 @Component({
-    selector: 'app-tablaMaestra',
+    selector: 'gt-TablaMaestra',
     template: ''
 })
-export abstract class TablaMaestra {
+export abstract class GTTablaMaestra {
     public static inputComunes: string[] = ['datos', 'visual', 'modelo', 'acciones', 'accionesCondicionales', 'buscador',
         'formatos', 'formulario', 'clavePrimaria', 'paginacionAsincrona', 'seleccionable', 'paginador',
         'elementoPreseleccionado', 'objetos', 'selectsPro', 'subjectLoaded', 'filtroAvanzado', 'modoCasillas', 'menuAcciones', 'fxFlexes'];
     //'orden', 'peticionActualizacion'];
     /** Visibilidad del componente de busqueda */
-    @ViewChild(BuscadorComponent, { static: false }) buscadorApp: BuscadorComponent;
+    @ViewChild(GTBuscadorComponent, { static: false }) buscadorApp: GTBuscadorComponent;
     /** Visibilidad del paginador */
     @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
     /** Lista de selectPros usados */
-    @ViewChildren(SelectMaestroComponent) selectProsInyectados: SelectMaestroComponent[];
+    @ViewChildren(GTSelectMaestroComponent) selectProsInyectados: GTSelectMaestroComponent[];
     /** Atributo con la colección de datos a mostrar */
     @Input() datos: any[] = [];
     /** Columnas a mostrar en la tabla */
@@ -35,21 +35,21 @@ export abstract class TablaMaestra {
     /** Acciones que deberán estar disponibles */
     @Input() acciones: string[];
     /** Listado de acciones con condiciones */
-    @Input() accionesCondicionales: Accion[];
+    @Input() accionesCondicionales: GTAccion[];
     /** Formatos a utilizar en la tabla (Euro,porcentaje,etc) */
-    @Input() formatos: FormatosTabla;
+    @Input() formatos: GTFormatosTabla;
     /** Habilita o deshabilita el buscador de la tabla */
     @Input() buscador: boolean = false;
-    /** Formulario que se podrá incluir en el formulario, para, si llama a editarT, invoque el formulario para su edición */
-    @Input() formulario: Formulario;
+    /** GTFormulario que se podrá incluir en el formulario, para, si llama a editarT, invoque el formulario para su edición */
+    @Input() formulario: GTFormulario;
     /** Clave primaria que tendrá la tabla. Se utilizará en las inserciones por método y edición */
     @Input() clavePrimaria: string;
     /** Atributo por el cuál se está ordenando. Se utilizará en las acciones de subir y bajar */
     @Input() orden: string;
     /** Petición asincrona para actualizar los datos al reordenar elementos */
-    @Input() peticionActualizacion: PeticionExpansion = null;
+    @Input() peticionActualizacion: GTPeticionExpansion = null;
     /** Petición asincrona para cargar datos y paginador según peticiones HTTP */
-    @Input() paginacionAsincrona: PeticionPaginacion = null;
+    @Input() paginacionAsincrona: GTPeticionPaginacion = null;
     /** Permite que en la tabla, se puede hacer clic para seleccionar un elemento, y enviarlo */
     @Input() seleccionable: boolean;
     /** Control de paginación */
@@ -57,9 +57,9 @@ export abstract class TablaMaestra {
     /** Recibe un elemento para que, al cargar la tabla, se preseleccione y mande el evento. Se busca por su primaryKey */
     @Input() elementoPreseleccionado: { dato: any, primaryKey: string };
     /** Atributo para cargar objetos complejos a las tablas */
-    @Input() objetos: ObjetoTabla[];
+    @Input() objetos: GTObjetoTabla[];
     /** Atributo para cargar selects pro a las tablas */
-    @Input() selectsMaestros: SelectMaestroTabla[];
+    @Input() selectsMaestros: GTSelectMaestroTabla[];
     /** En el caso de ser una tabla hija, emitira valor al cargar */
     @Input() subjectLoaded: BehaviorSubject<any>;
     /** Modo para activar el modo casillas de la tabla. Con checkbox */
@@ -77,7 +77,7 @@ export abstract class TablaMaestra {
     /** Identificador único de la tabla */
     idTabla: string;
     /** Acciones listas para recorrerlas */
-    accionesParsed: Accion[];
+    accionesParsed: GTAccion[];
     /** Lista de acciones que es capaz de gestionar la tabla por si sola, si no está, enviará el evento y yasta */
     accionesAutoGestionadas: string[] = ['subir', 'bajar', 'eliminarT', 'eliminar', 'editarT'];
     /** Opciones posible para la paginación */
@@ -86,7 +86,7 @@ export abstract class TablaMaestra {
     pageEvent: PageEvent = { length: 0, pageSize: 5, pageIndex: 0 };
     /** Para tener constancia de cual es la ordenación que se está teniendo ahora mismo */
     ordenacionActual: Sort;
-    /** Cadena de busqueda actualizada por la app-buscador */
+    /** Cadena de busqueda actualizada por la gt-buscador */
     cadenaBusqueda: string;
     /** Datos a visualizar en la tabla */
     datosAMostrar: any[] = this.datos;
@@ -288,7 +288,7 @@ export abstract class TablaMaestra {
      */
     openInspeccion(elemento: any, posicion: number): void {
         const objTabla = this.objetos[posicion];
-        const form = new Formulario(TF.INSPECCION, objTabla.columnasModelo, objTabla.columnasVisuales, `Inspección de ${objTabla.nombreVisual}`);
+        const form = new GTFormulario(GTTF.INSPECCION, objTabla.columnasModelo, objTabla.columnasVisuales, `Inspección de ${objTabla.nombreVisual}`);
         form.controles = Object.assign(objTabla.formulario.controles);
         if (elemento[objTabla.nombreModelo]) {
             if (objTabla.peticion) {

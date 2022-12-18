@@ -1,13 +1,13 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { TC_F } from 'ngx-generic-tools/models';
+import { GTTC_F } from 'ngx-generic-tools/models';
 
 @Directive({
-    selector: '[arjaConversion]'
+    selector: '[gtConversion]'
 })
 /** Directiva que hace conversiones de texto. Opciones: Mayuscula, minuscula y número */
-export class ConversionDirective {
+export class GTConversionDirective {
     /** Tipo de conversión que ha de realizar */
-    @Input('arjaConversion') type: TC_F;
+    @Input('gtConversion') type: GTTC_F;
     constructor(private _el: ElementRef) { }
     /** Escucha de evento de input */
     @HostListener('input', ['$event']) onInputChange(event): void {

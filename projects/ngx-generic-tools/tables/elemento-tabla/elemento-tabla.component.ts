@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, SimpleChange } from '@angular/core';
-import { FormatosTabla } from 'ngx-generic-tools/models';
+import { GTFormatosTabla } from 'ngx-generic-tools/models';
 
 /** Equivale a un TD de una tabla, se encarga de mostrarlo con cierta lógica */
 @Component({
-  selector: 'app-elemento-tabla',
+  selector: 'gt-elemento-tabla',
   templateUrl: './elemento-tabla.component.html',
   styleUrls: ['./elemento-tabla.component.scss']
 })
-export class ElementoTablaComponent implements OnInit {
+export class GTElementoTablaComponent implements OnInit {
   /** Elemento a tratar */
   @Input() campo: any;
   /** Formato del campo */
@@ -15,7 +15,7 @@ export class ElementoTablaComponent implements OnInit {
   /** Número de caracteres máximos que podrá mostrar el campo. Si se supera se muestra un tooltip */
   @Input() numCaracteres: number = null;
   /** Formato a asignar */
-  @Input() formatoTabla: FormatosTabla;
+  @Input() formatoTabla: GTFormatosTabla;
   /** Nombre del atributo del que se parte */
   @Input() atributo: string
 

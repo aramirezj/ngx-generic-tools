@@ -1,5 +1,5 @@
 /** Clase utilizada para la expansión asincrona de una tabla de expansión */
-export class PeticionExpansion {
+export class GTPeticionExpansion {
 
     constructor(
         /** Función inyectada de un servicio para obtener datos */

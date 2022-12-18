@@ -1,10 +1,10 @@
 import { FormControl } from "@angular/forms";
-import { PeticionExpansion } from "./PeticionExpansion";
+import { GTPeticionExpansion } from "./PeticionExpansion";
 
 /** Clase utilizada para mostrar un select pro que haga asignación de elemento*/
-export class SelectMaestroTabla {
+export class GTSelectMaestroTabla {
     /** Petición expansión a ejecutar cada vez se cambie a un nuevo valor */
-    peticionCambio: PeticionExpansion;
+    peticionCambio: GTPeticionExpansion;
     constructor(
         /** Nombre del atributo del elemento al que asignarle el resultado de la selección */
         public columnaModelo: string,
@@ -15,7 +15,7 @@ export class SelectMaestroTabla {
         /** Nombre del modelo del elemento resultante de la petición para asignarselo al elemento de la tabla según la columnaModelo */
         public value: string,
         /** Petición del que el selectPro sacará los datos */
-        public peticion: PeticionExpansion,
+        public peticion: GTPeticionExpansion,
         /** Control asociado */
         public control?: FormControl,
         /** Si lo tiene, ejecutará la api del selector cogiendo del elemento de la fila, el atributo indicado */

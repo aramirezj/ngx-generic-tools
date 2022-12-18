@@ -3,11 +3,11 @@ import { FormControl } from '@angular/forms';
 
 /** Chips Si/No */
 @Component({
-  selector: 'arja-chips',
+  selector: 'gt-chips',
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.scss']
 })
-export class ChipsComponent implements OnInit {
+export class GTChipsComponent implements OnInit {
   /** Si los chips deben poder seleccionarse*/
   @Input() seleccionable = true;
   /** Vinculación al formulario */

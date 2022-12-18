@@ -1,5 +1,6 @@
 //Angular
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Material
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,18 +17,17 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 //Components
-import { SelectMaestroComponent } from './select-maestro/select-maestro.component';
-import { TableComponent } from './table/table.component';
-import { CommonModule } from '@angular/common';
-import { ChipsComponent } from './chips/chips.component';
-import { SliderMaestroComponent } from './slider-maestro/slider-maestro.component';
-import { BuscadorComponent } from './buscador/buscador.component';
-import { BotoneraFlotanteComponent } from './botonera-flotante/botonera-flotante.component';
-import { ConfirmacionComponent } from './confirmacion/confirmacion.component';
+import { GTSelectMaestroComponent } from './select-maestro/select-maestro.component';
+
+import { GTChipsComponent } from './chips/chips.component';
+import { GTSliderMaestroComponent } from './slider-maestro/slider-maestro.component';
+import { GTBuscadorComponent } from './buscador/buscador.component';
+import { GTBotoneraComponent } from './botonera-flotante/botonera-flotante.component';
+import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { EditarGenericoComponent } from './editar-generico/editar-generico.component';
 
-import { ConversionDirective } from './directives/conversion.directive';
-import { MatErrorMessagesDirective } from './public_api';
+import { GTConversionDirective } from './directives/conversion.directive';
+import { GTMatErrorMessagesDirective } from './public_api';
 
 
 
@@ -49,16 +49,15 @@ const materialModules: any[] = [
 ];
 
 const components: any[] = [
-  TableComponent,
-  SelectMaestroComponent,
-  ChipsComponent,
-  SliderMaestroComponent,
-  BuscadorComponent,
-  BotoneraFlotanteComponent,
+  GTSelectMaestroComponent,
+  GTChipsComponent,
+  GTSliderMaestroComponent,
+  GTBuscadorComponent,
+  GTBotoneraComponent,
   EditarGenericoComponent,
-  ConfirmacionComponent,
-  ConversionDirective,
-  MatErrorMessagesDirective
+  GTConfirmacionComponent,
+  GTConversionDirective,
+  GTMatErrorMessagesDirective
 ]
 
 @NgModule({

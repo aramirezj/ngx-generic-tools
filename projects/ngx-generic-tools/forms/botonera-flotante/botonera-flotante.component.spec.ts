@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BotoneraFlotanteComponent } from './botonera-flotante.component';
+import { GTBotoneraComponent } from './botonera-flotante.component';
 
-describe('BotoneraFlotanteComponent', () => {
-  let component: BotoneraFlotanteComponent;
-  let fixture: ComponentFixture<BotoneraFlotanteComponent>;
+describe('GTBotoneraComponent', () => {
+  let component: GTBotoneraComponent;
+  let fixture: ComponentFixture<GTBotoneraComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BotoneraFlotanteComponent ]
+      declarations: [ GTBotoneraComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BotoneraFlotanteComponent);
+    fixture = TestBed.createComponent(GTBotoneraComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

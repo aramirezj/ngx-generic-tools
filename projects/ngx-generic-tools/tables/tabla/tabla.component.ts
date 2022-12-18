@@ -1,17 +1,17 @@
 import { Overlay } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { Formulario, TF, Accion } from 'ngx-generic-tools/models';
+import { GTFormulario, GTTF, GTAccion } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
-import { TablaMaestra } from '../TablaMaestra';
+import { GTTablaMaestra } from '../TablaMaestra';
 /** Componente de la Tabla encargada del listado y tratado de elementos */
 @Component({
-    selector: 'app-tabla',
+    selector: 'gt-tabla',
     templateUrl: './tabla.component.html',
     styleUrls: ['./tabla.component.scss'],
-    inputs: TablaMaestra.inputComunes
+    inputs: GTTablaMaestra.inputComunes
 })
-export class TablaComponent extends TablaMaestra implements OnInit, AfterViewInit {
+export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
     /** Referencia a la propia tabla */
     override matTableRef: any;
     constructor(
@@ -48,7 +48,7 @@ export class TablaComponent extends TablaMaestra implements OnInit, AfterViewIni
     preparaTabla(): void {
         this.datos = this.datos ? this.datos : [];
         this.datosAMostrar = this.datos.slice();
-        this.accionesParsed = this.accionesCondicionales ? this.accionesCondicionales : Accion.parseAcciones(this.acciones);
+        this.accionesParsed = this.accionesCondicionales ? this.accionesCondicionales : GTAccion.parseAcciones(this.acciones);
 
         //Si contiene la acción de configurar, se debe permitir la selección, usado por las tablas infinitas
         const index = this.accionesParsed.findIndex(accion => accion.funcion === 'configurar');
@@ -121,7 +121,7 @@ export class TablaComponent extends TablaMaestra implements OnInit, AfterViewIni
                             }
                         });
                     } else {
-                        const form = new Formulario(TF.EDICION, this.modelo, this.visual, 'Edición del elemento');
+                        const form = new GTFormulario(GTTF.EDICION, this.modelo, this.visual, 'Edición del elemento');
                         form.elemento = elemento;
                         this.sharedService.muestraFormulario(form).subscribe(resp => {
                             if (resp) {

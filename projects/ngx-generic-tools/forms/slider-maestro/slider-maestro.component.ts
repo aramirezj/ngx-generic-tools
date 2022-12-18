@@ -3,11 +3,11 @@ import { AbstractControl, FormControl } from '@angular/forms';
 
 /** Componente encargado de mostrar un slider según cierta configuración */
 @Component({
-    selector: 'app-slider-maestro',
+    selector: 'gt-slider-maestro',
     templateUrl: './slider-maestro.component.html',
     styleUrls: ['./slider-maestro.component.scss']
 })
-export class SliderMaestroComponent implements OnInit {
+export class GTSliderMaestroComponent implements OnInit {
     /** Máximo valor del slider */
     @Input() max: number;
     /** Mínimo valor del slider */

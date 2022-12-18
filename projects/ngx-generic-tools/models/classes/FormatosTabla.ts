@@ -1,7 +1,7 @@
 
 
 /** Clase utilizada para recopilar los formatos que ha de usar una tabla */
-export class FormatosTabla {
+export class GTFormatosTabla {
     constructor(
         /** Nombres de modelo que deberan llevar el formato de euros */
         public euros?: string[],

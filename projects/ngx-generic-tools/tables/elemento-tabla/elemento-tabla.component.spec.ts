@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElementoTablaComponent } from './elemento-tabla.component';
+import { GTElementoTablaComponent } from './elemento-tabla.component';
 
-describe('ElementoTablaComponent', () => {
-  let component: ElementoTablaComponent;
-  let fixture: ComponentFixture<ElementoTablaComponent>;
+describe('GTElementoTablaComponent', () => {
+  let component: GTElementoTablaComponent;
+  let fixture: ComponentFixture<GTElementoTablaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ElementoTablaComponent ]
+      declarations: [ GTElementoTablaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ElementoTablaComponent);
+    fixture = TestBed.createComponent(GTElementoTablaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

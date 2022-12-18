@@ -5,10 +5,10 @@ import { MatInput } from '@angular/material/input';
 /** Directiva utilizada para mediante el llamado de la etiqueta, autogestionar todos los errores,
  *  pudiendose incluso incluir un patrón como validación */
 @Component({
-  selector: '[matErrorMessages]',
+  selector: '[gt-matErrorMessages]',
   template: '{{ error }}'
 })
-export class MatErrorMessagesDirective implements AfterViewInit {
+export class GTMatErrorMessagesDirective implements AfterViewInit {
   /** Patrón customizado para validar */
   @Input() customPattern: string;
   /** Error a mostrar */

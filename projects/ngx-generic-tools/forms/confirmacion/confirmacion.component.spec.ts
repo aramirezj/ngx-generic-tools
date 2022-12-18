@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ConfirmacionComponent } from './confirmacion.component';
+import { GTConfirmacionComponent } from './confirmacion.component';
 
-describe('ConfirmacionComponent', () => {
-  let component: ConfirmacionComponent;
-  let fixture: ComponentFixture<ConfirmacionComponent>;
+describe('GTConfirmacionComponent', () => {
+  let component: GTConfirmacionComponent;
+  let fixture: ComponentFixture<GTConfirmacionComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfirmacionComponent ]
+      declarations: [ GTConfirmacionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmacionComponent);
+    fixture = TestBed.createComponent(GTConfirmacionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

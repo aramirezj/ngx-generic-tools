@@ -1,4 +1,4 @@
-<!--Formulario generado con el modelo Formulario-->
+<!--GTFormulario generado con el modelo GTFormulario-->
 <h2 mat-dialog-title>{{formulario.titulo}}</h2>
 <mat-dialog-content>
     <form *ngIf="tableForm" [formGroup]="tableForm">
@@ -9,15 +9,15 @@
                     <mat-form-field class="eleFormulario" *ngSwitchCase="'texto'" appearance="outline">
                         <mat-label>{{visualDato[i]}}</mat-label>
                         <input matInput [formControlName]="atributo"
-                            [arjaConversion]="formulario.controles[atributo]?.subFormato"
+                            [gtConversion]="formulario.controles[atributo]?.subFormato"
                             [maxlength]="tableForm?.get(modeloDato[i])?.errors?.['maxlength']?.requiredLength ?? null">
-                        <mat-error matErrorMessages></mat-error>
+                        <mat-error gt-matErrorMessages></mat-error>
                     </mat-form-field>
                     <!--Control de Número-->
                     <mat-form-field class="eleFormulario" *ngSwitchCase="'numero'" appearance="outline">
                         <mat-label>{{visualDato[i]}}</mat-label>
-                        <input matInput [arjaConversion]="TC_F.NUMERO" [formControlName]="atributo">
-                        <mat-error matErrorMessages></mat-error>
+                        <input matInput [gtConversion]="GTTC_F.NUMERO" [formControlName]="atributo">
+                        <mat-error gt-matErrorMessages></mat-error>
                     </mat-form-field>
                     <!--Control de Checkbox -->
                     <mat-checkbox class="eleFormulario" *ngSwitchCase="'checkbox'" [formControlName]="atributo">
@@ -39,7 +39,7 @@
                                 {{valor}}
                             </mat-option>
                         </mat-select>
-                        <mat-error matErrorMessages></mat-error>
+                        <mat-error gt-matErrorMessages></mat-error>
                     </mat-form-field>
                     <!--Control de Select Objeto-->
                     <mat-form-field *ngSwitchCase="'selectObjeto'" appearance="outline" class="eleFormulario">
@@ -54,7 +54,7 @@
                                 valor[formulario.controles[atributo].secondLabel] : '' : '')}}
                             </mat-option>
                         </mat-select>
-                        <mat-error matErrorMessages></mat-error>
+                        <mat-error gt-matErrorMessages></mat-error>
                     </mat-form-field>
                     <!--Control de Select Booleano-->
                     <mat-form-field *ngSwitchCase="'selectBoolean'" appearance="outline" class="eleFormulario">
@@ -63,24 +63,24 @@
                             <mat-option [value]="true">Si</mat-option>
                             <mat-option [value]="false">No</mat-option>
                         </mat-select>
-                        <mat-error matErrorMessages></mat-error>
+                        <mat-error gt-matErrorMessages></mat-error>
                     </mat-form-field>
                     <!--Control de Text Area-->
                     <mat-form-field class="eleFormulario" *ngSwitchCase="'textArea'" appearance="outline">
                         <mat-label>{{visualDato[i]}}</mat-label>
                         <textarea matInput [formControlName]="atributo"
-                            [arjaConversion]="formulario.controles[atributo]?.subFormato"
+                            [gtConversion]="formulario.controles[atributo]?.subFormato"
                             [maxlength]="tableForm?.get(modeloDato[i])?.errors?.['maxlength']?.requiredLength ?? null"></textarea>
-                        <mat-error matErrorMessages></mat-error>
+                        <mat-error gt-matErrorMessages></mat-error>
                     </mat-form-field>
                     <!--Control de Select Maestro-->
-                    <app-select-maestro *ngSwitchCase="'selectMaestro'" [datos]="formulario.controles[atributo].listado"
+                    <gt-select-maestro *ngSwitchCase="'selectMaestro'" [datos]="formulario.controles[atributo].listado"
                         [control]="tableForm.get(atributo)" [label]="formulario.controles[atributo].label"
                         [secondLabel]="formulario.controles[atributo].secondLabel"
                         [preset]="formulario.controles[atributo].preset" [value]="formulario.controles[atributo].value"
                         [placeholder]="visualDato[i]" [key]="formulario.controles[atributo].key"
                         [multiple]="formulario.controles[atributo].multiple" class="eleFormulario">
-                    </app-select-maestro>
+                    </gt-select-maestro>
 
                     <!-- Control de select autocompletado-->
                     <mat-form-field *ngSwitchCase="'selectAutocompletado'" appearance="outline" class="eleFormulario">
@@ -96,11 +96,11 @@
                     <div class="slider eleFormulario" *ngSwitchCase="'slider'"
                         fxFlex="formulario.controles[atributo].fxFlex ? formulario.controles[atributo].fxFlex : fxFlex"
                         fxFill>
-                        <app-slider-maestro [control]="tableForm.get(atributo)" [label]="visualDato[i]"
+                        <gt-slider-maestro [control]="tableForm.get(atributo)" [label]="visualDato[i]"
                             [min]="formulario.controles[atributo].listado[0]"
                             [max]="formulario.controles[atributo].listado[1]"
                             [hint]="formulario.controles[atributo].secondLabel">
-                        </app-slider-maestro>
+                        </gt-slider-maestro>
                     </div>
                 </ng-container>
             </ng-container>

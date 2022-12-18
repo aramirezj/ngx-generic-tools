@@ -2,16 +2,16 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { AbstractControl, FormControl } from '@angular/forms';
 
 import { Subject, Subscription } from 'rxjs';
-import { PeticionExpansion } from 'ngx-generic-tools/models';
+import { GTPeticionExpansion } from 'ngx-generic-tools/models';
 
 
 /** Selector génerico que admite tanto listados de elementos como APIs. */
 @Component({
-    selector: 'app-select-maestro',
+    selector: 'gt-select-maestro',
     templateUrl: './select-maestro.component.html',
     styleUrls: ['./select-maestro.component.scss']
 })
-export class SelectMaestroComponent implements OnInit, OnDestroy {
+export class GTSelectMaestroComponent implements OnInit, OnDestroy {
     /** Datos recibidos */
     @Input() set datos(datos: any) { this._datos = datos ? datos : []; this.reInit.next(1) }
     /** Datos de origen, array plano o observable */
@@ -44,7 +44,7 @@ export class SelectMaestroComponent implements OnInit, OnDestroy {
     /** USADO EN TABLA, si es verdadero el select-maestro preseleccionara el unico elemento disponible si solo existe uno donde elegir */
     @Input() precargaUnico = false;
     /** USADO EN TABLA, si contiene una petición cambio, después del value changes, actualizará el elemento lanzando la api */
-    @Input() peticionCambio: PeticionExpansion;
+    @Input() peticionCambio: GTPeticionExpansion;
     /** USADO EN TABLA, para notificar el cambio del elemento completo y que la tabla haga una sustitución */
     @Output() elementoAsociadoCambiado: EventEmitter<any> = new EventEmitter();
     /** USADO EN TABLA, para cargarse luego la suscripción  */
@@ -132,9 +132,9 @@ export class SelectMaestroComponent implements OnInit, OnDestroy {
             this.datosListado = this._datos as [];
             this.datosFiltrados = this.datosListado;
         } else {
-            //Proviene de tablas, tiene PeticionExpansion
+            //Proviene de tablas, tiene GTPeticionExpansion
             if (this.elementoAsociado) {
-                const peticionExpansion = this._datos as PeticionExpansion;
+                const peticionExpansion = this._datos as GTPeticionExpansion;
                 const params: any[] = peticionExpansion.preparaParametros(this.elementoAsociado);
                 //nos suscribimos y lo asignamos
                 peticionExpansion.peticion(...params).subscribe(data => {

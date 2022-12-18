@@ -1,8 +1,8 @@
 import { BehaviorSubject } from 'rxjs';
-import { AccionCondicion } from './AccionCondicion';
+import { GTAccionCondicion } from './AccionCondicion';
 
 /** Clase utilizada por las tablas para mostrar los iconos de las acciones y gestionar los eventos */
-export class Accion {
+export class GTAccion {
     /** Catálogo de acciones predefinidas con su descripción e icono */
     static catalogo: object =
         {
@@ -71,10 +71,10 @@ export class Accion {
         };
     /** Observer para que se suscriba el componente AccionTabla */
     observerCondiciones: BehaviorSubject<any>;
-    /** Condiciones que puede tener una Accion */
-    condiciones: AccionCondicion[];
+    /** Condiciones que puede tener una GTAccion */
+    condiciones: GTAccionCondicion[];
     /** En el caso de tener una accion sustituta, cuando la lógica se cumpla, se sustituirá la acción */
-    accionSustituta?: Accion;
+    accionSustituta?: GTAccion;
     constructor(
         public funcion: string,
         public descripcion?: string,
@@ -82,8 +82,8 @@ export class Accion {
         public disabled?: boolean
 
     ) {
-        this.descripcion = Accion.catalogo[this.funcion].descripcion;
-        this.icono = Accion.catalogo[this.funcion].icono;
+        this.descripcion = GTAccion.catalogo[this.funcion].descripcion;
+        this.icono = GTAccion.catalogo[this.funcion].icono;
         this.disabled = disabled ?? false;
     }
     /**
@@ -92,7 +92,7 @@ export class Accion {
      * @param condiciones Condiciones a asociar
      * @param acciones Acciones a recibir condiciones
      */
-    static agregaCondicionesAAcciones(condiciones: AccionCondicion[], acciones: Accion[]): void {
+    static agregaCondicionesAAcciones(condiciones: GTAccionCondicion[], acciones: GTAccion[]): void {
         condiciones.forEach(condicion => {
             const behaviour = new BehaviorSubject(0);
             acciones.forEach(accion => {
@@ -109,11 +109,11 @@ export class Accion {
     * @param acciones
     * @returns Listado de acciones
     */
-    static parseAcciones(acciones: string[]): Accion[] {
+    static parseAcciones(acciones: string[]): GTAccion[] {
         if (acciones) {
-            const parsedAcciones: Accion[] = [];
+            const parsedAcciones: GTAccion[] = [];
             for (const accion of acciones) {
-                const accionParsed = new Accion(accion);
+                const accionParsed = new GTAccion(accion);
                 parsedAcciones.push(accionParsed);
             }
             return parsedAcciones;

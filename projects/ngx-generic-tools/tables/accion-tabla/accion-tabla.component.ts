@@ -1,16 +1,16 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Accion, AccionCondicion, LogicaCondicion, TipoCondicion } from 'ngx-generic-tools/models';
+import { GTAccion, GTAccionCondicion, GTLogicaCondicion, GTTipoCondicion } from 'ngx-generic-tools/models';
 
 /** Componente encargado de la lógica de acciones con condiciones */
 @Component({
-    selector: 'app-accion-tabla',
+    selector: 'gt-accion-tabla',
     templateUrl: './accion-tabla.component.html',
     styleUrls: ['./accion-tabla.component.scss']
 })
 
-export class AccionTablaComponent implements OnInit {
+export class GTAccionTablaComponent implements OnInit {
     /** Acción con la que se trabaja */
-    @Input() accion: Accion;
+    @Input() accion: GTAccion;
     /** Elemento sobre el que se evalua */
     @Input() elemento: any;
     /** Para saber si se van a pintar en un menú o no */
@@ -84,24 +84,24 @@ export class AccionTablaComponent implements OnInit {
      * @param condicion Condición a comprobar
      * @returns Si la comprobación ha sido satisfactoria
      */
-    compruebaCondicion(condicion: AccionCondicion): boolean {
+    compruebaCondicion(condicion: GTAccionCondicion): boolean {
         let seCumple: boolean = false;
         const valor: any = this.preparaValor(condicion.atributo);
         switch (condicion.tipoCondicion) {
-            case TipoCondicion.BOOLEAN:
+            case GTTipoCondicion.BOOLEAN:
                 switch (condicion.logica) {
-                    case LogicaCondicion.REQUIRED:
+                    case GTLogicaCondicion.REQUIRED:
                         seCumple = valor ? true : false;
                         break;
-                    case LogicaCondicion.MISSING:
+                    case GTLogicaCondicion.MISSING:
                         seCumple = valor ? false : true;
                         break;
                 }
                 break;
-            case TipoCondicion.EQUAL:
+            case GTTipoCondicion.EQUAL:
                 seCumple = valor?.toLowerCase() === condicion.logica?.toLowerCase() ? true : false;
                 break;
-            case TipoCondicion.DIFFERENT:
+            case GTTipoCondicion.DIFFERENT:
                 seCumple = valor?.toLowerCase() !== condicion.logica?.toLowerCase() ? true : false;
                 break;
         }

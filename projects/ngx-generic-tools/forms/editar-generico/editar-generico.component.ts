@@ -3,16 +3,16 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { FormGroup } from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Formulario, ElementoFormulario, TC, TF,TC_F, PeticionExpansion } from 'ngx-generic-tools/models';
+import { GTFormulario, GTElementoFormulario, GTTC, GTTF,GTTC_F, GTPeticionExpansion } from 'ngx-generic-tools/models';
 
-/** Componente encargado de mostrar el modelo Formulario en un modal */
+/** Componente encargado de mostrar el modelo GTFormulario en un modal */
 @Component({
-    selector: 'app-editar-generico',
+    selector: 'gt-editar-generico',
     templateUrl: './editar-generico.component.html',
     styleUrls: ['./editar-generico.component.scss']
 })
 export class EditarGenericoComponent implements OnInit, AfterViewChecked {
-    TC_F:typeof TC_F = TC_F;
+    GTTC_F:typeof GTTC_F = GTTC_F;
     /** Evento de click de borrado  */
     @Output() eventoBorrado = new EventEmitter<string>();
     /** Elemento a modificar */
@@ -29,10 +29,10 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
     borrar: boolean = false;
     /** Si debe aparecer el botón aceptar */
     aceptar: boolean;
-    /** Formulario del componente */
+    /** GTFormulario del componente */
     tableForm: FormGroup;
     /** Instancia del modelo formulario a cargar */
-    formulario: Formulario;
+    formulario: GTFormulario;
     /** Flex que asignarle a los elementos del formulario, es dinamico según el número de columnas inpuesto por el formulario */
     fxFlex: number = 100;
     /** Fecha máxima para los campos fechas para evitar 5 digitos en años */
@@ -48,11 +48,11 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
             this.formulario = data;
             this.modeloDato = this.formulario.modelo;
             this.visualDato = this.formulario.visual;
-            this.dato = this.formulario.tipo === TF.CREACION ? {} : this.formulario.elemento;
+            this.dato = this.formulario.tipo === GTTF.CREACION ? {} : this.formulario.elemento;
             this.titulo = this.formulario.titulo;
-            this.soloLectura = this.formulario.tipo === TF.INSPECCION;
+            this.soloLectura = this.formulario.tipo === GTTF.INSPECCION;
             this.aceptar = this.formulario.aceptar;
-            this.borrar = this.formulario.permiteBorrado && this.formulario.tipo === TF.EDICION;
+            this.borrar = this.formulario.permiteBorrado && this.formulario.tipo === GTTF.EDICION;
         }
     }
 
@@ -78,10 +78,10 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
         for (const modelo of this.formulario.modelo) {
             let ele = this.formulario.getElemento(modelo);
             if (!ele) {
-                ele = this.formulario.addElemento(modelo, new ElementoFormulario(modelo));
+                ele = this.formulario.addElemento(modelo, new GTElementoFormulario(modelo));
             }
-            const tipo: TC = ele.tipo as TC;
-            if (!Object.values(TC).includes(tipo)) {
+            const tipo: GTTC = ele.tipo as GTTC;
+            if (!Object.values(GTTC).includes(tipo)) {
                 campoErroneo = modelo;
             }
         }
@@ -94,21 +94,21 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
     creaFormulario(): void {
         this.tableForm = new FormGroup({});
         switch (this.formulario.tipo) {
-            case TF.EDICION:
-            case TF.INSPECCION:
+            case GTTF.EDICION:
+            case GTTF.INSPECCION:
                 this.formulario.elementoOriginal = Object.assign({}, this.formulario.elemento);
                 for (const atributo of this.modeloDato) {
-                    const eleFormulario: ElementoFormulario = this.formulario.getElemento(atributo);
+                    const eleFormulario: GTElementoFormulario = this.formulario.getElemento(atributo);
                     this.tableForm.addControl(atributo, eleFormulario.control);
                     this.tableForm.get(atributo).setValue(this.formulario.elemento[atributo]);
                     this.tableForm.get(atributo).enable();
-                    if (eleFormulario.tipo === TC.CHECKBOX) this.tableForm.get(atributo).setValue(this.formulario.elemento[atributo] === true ? true : null);
-                    if (eleFormulario.disabled || this.formulario.tipo === TF.INSPECCION) this.tableForm.get(atributo).disable();
+                    if (eleFormulario.tipo === GTTC.CHECKBOX) this.tableForm.get(atributo).setValue(this.formulario.elemento[atributo] === true ? true : null);
+                    if (eleFormulario.disabled || this.formulario.tipo === GTTF.INSPECCION) this.tableForm.get(atributo).disable();
                 }
                 break;
-            case TF.CREACION:
+            case GTTF.CREACION:
                 for (const atributo of this.modeloDato) {
-                    const eleFormulario: ElementoFormulario = this.formulario.getElemento(atributo);
+                    const eleFormulario: GTElementoFormulario = this.formulario.getElemento(atributo);
                     this.tableForm.addControl(atributo, eleFormulario.control);
                     this.tableForm.get(atributo).enable();
                     this.tableForm.get(atributo).setValue(this.formulario.getElemento(atributo).control.value);
@@ -126,11 +126,11 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
         if (this.tableForm.valid) {
             for (const atributo of this.modeloDato) {
                 switch (this.formulario.getElemento(atributo).tipo) {
-                    case TC.FECHA:
+                    case GTTC.FECHA:
                         this.dato[atributo] = this.tableForm.get(atributo).value !== null ? this.dateFormatBackend(this.tableForm.get(atributo).value) : null;
                         break;
-                    case TC.SELECTBOOLEAN:
-                    case TC.CHECKBOX:
+                    case GTTC.SELECTBOOLEAN:
+                    case GTTC.CHECKBOX:
                         this.dato[atributo] = this.tableForm.get(atributo).value === true;
                         break;
                     default:
@@ -171,7 +171,7 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
     /** Función para ejecutar la API asignada al formulario */
     ejecutaAPI(borrado?: boolean): void {
 
-        const peticionAPI: PeticionExpansion = this.formulario.peticionesAPI[borrado ? 'borrado' : this.formulario.tipo];
+        const peticionAPI: GTPeticionExpansion = this.formulario.peticionesAPI[borrado ? 'borrado' : this.formulario.tipo];
 
         const params: any[] = peticionAPI.preparaParametros(this.dato);
         // Si la petición tiene asignado parametros extras predefinidos, se setean al this.dato para prepararlo en caso de ser un param
@@ -183,7 +183,7 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
                     this.dialogRef.close(this.dato);
                 },
                 error: () => {
-                    if (this.formulario.tipo === TF.EDICION) {
+                    if (this.formulario.tipo === GTTF.EDICION) {
                         this.rollbackElement();
                     }
                 }
@@ -191,7 +191,7 @@ export class EditarGenericoComponent implements OnInit, AfterViewChecked {
         )
     }
 
-    /** Setea un flex dependiendo del número de columnas inpuesto por el Formulario */
+    /** Setea un flex dependiendo del número de columnas inpuesto por el GTFormulario */
     calculaFlex(): void {
         switch (this.formulario.numeroColumnas) {
             case 2:

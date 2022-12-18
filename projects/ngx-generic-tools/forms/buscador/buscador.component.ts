@@ -4,14 +4,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 /** Componente encargado de mostrar un formulario de busqueda */
 @Component({
-  selector: 'app-buscador',
+  selector: 'gt-buscador',
   templateUrl: './buscador.component.html',
   styleUrls: ['./buscador.component.scss']
 })
-export class BuscadorComponent implements OnInit {
+export class GTBuscadorComponent implements OnInit {
   /** Elemento para notificar al componente que invoca la tabla */
   @Output() public notify: EventEmitter<string> = new EventEmitter<string>();
-  /** Formulario para el buscador simple */
+  /** GTFormulario para el buscador simple */
   form: FormGroup;
   constructor() { }
 

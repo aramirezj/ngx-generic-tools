@@ -1,7 +1,7 @@
 /**
  * Objeto que representa la paginación en un listado
  */
- export interface Pagina {
+ export interface GTPagina {
     /**
      * Número de registros en la página actual
      */

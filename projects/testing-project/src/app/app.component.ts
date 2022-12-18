@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Formulario, TC } from 'ngx-generic-tools/models';
+import { GTFormulario, GTTC } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
-import { TF } from 'projects/ngx-generic-tools/models/public_api';
+import { GTTF } from 'projects/ngx-generic-tools/models/public_api';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { TF } from 'projects/ngx-generic-tools/models/public_api';
 export class AppComponent {
   title = 'sample-project';
 
-  miForm: Formulario = new Formulario(TF.CREACION, ['nombre', 'fecha'], ['Nombre', 'Fecha'], 'Creación');
+  miForm: GTFormulario = new GTFormulario(GTTF.CREACION, ['nombre', 'fecha'], ['Nombre', 'Fecha'], 'Creación');
 
 
   datos:any[] = [{nombre:'xd',apellidos:'omgggg'},{nombre:'xdawdd',apellidos:'omgggggg'},{nombre:'xddd',apellidos:'om  gggg'},{nombre:'ddxd',apellidos:'omgggg'}];
@@ -22,7 +22,7 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    this.miForm.cambiarTipo(TC.FECHA,['fecha']);
+    this.miForm.cambiarTipo(GTTC.FECHA,['fecha']);
    /* this.sharedService.muestraFormulario(this.miForm).subscribe(resp => {
       console.log(resp);
     })*/
