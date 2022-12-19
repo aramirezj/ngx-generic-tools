@@ -124,18 +124,6 @@
         </span>
     </div>
 
-    <!-- Selects Pro de la tabla-->
-    <div *ngFor="let SP of selectsMaestros;let x=index"
-        [class]="'elementoContenido selectPro '+idTabla+ '-columna-'+SP.columnaModelo">
-        <span (click)="$event.stopPropagation()">
-            <gt-select-maestro [datos]="SP.peticion" [label]="SP.label" [value]="SP.value"
-                [peticionCambio]="SP.peticionCambio" [elementoAsociado]="elemento" [modeloAsociado]="SP.columnaModelo"
-                [precargaUnico]="SP.precargaUnico" [control]="SP.control"
-                (elementoAsociadoCambiado)="sustituyeElemento($event.viejo,$event.nuevo)">
-            </gt-select-maestro>
-        </span>
-    </div>
-
     <!-- Acciones de la tabla -->
     <div *ngIf="accionesParsed?.length" (click)="$event.stopPropagation()"
         [class]="'elementoContenido elementosAcciones ' + idTabla +'-columna-acciones'">

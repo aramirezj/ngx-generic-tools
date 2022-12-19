@@ -5,9 +5,9 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
 import { BehaviorSubject, filter, fromEvent, Subscription, take } from 'rxjs';
 import { forkJoin } from 'rxjs';
-import { GTBuscadorComponent, GTSelectMaestroComponent } from 'ngx-generic-tools/forms';
 import { GTAccion, GTFormulario, GTTF, GTObjetoTabla, GTPeticionExpansion, GTPeticionPaginacion, GTSelectMaestroTabla, GTFormatosTabla } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
+import { GTBuscadorComponent } from './buscador/buscador.component';
 
 
 /** Tabla Maestra de la que partirán las demás implementando sus atributos y funciones comunes */
@@ -24,8 +24,6 @@ export abstract class GTTablaMaestra {
     @ViewChild(GTBuscadorComponent, { static: false }) buscadorApp: GTBuscadorComponent;
     /** Visibilidad del paginador */
     @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-    /** Lista de selectPros usados */
-    @ViewChildren(GTSelectMaestroComponent) selectProsInyectados: GTSelectMaestroComponent[];
     /** Atributo con la colección de datos a mostrar */
     @Input() datos: any[] = [];
     /** Columnas a mostrar en la tabla */

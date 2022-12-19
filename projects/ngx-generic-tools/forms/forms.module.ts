@@ -20,7 +20,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { GTSelectMaestroComponent } from './select-maestro/select-maestro.component';
 import { GTChipsComponent } from './chips/chips.component';
 import { GTSliderMaestroComponent } from './slider-maestro/slider-maestro.component';
-import { GTBuscadorComponent } from './buscador/buscador.component';
 import { GTBotoneraComponent } from './botonera-flotante/botonera-flotante.component';
 import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { GTEditarGenericoComponent } from './editar-generico/editar-generico.component';
@@ -51,7 +50,6 @@ const components: any[] = [
   GTSelectMaestroComponent,
   GTChipsComponent,
   GTSliderMaestroComponent,
-  GTBuscadorComponent,
   GTBotoneraComponent,
   GTEditarGenericoComponent,
   GTConfirmacionComponent,

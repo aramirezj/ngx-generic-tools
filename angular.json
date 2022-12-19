@@ -12,6 +12,7 @@
       "prefix": "gt",
       "architect": {
         "build": {
+
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "project": "projects/ngx-generic-tools/ng-package.json"
@@ -26,6 +27,8 @@
           },
           "defaultConfiguration": "production"
         },
+
+
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -38,6 +41,8 @@
         }
       }
     },
+
+
     "sample-project": {
       "projectType": "application",
       "schematics": {
@@ -137,6 +142,8 @@
         }
       }
     },
+
+  
     "testing-project": {
       "projectType": "application",
       "schematics": {

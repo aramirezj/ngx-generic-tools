@@ -133,16 +133,6 @@
         </span>
     </div>
 
-    <!-- Selects Maestros-->
-    <div *ngFor="let SP of selectsMaestros;let x=index"
-        [class]="'elementoContenido selectPro '+idTabla+ '-columna-'+SP.columnaModelo">
-        <span (click)="$event.stopPropagation()">
-            <gt-select-maestro [datos]="SP.peticion" [label]="SP.label" [value]="SP.value"
-                [peticionCambio]="SP.peticionCambio" [elementoAsociado]="elemento" [modeloAsociado]="SP.columnaModelo"
-                [precargaUnico]="SP.precargaUnico" [control]="SP.control">
-            </gt-select-maestro>
-        </span>
-    </div>
 
     <!-- Acciones de la tabla-->
     <div [class]="'elementoContenido elementosAcciones '+idTabla+'-columna-acciones'">

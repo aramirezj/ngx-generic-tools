@@ -3,5 +3,8 @@
     "dest": "../../dist/ngx-generic-tools",
     "lib": {
         "entryFile": "public-api.ts"
-    }
+    },
+    "allowedNonPeerDependencies": [
+        "@angular","rxjs","zone.js"
+    ]
 }

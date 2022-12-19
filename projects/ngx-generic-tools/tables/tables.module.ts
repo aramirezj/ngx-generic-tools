@@ -6,13 +6,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { GTAccionTablaComponent } from './accion-tabla/accion-tabla.component';
 import { GTElementoTablaComponent } from './elemento-tabla/elemento-tabla.component';
 
-import { NgxGTSharedModule } from 'ngx-generic-tools/shared';
-import { NgxGTFormsModule } from 'ngx-generic-tools/forms';
+import { GTSharedModule } from 'ngx-generic-tools/shared';
 import { GTTablaComponent } from './tabla/tabla.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
 import { GTTablaInfinitaComponent } from './tabla-infinita/tabla-infinita.component';
+import { GTBuscadorComponent } from './buscador/buscador.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -20,7 +22,8 @@ const components = [
   GTAccionTablaComponent,
   GTElementoTablaComponent,
   GTTablaComponent,
-  GTTablaInfinitaComponent
+  GTTablaInfinitaComponent,
+  GTBuscadorComponent
 ]
 
 const materialModules = [
@@ -28,7 +31,8 @@ const materialModules = [
   MatTooltipModule,
   MatCheckboxModule,
   MatPaginatorModule,
-  MatMenuModule
+  MatMenuModule,
+  MatFormFieldModule
 ]
 
 @NgModule({
@@ -36,9 +40,10 @@ const materialModules = [
     components
   ],
   imports: [
-    NgxGTSharedModule,
-    NgxGTFormsModule,
+    GTSharedModule,
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     ...materialModules
   ],
   exports: components,
