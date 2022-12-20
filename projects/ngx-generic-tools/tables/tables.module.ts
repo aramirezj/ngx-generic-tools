@@ -15,6 +15,7 @@ import { GTTablaInfinitaComponent } from './tabla-infinita/tabla-infinita.compon
 import { GTBuscadorComponent } from './buscador/buscador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -32,7 +33,8 @@ const materialModules = [
   MatCheckboxModule,
   MatPaginatorModule,
   MatMenuModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatInputModule
 ]
 
 @NgModule({

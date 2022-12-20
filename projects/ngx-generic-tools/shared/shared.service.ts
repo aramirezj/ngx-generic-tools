@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FormGroup, UntypedFormArray } from '@angular/forms';
 import { GTAccion, GTFormulario } from 'ngx-generic-tools/models';
-import { GTEditarGenericoComponent } from 'ngx-generic-tools/forms';
+import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
+import { Dialog } from '@angular/cdk/dialog';
 //import { GTFormulario, GTTF } from './model/Formulario';
 //import { GTEditarGenericoComponent } from './forms/editar-generico/editar-generico.component';
-import { GTConfirmacionComponent } from 'ngx-generic-tools/forms';
+
 
 //import { IframeComponent } from './iframe/iframe.component';
 //import { TablaGenericaComponent } from './tablas/tabla-dialogo/tabla-dialogo.component';
@@ -30,6 +31,7 @@ export class SharedService {
 
     constructor(
         private dialog: MatDialog,
+        public ckDialog: Dialog,
         private router: Router,
         private snackBar: MatSnackBar
     ) {
@@ -54,7 +56,8 @@ export class SharedService {
      * @returns Observable del dialogo
      */
     muestraFormulario(form: GTFormulario, size?: string): Observable<any> {
-        return this.openGenericDialog(GTEditarGenericoComponent, form, size ? size : '45vw', null, null, true);
+        return null;
+        //return this.openGenericDialog(GTEditarGenericoComponent, form, size ? size : '45vw', null, null, true);
     }
 
     /**
@@ -67,6 +70,7 @@ export class SharedService {
     * @returns Observable del dialogo
     */
     muestraConfirmacion(tipo: string, elemento?: any, atributo?: string, visual?: string, options?: string[]): Observable<any> {
+
         const dialogRef = this.dialog.open(GTConfirmacionComponent, this.openDialog(30));
         if (elemento?.[atributo] === undefined && tipo === 'eliminarGenerico2') tipo = 'eliminarGenerico';
         let mensaje = elemento ? this.mensajes[tipo].replace('??', visual).replace('??', elemento[atributo]) : this.mensajes[tipo];
@@ -74,6 +78,22 @@ export class SharedService {
         dialogRef.componentInstance.mensaje = mensaje;
         dialogRef.componentInstance.options = options;
         return dialogRef.afterClosed();
+    }
+    /**
+    * Función que gestiona la apertura de un dialogo de confirmación
+    *
+    * @param tipo El identificador del catálogo de mensajes, si no lo encuentra, el tipo actua de mensajes
+    * @param elemento Elemento del que se pide confirmación
+    * @param atributo Atributo del que se cogerá el identificador en caso de ser necesario
+    * @param visual Texto a mostrar para el atributo
+    * @returns Observable del dialogo
+    */
+    muestraConfirmacionCK(mensaje:string, options?: string[]): Observable<any> {
+        const dialogRef = this.ckDialog.open(GTConfirmacionComponent, {
+            width: '30vw',
+            data : {mensaje,options}
+        })
+        return dialogRef.closed;
     }
 
 

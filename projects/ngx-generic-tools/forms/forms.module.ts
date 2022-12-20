@@ -21,11 +21,11 @@ import { GTSelectMaestroComponent } from './select-maestro/select-maestro.compon
 import { GTChipsComponent } from './chips/chips.component';
 import { GTSliderMaestroComponent } from './slider-maestro/slider-maestro.component';
 import { GTBotoneraComponent } from './botonera-flotante/botonera-flotante.component';
-import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { GTEditarGenericoComponent } from './editar-generico/editar-generico.component';
 
 import { GTConversionDirective } from './directives/conversion.directive';
-import { GTMatErrorMessagesDirective } from './public_api';
+import { GTMatErrorMessagesDirective } from './directives/matErrorMessages.directive';
+
 
 
 
@@ -52,7 +52,6 @@ const components: any[] = [
   GTSliderMaestroComponent,
   GTBotoneraComponent,
   GTEditarGenericoComponent,
-  GTConfirmacionComponent,
   GTConversionDirective,
   GTMatErrorMessagesDirective
 ]

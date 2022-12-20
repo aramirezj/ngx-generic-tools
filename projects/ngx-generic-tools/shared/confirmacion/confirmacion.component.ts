@@ -1,5 +1,5 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 
 /** Clase utilizada para mostrar un breve dialogo de confirmación */
 @Component({
@@ -12,17 +12,17 @@ export class GTConfirmacionComponent implements OnInit {
   mensaje: string;
   /** Lista de opciones para crear dos botones */
   options: string[];
-  constructor(private dialogRef: MatDialogRef<GTConfirmacionComponent>) { }
+  constructor(public dialogRef: DialogRef<string | boolean>) { }
 
   ngOnInit(): void {
   }
   /** Confirmación del dialogo */
   save(option?: string): void {
-    this.dialogRef.close(option ? option : true);
+    this.dialogRef.close(option ?? true);
   }
   /** Cancelación del dialogo */
   close(): void {
-    this.dialogRef.close(false);
+    this.dialogRef.close();
   }
 
 }

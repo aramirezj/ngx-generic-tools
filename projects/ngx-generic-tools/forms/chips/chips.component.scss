@@ -1,4 +1,29 @@
-span {
+.chips {
+    display: flex;
+
+    .chip {
+        margin: 0.5vw;
+        background-color: #e0e0e0;
+        padding: 8px 14px;
+        border-radius: 16px;
+        transition: background-color 150ms linear;
+        transition-duration: 150ms;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        transition-property: background-color;
+    }
+
+    .chip:hover {
+        background-color: #c3c3c3;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+
+.description {
     color: lightslategrey;
     font-size: small;
     vertical-align: top;
@@ -9,9 +34,11 @@ span {
 }
 
 .red {
-    background: red!important;
+    background: red !important;
+    color: white;
 }
 
 .green {
-    background: green!important;
+    background: green !important;
+    color: white;
 }

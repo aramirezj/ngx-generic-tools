@@ -30,6 +30,7 @@
     "build": "ng build ngx-generic-tools --configuration production",
     "build-library": "ng build ngx-generic-tools",
     "watch": "ng build --watch --configuration development",
+    "stats":"ng build testing-project --stats-json && webpack-bundle-analyzer dist/testing-project/stats.json",
     "test": "ng test"
   },
   "private": true,

@@ -5,9 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { NgxGTFormsModule } from 'projects/ngx-generic-tools/forms/forms.module';
-import { SharedService } from 'ngx-generic-tools/shared';
-import { NgxGTTableModule } from 'projects/ngx-generic-tools/tables/tables.module';
+
+
+import { GTTableModule } from 'ngx-generic-tools/tables';
+import { GTFormsModule } from 'projects/ngx-generic-tools/forms/forms.module';
+import { SharedService } from 'projects/ngx-generic-tools/shared/shared.service';
 
 
 @NgModule({
@@ -19,8 +21,8 @@ import { NgxGTTableModule } from 'projects/ngx-generic-tools/tables/tables.modul
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgxGTFormsModule,
-    NgxGTTableModule
+    GTFormsModule,
+    GTTableModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

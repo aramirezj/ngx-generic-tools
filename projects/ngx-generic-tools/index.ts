@@ -1,1 +1,0 @@
-export const ɵɵtsModuleIndicatorApiExtractorWorkaround = true;
