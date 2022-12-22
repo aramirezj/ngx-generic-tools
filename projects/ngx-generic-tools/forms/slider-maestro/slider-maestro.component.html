@@ -1,8 +1,0 @@
-<div class="sliderBox">
-    <label>{{label}}</label>
-    <mat-slider class="mdc-slider__thumb--with-indicator" [ngClass]="{'modoLectura':modoLectura}"  [max]="max" [min]="min" [discrete]="thumbLabel" [step]="tickInterval"  [displayWith]="formatSlider ?? formatDefault">
-        <input matSliderThumb [formControl]="controlFormat">
-    </mat-slider>
-    <mat-hint>{{hint}}</mat-hint>
-    <mat-error *ngIf="control.hasError('required')">Este campo es obligatorio</mat-error>
-</div>

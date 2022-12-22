@@ -1,11 +1,12 @@
 //Module
-export * from './forms.module';
+export {GTFormsModule} from './forms.module';
 
+//Service
+export {GTFormService} from './form.service';
 
 //Components
 export * from './select-maestro/select-maestro.component';
 export * from './chips/chips.component';
-export * from './slider-maestro/slider-maestro.component';
 export * from './botonera-flotante/botonera-flotante.component';
 export * from './editar-generico/editar-generico.component';
 

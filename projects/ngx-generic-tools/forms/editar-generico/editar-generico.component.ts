@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef, Inject, Output, EventEmitter, AfterViewChecked } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup } from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GTFormulario, GTElementoFormulario, GTTC, GTTF,GTTC_F, GTPeticionExpansion } from 'ngx-generic-tools/models';
+import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 
 /** Componente encargado de mostrar el modelo GTFormulario en un modal */
 @Component({
@@ -38,11 +38,11 @@ export class GTEditarGenericoComponent implements OnInit, AfterViewChecked {
     /** Fecha máxima para los campos fechas para evitar 5 digitos en años */
     maxDate: Date = new Date(9999, 12, 31);
     constructor(
-        private dialogRef: MatDialogRef<GTEditarGenericoComponent>,
+        private dialogRef: DialogRef<GTEditarGenericoComponent>,
         private cdRef: ChangeDetectorRef,
-        @Inject(MAT_DIALOG_DATA) data,
+        @Inject(DIALOG_DATA) data,
         private snackBar: MatSnackBar,
-        public dialog: MatDialog
+        public dialog: Dialog
     ) {
         if (data) {
             this.formulario = data;
@@ -228,7 +228,7 @@ export class GTEditarGenericoComponent implements OnInit, AfterViewChecked {
     doExtraAction(extraAction: { label: string, function: Function, close: boolean }) {
         extraAction.function();
         if (extraAction.close) {
-            this.dialogRef.close(false);
+            this.dialogRef.close();
         }
     }
 

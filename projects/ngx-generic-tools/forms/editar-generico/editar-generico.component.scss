@@ -1,4 +1,5 @@
-
+@import "../../styles/buttons.scss";
+@import "../../styles/dialog.scss";
 .btnCancelar {
 	color: white;
 }
@@ -7,10 +8,6 @@
 	color: white;
 }
 
-
-.eleFormulario{
-	padding:10px;
-}
 
 .mat-checkbox {
 	padding-top: 30px;
@@ -26,5 +23,8 @@
 	padding-bottom: 12px;
 }
 mat-form-field{
+	width: 100%;
+}
+.eleFormulario{
 	width: 100%;
 }

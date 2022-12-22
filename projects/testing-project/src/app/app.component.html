@@ -18,24 +18,14 @@ autocomplete="off">
         </mat-option>
     </mat-select>
 
-    <button matSuffix mat-icon-button type="button" aria-label="Clear">
-        <mat-icon>close</mat-icon>
-    </button>
+
 
 </mat-form-field>
 
 
-<mat-form-field class="example-form-field">
-    <mat-label>Clearable input</mat-label>
-    <input matInput type="text">
-    <button matSuffix mat-icon-button aria-label="Clear">
-        <mat-icon>close</mat-icon>
-    </button>
-</mat-form-field>
+<form [formGroup]="formC">
+    <gt-chips descripcion="Hola mu" formControlName="campo"></gt-chips>
+</form>
 
-<gt-chips descripcion="Hola mu"></gt-chips>
-
-<gt-slider-maestro label="saludos"></gt-slider-maestro>
 
 <gt-botonera-flotante [acciones]="['salir']"></gt-botonera-flotante>
-<gt-tabla [datos]="datos" [visual]="visual" [modelo]="modelo" [acciones]="['eliminarT','editar']" [buscador]="true"></gt-tabla>

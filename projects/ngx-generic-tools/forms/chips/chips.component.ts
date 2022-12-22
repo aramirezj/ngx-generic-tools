@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-/** Chips Si/No */
+/** Control de formulario Si/No */
 @Component({
   selector: 'gt-chips',
   templateUrl: './chips.component.html',
@@ -9,55 +9,45 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: GTChipsComponent,
+      useExisting: forwardRef(() => GTChipsComponent),
       multi: true
     }]
 })
 export class GTChipsComponent implements ControlValueAccessor {
-  field:boolean;
-  onChange: any = () => {}
-  onTouch: any = () => {}
-  set value(val: boolean){
+  /** Para saber si está deshabilitado */
+  disabled:boolean
+  /** Valor actual del control */
+  field: boolean;
+  /** Trigger de cuando cambia el valor */
+  onChange: any = () => { };
+  /** Trigger de cuando se toca el control */
+  onTouch: any = () => { };
+  /** Setter del valor */
+  set value(val: boolean) {
     this.field = val
     this.onChange(val)
     this.onTouch(val)
-}
-  writeValue(value: boolean): void {
-    this.value = value
   }
+  /** Seteo del valor*/
+  writeValue(value: boolean): void {
+    //Si se ha seleccionado el mismo, deseleccionamos
+    if(this.field === value) value = null;
+    this.value = value;
+  }
+  /** Registra los cambios */
   registerOnChange(fn: any): void {
     this.onChange = fn
   }
+  /** Registra el touched */
   registerOnTouched(onTouched: Function): void {
     this.onTouch = onTouched;
   }
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+    this.disabled = isDisabled;
   }
-  /** Si los chips deben poder seleccionarse*/
-  @Input() seleccionable = true;
-  /** Vinculación al formulario */
-  @Input() control: FormControl;
-  /** Nombre clave para identificarlo */
-  @Input() clave: string;
+
   /** Descripción del chip */
   @Input() descripcion: string;
-  /** Si debe estar deshabilitado */
-  @Input() disabled: boolean = false;
 
-
-  ngOnInit(): void {
-    if (!this.control) this.control = new FormControl();
-  }
-
-  /**
-   * Setea un nuevo valor y marca su control como touched y dirty para que lo cojan las detecciones de cambios
-   * @param newValue Nuevo valor
-   */
-  setNewValue(newValue: boolean) {
-    this.control.setValue(this.control.value !== newValue ? newValue : null);
-    this.control.markAsTouched();
-    this.control.markAsDirty();
-  }
 
 }

@@ -1,6 +1,6 @@
 <div class="rbotonera" fxLayout="row" fxLayoutAlign="center">
     <button *ngFor="let accion of accionesActuales" [matTooltip]="accion.descripcion" (click)="doAccion(accion.funcion)"
-        class="material-icons" mat-icon-button color="primary" matTooltipPosition="above">
+        class="material-icons" icon-button matTooltipPosition="above">
         <span class="material-icons">{{accion.icono}}</span>
     </button>
 </div>

@@ -1,13 +1,13 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FormGroup, UntypedFormArray } from '@angular/forms';
-import { GTAccion, GTFormulario } from 'ngx-generic-tools/models';
+import { GTFormulario } from 'ngx-generic-tools/models';
 import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
-import { Dialog } from '@angular/cdk/dialog';
+import { Dialog, DialogConfig } from '@angular/cdk/dialog';
+import { ComponentType } from '@angular/cdk/portal';
 //import { GTFormulario, GTTF } from './model/Formulario';
 //import { GTEditarGenericoComponent } from './forms/editar-generico/editar-generico.component';
 
@@ -30,7 +30,6 @@ export class SharedService {
     public menuContextualAbierto: EventEmitter<boolean> = new EventEmitter();
 
     constructor(
-        private dialog: MatDialog,
         public ckDialog: Dialog,
         private router: Router,
         private snackBar: MatSnackBar
@@ -69,25 +68,6 @@ export class SharedService {
     * @param visual Texto a mostrar para el atributo
     * @returns Observable del dialogo
     */
-    muestraConfirmacion(tipo: string, elemento?: any, atributo?: string, visual?: string, options?: string[]): Observable<any> {
-
-        const dialogRef = this.dialog.open(GTConfirmacionComponent, this.openDialog(30));
-        if (elemento?.[atributo] === undefined && tipo === 'eliminarGenerico2') tipo = 'eliminarGenerico';
-        let mensaje = elemento ? this.mensajes[tipo].replace('??', visual).replace('??', elemento[atributo]) : this.mensajes[tipo];
-        mensaje = mensaje ? mensaje : tipo;
-        dialogRef.componentInstance.mensaje = mensaje;
-        dialogRef.componentInstance.options = options;
-        return dialogRef.afterClosed();
-    }
-    /**
-    * Función que gestiona la apertura de un dialogo de confirmación
-    *
-    * @param tipo El identificador del catálogo de mensajes, si no lo encuentra, el tipo actua de mensajes
-    * @param elemento Elemento del que se pide confirmación
-    * @param atributo Atributo del que se cogerá el identificador en caso de ser necesario
-    * @param visual Texto a mostrar para el atributo
-    * @returns Observable del dialogo
-    */
     muestraConfirmacionCK(mensaje:string, options?: string[]): Observable<any> {
         const dialogRef = this.ckDialog.open(GTConfirmacionComponent, {
             width: '30vw',
@@ -97,22 +77,6 @@ export class SharedService {
     }
 
 
-
-    /**
-     * Función que devuelve la configuración de un dialogo
-     *
-     * @param size Parametro opcional para determinar el tamaño del dialogo
-     * @returns Configuración del dialogo
-     */
-    openDialog(size?: number): MatDialogConfig {
-        const dialogConfig = new MatDialogConfig();
-        dialogConfig.disableClose = false;
-        dialogConfig.width = size ? size + 'vw' : '30vw';
-        dialogConfig.height = 'auto';
-        dialogConfig.maxWidth = size ? size + 'vw' : '30vw';
-        dialogConfig.autoFocus = true;
-        return dialogConfig;
-    }
     /**
      * Apertura de un dialogo para un componente a recibir
      *
@@ -123,8 +87,8 @@ export class SharedService {
      * @param directInject Si debe injectar atributos en el componente
      * @param disableClose Si debe deshabilitar el cierre clicando fuera
      */
-    openGenericDialog(component: any, data: any, size?: string, height?: string, directInject?: any[], disableClose?: boolean): Observable<any> {
-        const dialogConfig = new MatDialogConfig();
+    openGenericDialog(component: ComponentType<unknown>, data: any, size?: string, height?: string, directInject?: any[], disableClose?: boolean): Observable<any> {
+        const dialogConfig = new DialogConfig();
         dialogConfig.autoFocus = false;
         dialogConfig.data = data;
         dialogConfig.width = size ? size : 'fit-content';
@@ -132,12 +96,12 @@ export class SharedService {
         dialogConfig.height = height ? height : null;
         dialogConfig.maxHeight = height ? height : null;
         dialogConfig.disableClose = disableClose ? disableClose : false;
-        const dialogRef = this.dialog.open(component, dialogConfig);
+        const dialogRef = this.ckDialog.open(component,dialogConfig as any);
         if (directInject) {
             directInject.forEach(direct => dialogRef.componentInstance[direct.name] = direct.value)
         }
         return new Observable(observer => {
-            dialogRef.afterClosed().subscribe(valor => {
+            dialogRef.closed.subscribe(valor => {
                 observer.next(valor);
                 observer.complete();
             })

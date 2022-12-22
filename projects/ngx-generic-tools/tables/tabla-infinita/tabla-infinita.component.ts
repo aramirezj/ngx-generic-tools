@@ -169,19 +169,19 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
         } else {
             switch (accion) {
                 case 'eliminarT':
-                    this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
+                    /*this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
                         if (accept) {
                             this.borraElemento(elemento)
                             this.enviaNotificacion({ accion, elemento });
                         }
-                    });
+                    });*/
                     break;
                 case 'eliminar':
-                    this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
+                   /* this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
                         if (accept) {
                             this.enviaNotificacion({ accion, elemento });
                         }
-                    });
+                    });*/
                     break;
                 case 'editarT':
                     if (this.formulario) {

@@ -366,7 +366,7 @@ export abstract class GTTablaMaestra {
         //Si no se ha detectado el tamaño de la tabla por la razón que sea, la seteamos a 5000 para que tenga de sobra
         this.tamanioInicial = anchuraTabla;
         let iTotal: number = 0;
-
+        console.log(this)
         let numeroColumnas = (this.modelo.length + (this.objetos ? this.objetos.length : 0)) + (this.selectsMaestros ? this.selectsMaestros.length : 0);
         if (this.acciones || this.accionesCondicionales && (!this.fxFlexes)) numeroColumnas += 0.5;
         const widthBase: number = 100 / numeroColumnas;

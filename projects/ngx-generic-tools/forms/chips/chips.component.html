@@ -1,23 +1,19 @@
 <div class="chipBox">
-    <span class="description" *ngIf="descripcion">({{descripcion}})</span>
+    <span class="description" *ngIf="descripcion">{{descripcion}}</span>
     <div class="chips">
-        <div
-        [ngClass]="{
+        <div [ngClass]="{
             'chip' : true,
             'disabled' : disabled,
-            'green':control.value === true
+            'green':field === true
         }" (click)="writeValue(true)">
-           Si
+            Yes
         </div>
-        <div
-        [ngClass]="{
+        <div [ngClass]="{
             'chip' : true,
             'disabled' : disabled,
-            'red':control.value === false
+            'red':field === false
         }" (click)="writeValue(false)">
-            <span>No</span> 
+            <span>No</span>
         </div>
     </div>
-
-    <mat-error *ngIf="control.hasError('required') && control.touched">Este campo es obligatorio</mat-error>
 </div>

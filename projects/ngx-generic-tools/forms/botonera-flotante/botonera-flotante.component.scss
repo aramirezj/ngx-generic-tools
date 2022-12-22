@@ -1,3 +1,4 @@
+@import "../../styles/buttons.scss";
 /**
 * Estilo de la botonera flotante en una fila
 */
@@ -21,11 +22,8 @@
     * Estilos para los botones de la botonera
     */
     button {
-        background-color: #f7f7f7;
-        border-radius: 0px;
         width: 1.7em;
         height: 1.7em;
-        border: 1px solid rgb(221, 221, 221);
     }
 }
 

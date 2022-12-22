@@ -96,21 +96,21 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
         } else {
             switch (accion) {
                 case 'eliminarT':
-                    this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
+                    /*this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
                         if (accept) {
                             this.datos.splice(this.datos.indexOf(elemento), 1);
                             this.datosAMostrar.splice(this.datosAMostrar.indexOf(elemento), 1);
                             this.notify.emit({ accion, elemento });
                         }
-                    });
+                    });*/
                     break;
                 case 'eliminar':
-                    this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
+                   /* this.sharedService.muestraConfirmacion('eliminarGenerico2', elemento, this.modelo[0], this.visual[0]).subscribe(accept => {
                         if (accept) {
                             this.notify.emit({ accion, elemento });
                         }
                     });
-                    break;
+                    break;*/
                 case 'editarT':
                     if (this.formulario) {
                         this.formulario.elemento = elemento;
