@@ -3,7 +3,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { BehaviorSubject } from 'rxjs';
-import { GTAccion, GTFormulario, GTTF, GTPeticionExpansion, GTSelectMaestroTabla } from 'ngx-generic-tools/models';
+import { GTAccion, GTForm, GT_TF, GTPeticionExpansion, GTSelectMaestroTabla } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
 import { GTTablaComponent } from '../tabla/tabla.component';
 import { GTTablaMaestra } from '../TablaMaestra';
@@ -193,7 +193,7 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
                             }
                         });
                     } else {
-                        const form = new GTFormulario(GTTF.EDICION, this.modelo, this.visual, 'Edición del elemento');
+                        const form = new GTForm(GT_TF.EDICION, this.modelo, this.visual, 'Edición del elemento');
                         form.elemento = elemento;
                         this.sharedService.muestraFormulario(form).subscribe(resp => {
                             if (resp) {

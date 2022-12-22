@@ -5,7 +5,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
 import { BehaviorSubject, filter, fromEvent, Subscription, take } from 'rxjs';
 import { forkJoin } from 'rxjs';
-import { GTAccion, GTFormulario, GTTF, GTObjetoTabla, GTPeticionExpansion, GTPeticionPaginacion, GTSelectMaestroTabla, GTFormatosTabla } from 'ngx-generic-tools/models';
+import { GTAccion, GTForm, GT_TF, GTObjetoTabla, GTPeticionExpansion, GTPeticionPaginacion, GTSelectMaestroTabla, GTFormatosTabla } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
 import { GTBuscadorComponent } from './buscador/buscador.component';
 
@@ -38,8 +38,8 @@ export abstract class GTTablaMaestra {
     @Input() formatos: GTFormatosTabla;
     /** Habilita o deshabilita el buscador de la tabla */
     @Input() buscador: boolean = false;
-    /** GTFormulario que se podrá incluir en el formulario, para, si llama a editarT, invoque el formulario para su edición */
-    @Input() formulario: GTFormulario;
+    /** GTForm que se podrá incluir en el formulario, para, si llama a editarT, invoque el formulario para su edición */
+    @Input() formulario: GTForm;
     /** Clave primaria que tendrá la tabla. Se utilizará en las inserciones por método y edición */
     @Input() clavePrimaria: string;
     /** Atributo por el cuál se está ordenando. Se utilizará en las acciones de subir y bajar */
@@ -286,7 +286,7 @@ export abstract class GTTablaMaestra {
      */
     openInspeccion(elemento: any, posicion: number): void {
         const objTabla = this.objetos[posicion];
-        const form = new GTFormulario(GTTF.INSPECCION, objTabla.columnasModelo, objTabla.columnasVisuales, `Inspección de ${objTabla.nombreVisual}`);
+        const form = new GTForm(GT_TF.INSPECCION, objTabla.columnasModelo, objTabla.columnasVisuales, `Inspección de ${objTabla.nombreVisual}`);
         form.controles = Object.assign(objTabla.formulario.controles);
         if (elemento[objTabla.nombreModelo]) {
             if (objTabla.peticion) {

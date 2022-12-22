@@ -15,7 +15,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { GTSelectMaestroComponent } from './select-maestro/select-maestro.component';
 import { GTChipsComponent } from './chips/chips.component';
 import { GTBotoneraComponent } from './botonera-flotante/botonera-flotante.component';
-import { GTEditarGenericoComponent } from './editar-generico/editar-generico.component';
+import { GTGenericEditorComponent } from './editar-generico/editar-generico.component';
 
 import { GTConversionDirective } from './directives/conversion.directive';
 import { GTMatErrorMessagesDirective } from './directives/matErrorMessages.directive';
@@ -39,7 +39,7 @@ const components: any[] = [
   GTSelectMaestroComponent,
   GTChipsComponent,
   GTBotoneraComponent,
-  GTEditarGenericoComponent,
+  GTGenericEditorComponent,
   GTConversionDirective,
   GTMatErrorMessagesDirective
 ]
@@ -56,4 +56,4 @@ const components: any[] = [
     ...components
   ], providers: [GTFormService]
 })
-export class GTFormsModule { }
+export class GTFormModule { }

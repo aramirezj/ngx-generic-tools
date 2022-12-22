@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { GTFormulario, GTTC } from 'ngx-generic-tools/models';
-import { GTTF } from 'projects/ngx-generic-tools/models/public-api';
+import { GTForm, GT_TC } from 'ngx-generic-tools/models';
+import { GT_TF } from 'projects/ngx-generic-tools/models/public-api';
 import { SharedService } from 'projects/ngx-generic-tools/shared/shared.service';
 import { Dialog } from '@angular/cdk/dialog';
 import { GTTablaComponent } from 'ngx-generic-tools/tables';
@@ -14,7 +14,7 @@ import { GTFormService } from 'projects/ngx-generic-tools/forms/form.service';
 export class AppComponent {
   title = 'sample-project';
 
-  miForm: GTFormulario = new GTFormulario(GTTF.CREACION, ['nombre', 'fecha'], ['Nombre', 'Fecha'], 'Creación');
+  miForm: GTForm = new GTForm(GT_TF.CREACION, ['nombre', 'fecha'], ['Nombre', 'Fecha'], 'Creación');
 
 
   datos:any[] = [{nombre:'xd',apellidos:'omgggg'},{nombre:'xdawdd',apellidos:'omgggggg'},{nombre:'xddd',apellidos:'om  gggg'},{nombre:'ddxd',apellidos:'omgggg'}];
@@ -26,7 +26,7 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    this.miForm.cambiarTipo(GTTC.FECHA,['fecha']);
+    this.miForm.changeType(GT_TC.FECHA,['fecha']);
     this.formService.showForm(this.miForm).subscribe(resp => {
       console.log(resp);
     })

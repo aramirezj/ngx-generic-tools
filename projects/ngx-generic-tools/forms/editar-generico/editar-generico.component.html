@@ -1,4 +1,4 @@
-<!--GTFormulario generado con el modelo GTFormulario-->
+<!--GTForm generado con el modelo GTForm-->
 <div class="dialog-container">
     <div class="dialog-content">
         <h1>{{formulario.titulo}}</h1>
@@ -17,7 +17,7 @@
                         <!--Control de Número-->
                         <mat-form-field class="eleFormulario" *ngSwitchCase="'numero'" appearance="outline">
                             <mat-label>{{visualDato[i]}}</mat-label>
-                            <input matInput [gtConversion]="GTTC_F.NUMERO" [formControlName]="atributo">
+                            <input matInput [gtConversion]="GT_TC_F.NUMERO" [formControlName]="atributo">
                             <mat-error gt-matErrorMessages></mat-error>
                         </mat-form-field>
                         <!--Control de Checkbox -->

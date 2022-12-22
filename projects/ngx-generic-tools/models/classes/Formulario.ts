@@ -1,9 +1,9 @@
 import { ValidatorFn, Validators } from '@angular/forms';
-import { GTElementoFormulario } from './ElementoFormulario';
+import { GTFormElement } from './ElementoFormulario';
 import { GTPeticionExpansion } from './PeticionExpansion';
 
-/** Lista de controles que soporta el modelo GTFormulario */
-export enum GTTC {
+/** Lista de controles que soporta el modelo GTForm */
+export enum GT_TC {
     TEXTO = 'texto',
     NUMERO = 'numero',
     EURO = 'euro',
@@ -25,7 +25,7 @@ export enum GTTC {
 }
 
 /** Lista de formatos de los tipos de controles */
-export enum GTTC_F {
+export enum GT_TC_F {
     MAYUSCULA = 'mayuscula',
     MINUSCULA = 'minuscula',
     NUMERO = 'numero',
@@ -41,19 +41,19 @@ export enum GTTC_F {
     CIF = 'CIF'
 }
 
-/** Listado de tipos posibles para un GTFormulario */
-export enum GTTF {
+/** Listado de tipos posibles para un GTForm */
+export enum GT_TF {
     CREACION = 'creacion',
     EDICION = 'edicion',
     INSPECCION = 'inspeccion'
 }
 
-/** Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en GTEditarGenericoComponent */
-export class GTFormulario {
+/** Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en GTGenericEditorComponent */
+export class GTForm {
     /** Elemento que se trata en caso de ser de tipo edición o inspección el formulario */
     elemento: any;
-    /** Lista de GTElementoFormulario con el que trabaja */
-    controles: GTElementoFormulario[] = [];
+    /** Lista de GTFormElement con el que trabaja */
+    controles: GTFormElement[] = [];
     /** Elemento original, se utiliza en los formularios de edición para tener constancia del elemento original */
     elementoOriginal: any;
     /** Número de columnas que tendrá el formulario a mostrar */
@@ -72,7 +72,7 @@ export class GTFormulario {
     /** Funciones extras que se ejecutarán a través de botones */
     extraActions: { label: string, function: Function, close: boolean }[] = [];
     constructor(
-        public tipo: GTTF | string,
+        public tipo: GT_TF | string,
         public modelo: string[],
         public visual: string[],
         public titulo: string,
@@ -80,7 +80,7 @@ export class GTFormulario {
     ) {
         this.modelo = modelo.map(this.sanitizaModelo);
         this.modelo.forEach(atributo => {
-            this.addElemento(atributo, new GTElementoFormulario(atributo, GTTC.TEXTO, this.tipo === GTTF.INSPECCION));
+            this.addElement(atributo, new GTFormElement(atributo, GT_TC.TEXTO, this.tipo === GT_TF.INSPECCION));
         });
         this.visual.forEach(atributo => atributo = atributo.replace('<br>', ' '));
         this.elemento = {};
@@ -103,8 +103,8 @@ export class GTFormulario {
      */
     setValidaciones(validaciones: ValidatorFn[], atributos?: string[]): void {
         atributos ?
-            atributos.forEach(atributo => this.getElemento(atributo).control.setValidators(validaciones)) :
-            this.modelo.forEach(atributo => this.getElemento(atributo).control.setValidators(validaciones))
+            atributos.forEach(atributo => this.getElement(atributo).control.setValidators(validaciones)) :
+            this.modelo.forEach(atributo => this.getElement(atributo).control.setValidators(validaciones))
     }
     /**
      * Agrega la validación Obligatorio a una serie de controles
@@ -112,7 +112,7 @@ export class GTFormulario {
      * @param atributos Lista de controles
      */
     addRequired(atributos: string[]): void {
-        atributos.forEach(atributo => this.getElemento(atributo).control.setValidators([Validators.required]));
+        atributos.forEach(atributo => this.getElement(atributo).control.setValidators([Validators.required]));
     }
 
     /**
@@ -120,7 +120,7 @@ export class GTFormulario {
      *
      * @param elemento Nombre del elemento a recuperar
      */
-    getElemento(elemento: string): GTElementoFormulario {
+    getElement(elemento: string): GTFormElement {
         return this.controles[elemento];
     }
 
@@ -132,7 +132,7 @@ export class GTFormulario {
      * @param nombre nombre del control del elemento
      * @param elemento elemento a insertar
      */
-    addElemento(nombre: string, elemento: GTElementoFormulario): GTElementoFormulario {
+    addElement(nombre: string, elemento: GTFormElement): GTFormElement {
         if (this.controles[nombre]) {
             elemento.fxFlex = this.controles[nombre].fxFlex;
         }
@@ -145,7 +145,7 @@ export class GTFormulario {
      * @param nombre nombre del control del elemento
      * @param elemento elemento a insertar
      */
-    addElementos(nombres: string[], elementos: GTElementoFormulario[]): void {
+    addElements(nombres: string[], elementos: GTFormElement[]): void {
         let i = 0;
         nombres.forEach(nombre => { this.controles[nombre] = elementos[i]; i++; });
     }
@@ -155,11 +155,11 @@ export class GTFormulario {
      *
      * @param atributos Lista de nombre de controles
      */
-    deshabilitaControles(atributos?: string[]): void {
+    disableControls(atributos?: string[]): void {
         atributos = atributos ?? this.modelo;
         atributos.forEach(atributo => {
-            this.getElemento(atributo).disabled = true;
-            this.getElemento(atributo).control.disable();
+            this.getElement(atributo).disabled = true;
+            this.getElement(atributo).control.disable();
         });
     }
 
@@ -168,10 +168,10 @@ export class GTFormulario {
      *
      * @param atributos Lista de nombre de controles
      */
-    habilitaControles(atributos: string[]): void {
+    enableControls(atributos: string[]): void {
         atributos.forEach(atributo => {
-            this.getElemento(atributo).control.enable();
-            this.getElemento(atributo).disabled = false;
+            this.getElement(atributo).control.enable();
+            this.getElement(atributo).disabled = false;
         });
     }
 
@@ -181,14 +181,14 @@ export class GTFormulario {
      * @param tipo Tipo al que cambiar. EJ: 'fecha | euro | porcentaje | orden | texto | numero | checkbox | select | selectPro | selectBooleano'
      * @param atributos Lista de nombres de controles
      */
-    cambiarTipo(tipo: GTTC | string, atributos: string[]): void {
-        if (tipo === GTTC.EURO || tipo === GTTC.PORCENTAJE || tipo === GTTC.ORDEN) {
+    changeType(tipo: GT_TC | string, atributos: string[]): void {
+        if (tipo === GT_TC.EURO || tipo === GT_TC.PORCENTAJE || tipo === GT_TC.ORDEN) {
             atributos.forEach(atributo => {
-                const ele: GTElementoFormulario = this.getElemento(atributo);
+                const ele: GTFormElement = this.getElement(atributo);
                 if (ele) ele.setFormatoNumero(tipo);
             });
         } else {
-            atributos.forEach(atributo => { if (this.getElemento(atributo)) this.getElemento(atributo).tipo = tipo });
+            atributos.forEach(atributo => { if (this.getElement(atributo)) this.getElement(atributo).tipo = tipo });
         }
 
     }
@@ -200,8 +200,8 @@ export class GTFormulario {
      * @param tipo Tipo de formulario, puede ser creación, edición e inspección
      * @param titulo Titulo a mostrar para el formulario
      */
-    cambiarTipoFormulario(elemento?: any, tipo?: GTTF | string, titulo?: string): void {
-        if (this.tipo === GTTF.INSPECCION && tipo !== GTTF.INSPECCION) {
+    changeTypeForm(elemento?: any, tipo?: GT_TF | string, titulo?: string): void {
+        if (this.tipo === GT_TF.INSPECCION && tipo !== GT_TF.INSPECCION) {
             for (const value of Object.values(this.controles)) {
                 value.disabled = false;
                 value.control.enable();
@@ -229,8 +229,8 @@ export class GTFormulario {
      * @param atributos Lista de nombres de controles al que modificarselo
      * @param mask Objeto opcional con parametros especificos de formato (suffix, decimal, thousands...)
      */
-    setFormato(formato: GTTC | string, atributos: string[], mask?: object): void {
-        atributos.forEach(atributo => this.getElemento(atributo).setFormatoNumero(formato, mask));
+    setFormato(formato: GT_TC | string, atributos: string[], mask?: object): void {
+        atributos.forEach(atributo => this.getElement(atributo).setFormatoNumero(formato, mask));
     }
 
     /**

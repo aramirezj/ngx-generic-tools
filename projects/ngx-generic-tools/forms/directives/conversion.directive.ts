@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { GTTC_F } from 'ngx-generic-tools/models';
+import { GT_TC_F } from 'ngx-generic-tools/models';
 
 @Directive({
     selector: '[gtConversion]'
@@ -7,7 +7,7 @@ import { GTTC_F } from 'ngx-generic-tools/models';
 /** Directiva que hace conversiones de texto. Opciones: Mayuscula, minuscula y número */
 export class GTConversionDirective {
     /** Tipo de conversión que ha de realizar */
-    @Input('gtConversion') type: GTTC_F;
+    @Input('gtConversion') type: GT_TC_F;
     constructor(private _el: ElementRef) { }
     /** Escucha de evento de input */
     @HostListener('input', ['$event']) onInputChange(event): void {

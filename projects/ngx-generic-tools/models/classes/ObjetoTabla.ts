@@ -1,9 +1,9 @@
-import { GTFormulario } from './Formulario';
+import { GTForm } from './Formulario';
 import { GTPeticionExpansion } from './PeticionExpansion';
 /** Clase utilizada para que un atributo de una fila de una tabla, pueda ser un objeto complejo y se pueda inspeccionar */
 export class GTObjetoTabla {
-    /** GTFormulario que se le podrá asignar, en caso de no tener, la tabla creará uno base */
-    formulario:GTFormulario;
+    /** GTForm que se le podrá asignar, en caso de no tener, la tabla creará uno base */
+    formulario:GTForm;
     constructor(
         /** Nombre del atributo del que sacar el dato que se mostrará en la fila */
         public nombreAMostrar: string,

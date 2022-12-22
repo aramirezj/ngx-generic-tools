@@ -1,7 +1,7 @@
 import { Overlay } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { GTFormulario, GTTF, GTAccion } from 'ngx-generic-tools/models';
+import { GTForm, GT_TF, GTAccion } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
 import { GTTablaMaestra } from '../TablaMaestra';
 /** Componente de la Tabla encargada del listado y tratado de elementos */
@@ -121,7 +121,7 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
                             }
                         });
                     } else {
-                        const form = new GTFormulario(GTTF.EDICION, this.modelo, this.visual, 'Edición del elemento');
+                        const form = new GTForm(GT_TF.EDICION, this.modelo, this.visual, 'Edición del elemento');
                         form.elemento = elemento;
                         this.sharedService.muestraFormulario(form).subscribe(resp => {
                             if (resp) {

@@ -1,5 +1,5 @@
 //Module
-export {GTFormsModule} from './forms.module';
+export {GTFormModule} from './forms.module';
 
 //Service
 export {GTFormService} from './form.service';

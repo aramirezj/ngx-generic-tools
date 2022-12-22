@@ -4,12 +4,12 @@ import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FormGroup, UntypedFormArray } from '@angular/forms';
-import { GTFormulario } from 'ngx-generic-tools/models';
+import { GTForm } from 'ngx-generic-tools/models';
 import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { Dialog, DialogConfig } from '@angular/cdk/dialog';
 import { ComponentType } from '@angular/cdk/portal';
-//import { GTFormulario, GTTF } from './model/Formulario';
-//import { GTEditarGenericoComponent } from './forms/editar-generico/editar-generico.component';
+//import { GTForm, GT_TF } from './model/Formulario';
+//import { GTGenericEditorComponent } from './forms/editar-generico/editar-generico.component';
 
 
 //import { IframeComponent } from './iframe/iframe.component';
@@ -50,13 +50,13 @@ export class SharedService {
     /**
      * Función que abre un EditarGenerico a traves de un formulario
      *
-     * @param form GTFormulario a mostrar
+     * @param form GTForm a mostrar
      * @param size VW del dialogo
      * @returns Observable del dialogo
      */
-    muestraFormulario(form: GTFormulario, size?: string): Observable<any> {
+    muestraFormulario(form: GTForm, size?: string): Observable<any> {
         return null;
-        //return this.openGenericDialog(GTEditarGenericoComponent, form, size ? size : '45vw', null, null, true);
+        //return this.openGenericDialog(GTGenericEditorComponent, form, size ? size : '45vw', null, null, true);
     }
 
     /**
@@ -168,7 +168,7 @@ export class SharedService {
     /**
      * Función que devuelve una colección con los nombres de los campos que tengan error
      *
-     * @param formToInvestigate GTFormulario a procesar
+     * @param formToInvestigate GTForm a procesar
      * @param scroll Si debe hacer scroll hasta el elemento
      */
     findInvalidControlsRecursive(formToInvestigate: FormGroup | UntypedFormArray, scroll?: boolean): string[] {

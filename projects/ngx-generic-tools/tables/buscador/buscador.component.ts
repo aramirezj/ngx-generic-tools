@@ -11,7 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class GTBuscadorComponent implements OnInit {
   /** Elemento para notificar al componente que invoca la tabla */
   @Output() public notify: EventEmitter<string> = new EventEmitter<string>();
-  /** GTFormulario para el buscador simple */
+  /** GTForm para el buscador simple */
   form: FormGroup;
   constructor() { }
 

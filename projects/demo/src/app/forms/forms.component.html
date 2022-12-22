@@ -29,16 +29,16 @@ Example of code:
         });
     }
 
-    editProduct()&#123;
-        this.gtFormProduct.changeTypeForm('update');
+    editProduct(productToEdit:Product)&#123;
+        this.gtFormProduct.changeTypeForm('update',productToEdit);
         this.GTFormService.showForm(this.gtFormProduct).subscribe(updatedProduct => &#123;
             //Your api call for updating the product
         });
     }
 
-    inspectProduct()&#123;
+    inspectProduct(product:Product)&#123;
         //It will disable the form
-        this.gtFormProduct.changeTypeForm('inspect');
+        this.gtFormProduct.changeTypeForm('inspect',product);
         this.GTFormService.showForm(this.gtFormProduct).subscribe();
     }
 

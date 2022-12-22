@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 
 
-import { GTFormsModule } from 'projects/ngx-generic-tools/forms/forms.module';
+import { GTFormModule } from 'projects/ngx-generic-tools/forms/forms.module';
 import { SharedService } from 'projects/ngx-generic-tools/shared/shared.service';
 import { GTTableModule } from 'projects/ngx-generic-tools/tables/tables.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,7 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    GTFormsModule,
+    GTFormModule,
     GTTableModule,
     MatFormFieldModule,
     MatInputModule,
