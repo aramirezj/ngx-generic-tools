@@ -22,7 +22,7 @@
   "author": "Alejandro Ramírez Jiménez https://www.linkedin.com/in/aramirezjimenez/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aramirezj/ngx-generic-tools.git"
+    "url": "https://github.com/aramirezj/ngx-generic-tools"
   },
   "bugs": {
     "url": "https://github.com/aramirezj/ngx-generic-tools/issues"

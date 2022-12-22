@@ -10,7 +10,7 @@
     "url": "https://github.com/aramirezj/ngx-generic-tools/issues"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/yourOrganizationOrAccount"
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "javascript",
@@ -31,7 +31,7 @@
     "build": "ng build ngx-generic-tools --configuration production",
     "build-library": "ng build ngx-generic-tools",
     "watch": "ng build --watch --configuration development",
-    "stats":"ng build testing-project --stats-json && webpack-bundle-analyzer dist/testing-project/stats.json",
+    "stats": "ng build testing-project --stats-json && webpack-bundle-analyzer dist/testing-project/stats.json",
     "test": "ng test"
   },
   "private": true,
@@ -55,6 +55,7 @@
     "@angular/cli": "~15.0.2",
     "@angular/compiler-cli": "^15.0.0",
     "@types/jasmine": "~4.3.0",
+    "angular-cli-ghpages": "^1.0.5",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
