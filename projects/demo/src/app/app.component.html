@@ -1,0 +1,28 @@
+<!-- Barra de navegación -->
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Demo Ngx-generic-tools</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+
+
+<!-- Contenido de la web -->
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer opened class="example-sidenav" mode="side">
+        <div class="elementoBarra" [routerLink]="['forms']"> Forms</div>
+        <div class="elementoBarra" [routerLink]="['tables']"> Tables</div>
+        <div class="elementoBarra" [routerLink]="['libro/creacionLibro']"> Utilities</div>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <!-- Resultado del enrutamiento -->
+
+      
+   
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>
+

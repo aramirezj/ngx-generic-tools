@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a {
+    color: #0366d6;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.comando {
+    background-color: rgba(110, 118, 129, 0.4);
+    padding: .2em 0.4em;
+    border-radius: 6px;
+}
+
+h3 {
+    padding-left: 2px;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+}

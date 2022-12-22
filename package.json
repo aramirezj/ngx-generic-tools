@@ -27,6 +27,7 @@
     "ng": "ng",
     "start": "ng serve",
     "testing": "ng serve testing-project",
+    "demo": "ng serve demo",
     "build": "ng build ngx-generic-tools --configuration production",
     "build-library": "ng build ngx-generic-tools",
     "watch": "ng build --watch --configuration development",

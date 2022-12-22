@@ -1,0 +1,51 @@
+<h1><a href="https://aramirezj.github.io/ngx-generic-tools/">GTFormModule</a></h1>
+
+<h1 id="ngxworkspace">How to start:</h1>
+<p>Import <span class="comando">GTFormModule</span> in the module you want to use</p>
+
+
+<h2 id="development-server">Components:</h2>
+
+<h3 id="development-server">Generic editor:</h3>
+<p>Is a component that recives an object of type GTForm. With this object, it can generate a popup that shows a form with the 
+    specifications that you coded. For example, it can be use with an object called productForm:GTForm that specifies 4 attributes,
+    each one with differente types, and you can open this form for creating, updating, and inspecting.
+</p>
+
+Example of code:
+<pre><code class="language-js">
+    constructor(private GTFormService:GTFormService)&#123;}
+
+    configForms()&#123;
+        this.gtFormProduct = new GTForm('create',['code','name','type','stock'],['Code','Full name','Type','Stock'],'Creating a product');
+        this.gtFormProduct.addRequired(['name','type']);
+        this.gtFormProduct.changeType('number',['stock']);
+    }
+
+    createProduct()
+        this.gtFormProduct.changeTypeForm('create');
+        this.GTFormService.showForm(this.gtFormProduct).subscribe(newProduct => &#123;
+            //Your api call for sending the new product
+        });
+    }
+
+    editProduct()&#123;
+        this.gtFormProduct.changeTypeForm('update');
+        this.GTFormService.showForm(this.gtFormProduct).subscribe(updatedProduct => &#123;
+            //Your api call for updating the product
+        });
+    }
+
+    inspectProduct()&#123;
+        //It will disable the form
+        this.gtFormProduct.changeTypeForm('inspect');
+        this.GTFormService.showForm(this.gtFormProduct).subscribe();
+    }
+
+</code>
+</pre>
+
+
+
+
+
