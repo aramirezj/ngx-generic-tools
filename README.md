@@ -13,4 +13,4 @@ Run `npm install ngx-generic-tools`
 
 ## Use and Demo
 
-[Interactive demo](https://aramirezj.github.io/ngx-generic-tools/home)
+[Interactive demo](https://aramirezj.github.io/ngx-generic-tools/)

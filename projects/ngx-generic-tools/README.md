@@ -11,10 +11,8 @@ are not going to feel the size
 
 Run `npm install ngx-generic-tools`
 
-## Use
+## Use and Demo
 
-
-
-## Demo
+[Interactive demo](https://aramirezj.github.io/ngx-generic-tools/)
 
 
