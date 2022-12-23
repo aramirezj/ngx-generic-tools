@@ -2,74 +2,74 @@ import { ValidatorFn, Validators } from '@angular/forms';
 import { GTFormElement } from './ElementoFormulario';
 import { GTPeticionExpansion } from './PeticionExpansion';
 
-/** Lista de controles que soporta el modelo GTForm */
+/** List of formats for control types */
 export enum GT_TC {
-    TEXTO = 'texto',
-    NUMERO = 'numero',
+    TEXTO = 'text',
+    NUMERO = 'number',
     EURO = 'euro',
-    PORCENTAJE = 'porcentaje',
-    ORDEN = 'orden',
+    PORCENTAJE = 'percentage',
+    ORDEN = 'order',
     CHECKBOX = 'checkbox',
-    FECHA = 'fecha',
+    FECHA = 'date',
     SELECT = 'select',
-    SELECTOBJETO = 'selectObjeto',
-    SELECTBOOLEAN = 'selectBoolean',
-    SELECTMAESTRO = 'selectMaestro',
-    SELECTAUTOCOMPLETADO = 'selectAutocompletado',
-    PLANO = 'plano',
+    SELECTOBJETO = 'objectSelect',
+    SELECTBOOLEAN = 'booleanSelect',
+    SELECTMAESTRO = 'masterSelect',
+    SELECTAUTOCOMPLETADO = 'autocompleteSelect',
+    PLANO = 'flat',
     TEXTAREA = 'textArea',
     SLIDER = 'slider',
-    identificador = 'identificador',
+    IDENTIFICADOR = 'identifier',
     NIE = 'NIE',
     CIF = 'CIF'
 }
 
-/** Lista de formatos de los tipos de controles */
+/** List of formats for control types */
 export enum GT_TC_F {
-    MAYUSCULA = 'mayuscula',
-    MINUSCULA = 'minuscula',
-    NUMERO = 'numero',
+    UPPERCASE = 'uppercase',
+    LOWERCASE = 'lowercase',
+    NUMBER = 'number',
     EURO = 'euro',
-    PORCENTAJE = 'porcentaje',
-    ORDEN = 'orden',
-    ESPACIO = 'espacio',
-    MAYUSCULAESPACIO = 'mayusculaEspacio',
-    MINUSCULAESPACIO = 'minusculaEspacio',
-    identificador = 'identificador',
+    PERCENTAGE = 'percentage',
+    ORDER = 'order',
+    SPACE = 'space',
+    UPPERCASESPACE = 'uppercaseSpace',
+    LOWERCASESPACE = 'lowercaseSpace',
+    IDENTIFIER = 'identifier',
     NIF = 'NIF',
     NIE = 'NIE',
     CIF = 'CIF'
 }
 
-/** Listado de tipos posibles para un GTForm */
+/** List of possible types for a GTForm */
 export enum GT_TF {
-    CREACION = 'creacion',
-    EDICION = 'edicion',
-    INSPECCION = 'inspeccion'
+    CREATION = 'creation',
+    EDITION = 'edition',
+    INSPECTION = 'inspection'
 }
 
-/** Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en GTGenericEditorComponent */
+/** Class used for the management of generic and specific forms, shown later in GTGenericEditorComponent */
 export class GTForm {
-    /** Elemento que se trata en caso de ser de tipo edición o inspección el formulario */
+    /** Element being treated in case the form is of type edition or inspection */
     elemento: any;
-    /** Lista de GTFormElement con el que trabaja */
+    /** List of GTFormElements to work with */
     controles: GTFormElement[] = [];
-    /** Elemento original, se utiliza en los formularios de edición para tener constancia del elemento original */
+    /** Original element, used in edition forms to keep track of the original element */
     elementoOriginal: any;
-    /** Número de columnas que tendrá el formulario a mostrar */
+    /** Number of columns the form will have when displayed */
     numeroColumnas: number = 1;
-    /** Opción exclusiva para los requerimientos. Contiene la tabla asociada  */
+    /** Exclusive option for requirements. Contains the associated table */
     requerir: string;
-    /** Primary key del elemento */
+    /** Primary key of the element */
     idRequerir: string;
-    /** Conjunto de peticiones para ejecutar al previo cierre del dialogo, se ordenan según el tipo del formulario */
+    /** Set of requests to execute prior to closing the dialog, ordered according to the form type */
     peticionesAPI?: {
         creacion?: GTPeticionExpansion,
         edicion?: GTPeticionExpansion
     } = {};
-    /** En el caso de estar seteado se permitirá el borrado con la petición definida en peticionesAPI de edición*/
+    /** If set, deletion will be allowed with the request defined in peticionesAPI for edition */
     permiteBorrado?: boolean = false;
-    /** Funciones extras que se ejecutarán a través de botones */
+    /** Extra functions to be executed through buttons */
     extraActions: { label: string, function: Function, close: boolean }[] = [];
     constructor(
         public tipo: GT_TF | string,
@@ -80,7 +80,7 @@ export class GTForm {
     ) {
         this.modelo = modelo.map(this.sanitizaModelo);
         this.modelo.forEach(atributo => {
-            this.addElement(atributo, new GTFormElement(atributo, GT_TC.TEXTO, this.tipo === GT_TF.INSPECCION));
+            this.addElement(atributo, new GTFormElement(atributo, GT_TC.TEXTO, this.tipo === GT_TF.INSPECTION));
         });
         this.visual.forEach(atributo => atributo = atributo.replace('<br>', ' '));
         this.elemento = {};
@@ -101,7 +101,7 @@ export class GTForm {
      * @param validaciones Lista de Validators
      * @param atributos Lista de nombres de atributos de los campos
      */
-    setValidaciones(validaciones: ValidatorFn[], atributos?: string[]): void {
+    setValidations(validaciones: ValidatorFn[], atributos?: string[]): void {
         atributos ?
             atributos.forEach(atributo => this.getElement(atributo).control.setValidators(validaciones)) :
             this.modelo.forEach(atributo => this.getElement(atributo).control.setValidators(validaciones))
@@ -116,7 +116,7 @@ export class GTForm {
     }
 
     /**
-     * Recupera un elemento del formulario
+     * Recover a element of the form
      *
      * @param elemento Nombre del elemento a recuperar
      */
@@ -125,7 +125,7 @@ export class GTForm {
     }
 
     /**
-     * Inserta/Sustituye un elemento personalizado en el formulario.
+     * Add/Replace an element from the form
      *
      * En caso de que el elemento ya exista, se conserva su configuración de FxFlex previa.
      *
@@ -201,7 +201,7 @@ export class GTForm {
      * @param titulo Titulo a mostrar para el formulario
      */
     changeTypeForm(elemento?: any, tipo?: GT_TF | string, titulo?: string): void {
-        if (this.tipo === GT_TF.INSPECCION && tipo !== GT_TF.INSPECCION) {
+        if (this.tipo === GT_TF.INSPECTION && tipo !== GT_TF.INSPECTION) {
             for (const value of Object.values(this.controles)) {
                 value.disabled = false;
                 value.control.enable();
@@ -217,7 +217,7 @@ export class GTForm {
      * @param modelo Columnas modelo
      * @param visual Columnas visuales
      */
-    cambiarColumnas(modelo: string[], visual: string[]) {
+    changeColumns(modelo: string[], visual: string[]) {
         this.modelo = modelo;
         this.visual = visual;
     }

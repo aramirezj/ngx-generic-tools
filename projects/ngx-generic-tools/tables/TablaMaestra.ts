@@ -17,112 +17,113 @@ import { GTFormService } from 'ngx-generic-tools/forms';
     template: ''
 })
 export abstract class GTTablaMaestra {
-    public static inputComunes: string[] = ['datos', 'visual', 'modelo', 'acciones', 'accionesCondicionales', 'buscador',
-        'formatos', 'formulario', 'clavePrimaria', 'paginacionAsincrona', 'seleccionable', 'paginador',
-        'elementoPreseleccionado', 'objetos', 'selectsPro', 'subjectLoaded', 'filtroAvanzado', 'modoCasillas', 'menuAcciones', 'fxFlexes'];
-    //'orden', 'peticionActualizacion'];
-    /** Visibilidad del componente de busqueda */
-    @ViewChild(GTBuscadorComponent, { static: false }) buscadorApp: GTBuscadorComponent;
-    /** Visibilidad del paginador */
-    @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-    /** Atributo con la colección de datos a mostrar */
-    @Input() datos: any[] = [];
-    /** Columnas a mostrar en la tabla */
+    public static commonInputs: string[] = ['data', 'visual', 'model', 'actions', 'conditionalActions', 'search',
+        'formats', 'form', 'primaryKey', 'asyncPagination', 'selectable', 'paginator',
+        'preselectedElement', 'objects', 'masterSelects', 'subjectLoaded', 'advancedFilter', 'checkboxMode', 'actionMenu', 'fxFlexes', 'order', 'updateRequest'];
+    /** Visibility of the search component*/
+    @ViewChild(GTBuscadorComponent, { static: false }) searchApp: GTBuscadorComponent;
+    /**Visibility of the paginator*/
+    @ViewChild(MatPaginator, { static: false }) paginatorC: MatPaginator;
+    /**Attribute with the collection of data to show*/
+    @Input() data: any[] = [];
+    /**Columns to display in the table*/
     @Input() visual: string[];
-    /** Columnas del modelo de la colección que recibe */
-    @Input() modelo: string[];
-    /** Acciones que deberán estar disponibles */
-    @Input() acciones: string[];
-    /** Listado de acciones con condiciones */
-    @Input() accionesCondicionales: GTAccion[];
-    /** Formatos a utilizar en la tabla (Euro,porcentaje,etc) */
-    @Input() formatos: GTFormatosTabla;
-    /** Habilita o deshabilita el buscador de la tabla */
-    @Input() buscador: boolean = false;
-    /** GTForm que se podrá incluir en el formulario, para, si llama a editarT, invoque el formulario para su edición */
-    @Input() formulario: GTForm;
-    /** Clave primaria que tendrá la tabla. Se utilizará en las inserciones por método y edición */
-    @Input() clavePrimaria: string;
-    /** Atributo por el cuál se está ordenando. Se utilizará en las acciones de subir y bajar */
-    @Input() orden: string;
-    /** Petición asincrona para actualizar los datos al reordenar elementos */
-    @Input() peticionActualizacion: GTPeticionExpansion = null;
-    /** Petición asincrona para cargar datos y paginador según peticiones HTTP */
-    @Input() paginacionAsincrona: GTPeticionPaginacion = null;
-    /** Permite que en la tabla, se puede hacer clic para seleccionar un elemento, y enviarlo */
-    @Input() seleccionable: boolean;
-    /** Control de paginación */
-    @Input() paginador: boolean = true;
-    /** Recibe un elemento para que, al cargar la tabla, se preseleccione y mande el evento. Se busca por su primaryKey */
-    @Input() elementoPreseleccionado: { dato: any, primaryKey: string };
-    /** Atributo para cargar objetos complejos a las tablas */
-    @Input() objetos: GTObjetoTabla[];
-    /** Atributo para cargar selects pro a las tablas */
-    @Input() selectsMaestros: GTSelectMaestroTabla[];
-    /** En el caso de ser una tabla hija, emitira valor al cargar */
+    /**Columns of the model of the collection that is received*/
+    @Input() model: string[];
+    /**Actions that should be available*/
+    @Input() actions: string[];
+    /**List of actions with conditions*/
+    @Input() conditionalActions: GTAccion[];
+    /**Formats to use in the table (Euro, percentage, etc.)*/
+    @Input() formats: GTFormatosTabla;
+    /**Enables or disables the search of the table*/
+    @Input() search: boolean = false;
+    /**GTForm that can be included in the form, so that, if it calls editT, it invokes the form for its edition*/
+    @Input() form: GTForm;
+    /**Primary key that the table will have. It will be used in insertions by method and edition*/
+    @Input() primaryKey: string;
+    /**Attribute by which it is being ordered. It will be used in the up and down actions*/
+    @Input() order: string;
+    /**Asynchronous request to update the data when reordering elements*/
+    @Input() updateRequest: GTPeticionExpansion = null;
+    /**Asynchronous request to load data and paginator according to HTTP requests*/
+    @Input() asyncPagination: GTPeticionPaginacion = null;
+    /**Allows you to click on the table to select an element and send it*/
+    @Input() selectable: boolean;
+    /**Control of pagination*/
+    @Input() paginator: boolean = true;
+    /**Receives an element to be preselected and send the event when the table is loaded. It is searched by its primaryKey*/
+    @Input() preselectedElement: { data: any, primaryKey: string };
+    /**Attribute to load complex objects into tables*/
+    @Input() objects: GTObjetoTabla[];
+    /**Attribute to load master selects into tables*/
+    @Input() masterSelects: GTSelectMaestroTabla[];
+    /**In the case of being a child table, it will emit a value when loaded*/
     @Input() subjectLoaded: BehaviorSubject<any>;
-    /** Modo para activar el modo casillas de la tabla. Con checkbox */
-    @Input() modoCasillas: boolean;
-    /** Módo para activar la compresión de acciones en un menú */
-    @Input() menuAcciones: boolean;
-    /** Fuerza unos tamaños de columnas predeterminados */
+    /**Mode to activate the checkbox mode of the table. With checkbox*/
+    @Input() checkboxMode: boolean;
+    /**Mode to activate the compression of actions in a menu*/
+    @Input() actionMenu: boolean;
+    /**Forces some sizes to the table, depending on the number of columns it has. It is used as a [fxFlex]*/
     @Input() fxFlexes: number[];
-    /** Elemento para notificar al componente que invoca la tabla */
+    /** Element to notify the component that invokes the table */
     @Output() notify: EventEmitter<any> = new EventEmitter<any>();
-    /** Elemento para notificar un requerimiento de tratamiento de datos después de paginar o filtrar */
+    /** Element to notify a request for data treatment after paging or filtering */
     @Output() tratamiento: EventEmitter<any[]> = new EventEmitter<any[]>();
-    /** Referencia a la propia tabla, se rellena más tarde */
-    matTableRef;
-    /** Identificador único de la tabla */
-    idTabla: string;
-    /** Acciones listas para recorrerlas */
-    accionesParsed: GTAccion[];
-    /** Lista de acciones que es capaz de gestionar la tabla por si sola, si no está, enviará el evento y yasta */
-    accionesAutoGestionadas: string[] = ['subir', 'bajar', 'eliminarT', 'eliminar', 'editarT'];
-    /** Opciones posible para la paginación */
-    pageSizeOptions: number[] = [5, 10, 25, 100];
-    /** Control de la configuración de la paginación */
-    pageEvent: PageEvent = { length: 0, pageSize: 5, pageIndex: 0 };
-    /** Para tener constancia de cual es la ordenación que se está teniendo ahora mismo */
-    ordenacionActual: Sort;
-    /** Cadena de busqueda actualizada por la gt-buscador */
-    cadenaBusqueda: string;
-    /** Datos a visualizar en la tabla */
-    datosAMostrar: any[] = this.datos;
-    /** Atributo auxiliar para tener en constancia que elemento ha sido seleccionado */
+    /** Reference to the table itself, filled later */
+    protected matTableRef;
+    /** Unique identifier of the table */
+    protected idTabla: string;
+    /** Ready actions to be processed */
+    protected accionesParsed: GTAccion[];
+    /** List of actions that the table is capable of managing on its own, if it is not, it will send the event and that's it */
+    protected accionesAutoGestionadas: string[] = ['subir', 'bajar', 'eliminarT', 'eliminar', 'editarT'];
+    /** Possible options for pagination */
+    protected pageSizeOptions: number[] = [5, 10, 25, 100];
+    /** Control of pagination configuration */
+    protected pageEvent: PageEvent = { length: 0, pageSize: 5, pageIndex: 0 };
+    /** To keep track of what order is currently being taken */
+    protected ordenacionActual: Sort;
+    /** Search string updated by the gt-search */
+    protected cadenaBusqueda: string;
+    /** Data to display in the table */
+    datosAMostrar: any[] = this.data;
+    /** Auxiliary attribute to keep track of which element has been selected */
     elementoSeleccionado: any;
-    /** Control del checkbox maestro */
+    /** Control of the master checkbox */
     casillaMaestra: { all: boolean, indeterminate: boolean } = { all: false, indeterminate: false };
-    /** Relación columnas y su tamaño */
-    columnasTamanio: { field: string, width: number, index?: number }[] = [];
-    /** Para controlar que se ha presionado el redimensionamiento */
-    isPulsado = false;
-    /** Para tener en cuenta cual es la columna que se está redimensionando ahora mismo */
-    posicionActualRedimension: number;
-    /** Para controlar el inicio de la redimensión */
-    startX: number;
-    /** Para controlar el tamaño inicial del que parte la columna */
-    startWidth: number;
-    /** Para saber si está redimensionando a la izquierda (true) si no (false) */
-    isDireccionDerecha: boolean;
-    /** Para asignar el evento de movimiento de ratón */
-    resizableMousemove: () => void;
-    /** Para vaciar luego el evento de movimiento */
-    resizableMouseup: () => void;
-    /** Atributo para tener constancia de porque campo se está ordenando */
-    ordenActual: { modelo?: string, direccion?: string } = {};
-    /** Guardará registro del tamaño inicial de la tabla. Esto nos sirve para saber si antes estaba oculta y tenía 0PX, al intentar redimensionar hará recalculo para dejarla limpa */
-    tamanioInicial: number;
+    /** Relationship between columns and their size */
+    protected columnasTamanio: { field: string, width: number, index?: number }[] = [];
+    /** To control that resizing has been pressed */
+    protected isPulsado = false;
+    /** To keep track of which column is currently being resized */
+    protected posicionActualRedimension: number;
+    /** To control the start of the resizing */
+    protected startX: number;
+    /** To control the initial size from which the column starts */
+    protected startWidth: number;
+    /** To know if it is resizing to the left (true) if not (false) */
+    protected isDireccionDerecha: boolean;
+    /** To assign the mouse movement event */
+    protected resizableMousemove: () => void;
+    /** To empty the mouse movement event later */
+    protected resizableMouseup: () => void;
+    /** Attribute to keep track of why the field is being sorted */
+    protected ordenActual: { modelo?: string, direccion?: string } = {};
+    /** Will save record of the initial size of the table. This helps us know if it was hidden before and had 0PX, when trying to resize it will recalculate to leave it clean */
+    protected tamanioInicial: number;
 
-    //Menú contextual
-    @ViewChild('menuContextual') menuContextual: TemplateRef<any>;
-    overlayRef: OverlayRef;
-    subMenu: Subscription;
-    /** EventEmitter para controlar que aún en varias tablas, solo pueda haber un menú abierto */
-    subscriptionMenuService: Subscription;
+    //Context menu
+    @ViewChild('menuContextual') protected menuContextual: TemplateRef<any>;
+    protected overlayRef: OverlayRef;
+    protected subMenu: Subscription;
+    /** EventEmitter to control that even in several tables, only one menu can be open */
+    protected subscriptionMenuService: Subscription;
+
+
     constructor(
         public sharedService: SharedService,
-        @Optional() public formService:GTFormService,
+        @Optional() public formService: GTFormService,
         public renderer: Renderer2,
         public overlay: Overlay,
         public viewContainerRef: ViewContainerRef
@@ -135,37 +136,37 @@ export abstract class GTTablaMaestra {
      *
      * @param page Página recibida y a asignar
      */
-    paginacion(page?: PageEvent): void {
+    protected paginacion(page?: PageEvent): void {
         this.pageEvent = page ? page : this.pageEvent;
         // Mandamos evento de deselección
         if (this.elementoSeleccionado) this.deselecciona();
-        if (this.paginacionAsincrona) {
-            const paramsR: string[] = this.paginacionAsincrona.params;
+        if (this.asyncPagination) {
+            const paramsR: string[] = this.asyncPagination.params;
             let filterValue = this.cadenaBusqueda;
             filterValue = filterValue ? filterValue.trim().toUpperCase() : '';
-            this.paginacionAsincrona.peticion(
+            this.asyncPagination.peticion(
                 this.pageEvent.pageIndex,
                 this.pageEvent.pageSize,
-                this.ordenacionActual?.active ? this.ordenacionActual.active : this.paginacionAsincrona?.orden?.campos ? this.paginacionAsincrona.orden.campos[0] : null,
+                this.ordenacionActual?.active ? this.ordenacionActual.active : this.asyncPagination?.orden?.campos ? this.asyncPagination.orden.campos[0] : null,
                 this.ordenacionActual?.direction ? this.ordenacionActual.direction : 'DESC',
                 [filterValue],
                 ...paramsR
             ).subscribe(newData => {
                 this.datosAMostrar = newData.datos;
-                this.paginacionAsincrona.paginacion = newData.pagina;
-                this.paginacionAsincrona.orden = newData.orden;
-                this.pageEvent.length = this.paginacionAsincrona.paginacion.numeroRegistrosTotal;
-                if (this.paginacionAsincrona.funcionalidadExterna) { this.tratamiento.emit(this.datosAMostrar) };
+                this.asyncPagination.paginacion = newData.pagina;
+                this.asyncPagination.orden = newData.orden;
+                this.pageEvent.length = this.asyncPagination.paginacion.numeroRegistrosTotal;
+                if (this.asyncPagination.funcionalidadExterna) { this.tratamiento.emit(this.datosAMostrar) };
             });
         } else {
-            if (!this.paginador) this.pageEvent.pageSize = 99999;
+            if (!this.paginator) this.pageEvent.pageSize = 99999;
         }
     }
 
     /** Restablece la paginación */
-    reiniciaPaginacion(): void {
+    protected reiniciaPaginacion(): void {
         this.pageEvent.pageIndex = 0;
-        this.pageEvent.length = this.paginacionAsincrona ? this.paginacionAsincrona.paginacion.numeroRegistrosTotal : this.datosAMostrar.length;
+        this.pageEvent.length = this.asyncPagination ? this.asyncPagination.paginacion.numeroRegistrosTotal : this.datosAMostrar.length;
     }
 
     /**
@@ -173,15 +174,15 @@ export abstract class GTTablaMaestra {
      *
      * @param ordena
      */
-    ordenacion(ordena: Sort): void {
+    protected ordenacion(ordena: Sort): void {
         this.ordenacionActual = ordena;
-        if (this.paginacionAsincrona) {
+        if (this.asyncPagination) {
             this.paginacion();
         } else {
             if (this.ordenacionActual) {
                 if (!this.cadenaBusqueda) {
-                    if (ordena.direction === 'asc') this.datosAMostrar = this.datos.sort((a, b) => (a[ordena.active] > b[ordena.active]) ? 1 : -1);
-                    else this.datosAMostrar = this.datos.sort((a, b) => (a[ordena.active] < b[ordena.active]) ? 1 : -1);
+                    if (ordena.direction === 'asc') this.datosAMostrar = this.data.sort((a, b) => (a[ordena.active] > b[ordena.active]) ? 1 : -1);
+                    else this.datosAMostrar = this.data.sort((a, b) => (a[ordena.active] < b[ordena.active]) ? 1 : -1);
                 } else {
                     if (ordena.direction === 'asc') this.datosAMostrar.sort((a, b) => (a[ordena.active] > b[ordena.active]) ? 1 : -1);
                     else this.datosAMostrar.sort((a, b) => (a[ordena.active] < b[ordena.active]) ? 1 : -1);
@@ -197,10 +198,10 @@ export abstract class GTTablaMaestra {
      *
      * @param valor Valor sobre el que filtrar
      */
-    busqueda(result: any): void {
+    protected busqueda(result: any): void {
         this.cadenaBusqueda = result;
-        if (!this.paginacionAsincrona) {
-            this.datosAMostrar = this.datos.filter((data) => JSON.stringify(data).toLowerCase().includes(this.cadenaBusqueda));
+        if (!this.asyncPagination) {
+            this.datosAMostrar = this.data.filter((data) => JSON.stringify(data).toLowerCase().includes(this.cadenaBusqueda));
             this.reiniciaPaginacion();
         } else {
             this.pageEvent.pageIndex = 0;
@@ -219,10 +220,10 @@ export abstract class GTTablaMaestra {
      * @param nuevoElemento Elemento nuevo
      */
     sustituyeElemento(viejoElemento: any, nuevoElemento: any): void {
-        const index: number = this.datos.indexOf(viejoElemento);
+        const index: number = this.data.indexOf(viejoElemento);
         if (index !== -1) {
-            this.datos[index] = nuevoElemento;
-            this.datosAMostrar = this.datos.slice();
+            this.data[index] = nuevoElemento;
+            this.datosAMostrar = this.data.slice();
         } else {
             this.sharedService.openSnackBar('No se ha encontrado el elemento a sustituir', 3);
         }
@@ -234,8 +235,8 @@ export abstract class GTTablaMaestra {
      * @param elemento Elemento a añadir
      */
     addNuevoElemento(elemento: any): void {
-        if (this.clavePrimaria) {
-            if (!this.sharedService.findRepeatRecursivo(this.datos.slice(), this.clavePrimaria, elemento)) {
+        if (this.primaryKey) {
+            if (!this.sharedService.findRepeatRecursivo(this.data.slice(), this.primaryKey, elemento)) {
                 this.inserta(elemento);
             }
         } else {
@@ -248,10 +249,10 @@ export abstract class GTTablaMaestra {
      *
      * @param elemento Elemento a insertar
      */
-    inserta(elemento: any): void {
-        this.datos.push(elemento);
-        this.datosAMostrar = this.datos.slice();
-        this.pageEvent.length = this.datos.length;
+    protected inserta(elemento: any): void {
+        this.data.push(elemento);
+        this.datosAMostrar = this.data.slice();
+        this.pageEvent.length = this.data.length;
         this.ordenacion(this.ordenacionActual);
     }
 
@@ -263,7 +264,7 @@ export abstract class GTTablaMaestra {
     borraElemento(elemento: any): void {
         const result = this.datosAMostrar.splice(this.datosAMostrar.indexOf(elemento), 1);
         if (result) {
-            this.datos.splice(this.datos.indexOf(elemento), 1);
+            this.data.splice(this.data.indexOf(elemento), 1);
             this.pageEvent.length--;
         }
         const isEmpty: boolean = (this.pageEvent.pageIndex * this.pageEvent.pageSize) >= this.pageEvent.length;
@@ -275,8 +276,8 @@ export abstract class GTTablaMaestra {
 
     /** Comprueba las condiciones de las acciones para volver a evaluar */
     compruebaCondiciones(): void {
-        if (this.accionesCondicionales) {
-            this.accionesCondicionales.forEach(accion => { if (accion.observerCondiciones) accion.observerCondiciones.next(1) });
+        if (this.conditionalActions) {
+            this.conditionalActions.forEach(accion => { if (accion.observerCondiciones) accion.observerCondiciones.next(1) });
         }
     }
 
@@ -287,8 +288,8 @@ export abstract class GTTablaMaestra {
      * @param posicion Posición del elemento
      */
     openInspeccion(elemento: any, posicion: number): void {
-        const objTabla = this.objetos[posicion];
-        const form = new GTForm(GT_TF.INSPECCION, objTabla.columnasModelo, objTabla.columnasVisuales, `Inspección de ${objTabla.nombreVisual}`);
+        const objTabla = this.objects[posicion];
+        const form = new GTForm(GT_TF.INSPECTION, objTabla.columnasModelo, objTabla.columnasVisuales, `Inspección de ${objTabla.nombreVisual}`);
         form.controles = Object.assign(objTabla.formulario.controles);
         if (elemento[objTabla.nombreModelo]) {
             if (objTabla.peticion) {
@@ -333,27 +334,27 @@ export abstract class GTTablaMaestra {
      * @param elemento1
      * @param elemento2
      */
-    cambiarOrdenElementos(elemento1: any, elemento2: any): void {
-        const intercambioDeOrden = elemento1[this.orden];
+    protected cambiarOrdenElementos(elemento1: any, elemento2: any): void {
+        const intercambioDeOrden = elemento1[this.order];
 
-        elemento1[this.orden] = elemento2[this.orden];
-        elemento2[this.orden] = intercambioDeOrden;
+        elemento1[this.order] = elemento2[this.order];
+        elemento2[this.order] = intercambioDeOrden;
 
-        if (this.peticionActualizacion) {
-            const valoresPeticion1: any[] = this.peticionActualizacion.preparaParametros(elemento1);
-            const valoresPeticion2: any[] = this.peticionActualizacion.preparaParametros(elemento2);
+        if (this.updateRequest) {
+            const valoresPeticion1: any[] = this.updateRequest.preparaParametros(elemento1);
+            const valoresPeticion2: any[] = this.updateRequest.preparaParametros(elemento2);
 
             forkJoin({
-                update1: this.peticionActualizacion.peticion(elemento1, ...valoresPeticion1),
-                update2: this.peticionActualizacion.peticion(elemento2, ...valoresPeticion2),
+                update1: this.updateRequest.peticion(elemento1, ...valoresPeticion1),
+                update2: this.updateRequest.peticion(elemento2, ...valoresPeticion2),
             }).subscribe(() => {
-                this.datos.sort((a, b) => a.orden - b.orden);
-                this.datosAMostrar = this.datos.slice();
+                this.data.sort((a, b) => a.orden - b.orden);
+                this.datosAMostrar = this.data.slice();
             })
 
         } else {
-            this.datos.sort((a, b) => a.orden - b.orden);
-            this.datosAMostrar = this.datos.slice();
+            this.data.sort((a, b) => a.orden - b.orden);
+            this.datosAMostrar = this.data.slice();
         }
     }
 
@@ -364,32 +365,32 @@ export abstract class GTTablaMaestra {
      *
      * @param anchuraTabla Anchura actual de la tabla
      */
-    seteaColumnasTamanios(anchuraTabla: number): void {
+    protected seteaColumnasTamanios(anchuraTabla: number): void {
         //Si no se ha detectado el tamaño de la tabla por la razón que sea, la seteamos a 5000 para que tenga de sobra
         this.tamanioInicial = anchuraTabla;
         let iTotal: number = 0;
         console.log(this)
-        let numeroColumnas = (this.modelo.length + (this.objetos ? this.objetos.length : 0)) + (this.selectsMaestros ? this.selectsMaestros.length : 0);
-        if (this.acciones || this.accionesCondicionales && (!this.fxFlexes)) numeroColumnas += 0.5;
+        let numeroColumnas = (this.model.length + (this.objects ? this.objects.length : 0)) + (this.masterSelects ? this.masterSelects.length : 0);
+        if (this.actions || this.conditionalActions && (!this.fxFlexes)) numeroColumnas += 0.5;
         const widthBase: number = 100 / numeroColumnas;
-        for (let i = 0; i < this.modelo.length; i++) {
-            this.columnasTamanio.push({ field: this.modelo[i], width: this.fxFlexes ? this.fxFlexes[i] : widthBase });
+        for (let i = 0; i < this.model.length; i++) {
+            this.columnasTamanio.push({ field: this.model[i], width: this.fxFlexes ? this.fxFlexes[i] : widthBase });
             iTotal++;
         }
-        if (this.objetos) {
-            for (let i = 0; i < this.objetos.length; i++) {
-                this.columnasTamanio.push({ field: this.objetos[i].nombreModelo, width: this.fxFlexes ? this.fxFlexes[iTotal] : widthBase });
+        if (this.objects) {
+            for (let i = 0; i < this.objects.length; i++) {
+                this.columnasTamanio.push({ field: this.objects[i].nombreModelo, width: this.fxFlexes ? this.fxFlexes[iTotal] : widthBase });
                 iTotal++;
             }
         }
-        if (this.selectsMaestros) {
-            for (let i = 0; i < this.selectsMaestros.length; i++) {
-                this.columnasTamanio.push({ field: this.selectsMaestros[i].columnaModelo, width: this.fxFlexes ? this.fxFlexes[iTotal] : widthBase });
+        if (this.masterSelects) {
+            for (let i = 0; i < this.masterSelects.length; i++) {
+                this.columnasTamanio.push({ field: this.masterSelects[i].columnaModelo, width: this.fxFlexes ? this.fxFlexes[iTotal] : widthBase });
                 iTotal++;
             }
         }
 
-        if (this.acciones || this.accionesCondicionales) this.columnasTamanio.push({ field: 'acciones', width: this.fxFlexes ? this.fxFlexes.pop() : widthBase / 2 });
+        if (this.actions || this.conditionalActions) this.columnasTamanio.push({ field: 'acciones', width: this.fxFlexes ? this.fxFlexes.pop() : widthBase / 2 });
         let totWidth = 0;
         this.columnasTamanio.forEach((column) => {
             totWidth += column.width;
@@ -407,7 +408,7 @@ export abstract class GTTablaMaestra {
      * @param event Evento JS
      * @param index Posición de la columna
      */
-    onRedimensionarColumna(event: any, index: number): void {
+    protected onRedimensionarColumna(event: any, index: number): void {
         this.compruebaDireccion(event, index);
         this.posicionActualRedimension = index;
         this.isPulsado = true;
@@ -422,7 +423,7 @@ export abstract class GTTablaMaestra {
      * @param event Evento JS
      * @param index Posición de la columna
      */
-    compruebaDireccion(event: any, index: number): void {
+    protected compruebaDireccion(event: any, index: number): void {
         const cellData: DOMRect = this.recuperaCeldaCabecera(index);
         if ((index === 0) || (Math.abs(event.pageX - cellData.right) < cellData.width / 2 && index !== this.columnasTamanio.length - 1)) {
             this.isDireccionDerecha = true;
@@ -437,7 +438,7 @@ export abstract class GTTablaMaestra {
      * @param index Celda en concreto
      * @returns El tamaño y posición actual de la celda
      */
-    recuperaCeldaCabecera(index: number): DOMRect {
+    protected recuperaCeldaCabecera(index: number): DOMRect {
         const headerRow = this.matTableRef.children[0];
         const cell = headerRow.children[index];
         return cell.getBoundingClientRect();
@@ -449,7 +450,7 @@ export abstract class GTTablaMaestra {
      *
      * @param index Posición de la columna
      */
-    seteaEventosRaton(index: number): void {
+    protected seteaEventosRaton(index: number): void {
         this.resizableMousemove = this.renderer.listen('document', 'mousemove', (event) => {
             if (this.isPulsado && event.buttons) {
                 const dx = (this.isDireccionDerecha) ? (event.pageX - this.startX) : (-event.pageX + this.startX);
@@ -477,7 +478,7 @@ export abstract class GTTablaMaestra {
      * @param index Posición de la columna
      * @param width Tamaño nuevo
      */
-    seteaNuevasColumnasTamanio(index: number, width: number): void {
+    protected seteaNuevasColumnasTamanio(index: number, width: number): void {
         const orgWidth: number = this.columnasTamanio[index].width;
         const dx: number = width - orgWidth;
         if (dx !== 0) {
@@ -496,7 +497,7 @@ export abstract class GTTablaMaestra {
      *
      * @param column Columna a modificar
      */
-    seteaColumnaTamanioHTML(column: any): void {
+    protected seteaColumnaTamanioHTML(column: any): void {
         const columnEls = Array.from(this.matTableRef.getElementsByClassName(`${this.idTabla}-columna-${column.field}`));
         columnEls.forEach((el: any) => el.style.width = column.width + 'px');
     }
@@ -507,7 +508,7 @@ export abstract class GTTablaMaestra {
      *
      * @param modelo Campo a ordenar
      */
-    cambiaOrden(modelo: string): void {
+    protected cambiaOrden(modelo: string): void {
         if (this.ordenActual.modelo && this.ordenActual.modelo !== modelo) {
             this.ordenActual.direccion = null;
         }
@@ -524,7 +525,7 @@ export abstract class GTTablaMaestra {
      * @param param0 Posición clicada
      * @param elemento Elemento clicado
      */
-    open({ x, y }: MouseEvent, elemento: any) {
+    protected open({ x, y }: MouseEvent, elemento: any) {
         this.close();
         const positionStrategy = this.overlay.position()
             .flexibleConnectedTo({ x, y })
@@ -545,7 +546,7 @@ export abstract class GTTablaMaestra {
 
     }
     /** Cierra el menú */
-    close() {
+    protected close() {
         this.subMenu && this.subMenu.unsubscribe();
         //Si estoy suscrito, me desuscribo porque al abrir no me interesa autocerrarme
         if (this.subscriptionMenuService) {

@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { GTForm, GT_TC } from 'ngx-generic-tools/models';
 import { GT_TF } from 'projects/ngx-generic-tools/models/public-api';
-import { SharedService } from 'projects/ngx-generic-tools/shared/shared.service';
 import { Dialog } from '@angular/cdk/dialog';
-import { GTTablaComponent } from 'ngx-generic-tools/tables';
+import { GTTableComponent } from 'ngx-generic-tools/tables';
 import { FormControl, FormGroup } from '@angular/forms';
 import { GTFormService } from 'projects/ngx-generic-tools/forms/form.service';
 @Component({
@@ -14,8 +13,8 @@ import { GTFormService } from 'projects/ngx-generic-tools/forms/form.service';
 export class AppComponent {
   title = 'sample-project';
 
-  miForm: GTForm = new GTForm(GT_TF.CREACION, ['nombre', 'fecha'], ['Nombre', 'Fecha'], 'Creación');
-
+  miForm: GTForm = new GTForm(GT_TF.CREATION, ['nombre', 'fecha'], ['Nombre', 'Fecha'], 'Creación');
+  @ViewChild(GTTableComponent) table:GTTableComponent
 
   datos:any[] = [{nombre:'xd',apellidos:'omgggg'},{nombre:'xdawdd',apellidos:'omgggggg'},{nombre:'xddd',apellidos:'om  gggg'},{nombre:'ddxd',apellidos:'omgggg'}];
   modelo:string[] =  ['nombre','apellidos'];

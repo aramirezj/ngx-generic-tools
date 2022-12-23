@@ -357,25 +357,25 @@ export class GTConversionDirective {
         const initalValue: string &#x3D; this._el.nativeElement.value;
         if (this.type) {
             switch (this.type) {
-                case &#x27;mayuscula&#x27;:
+                case &#x27;uppercase&#x27;:
                     this._el.nativeElement.value &#x3D; initalValue.toUpperCase();
                     break;
-                case &#x27;minuscula&#x27;:
+                case &#x27;lowercase&#x27;:
                     this._el.nativeElement.value &#x3D; initalValue.toLowerCase();
                     break;
-                case &#x27;numero&#x27;:
+                case &#x27;number&#x27;:
                     this._el.nativeElement.value &#x3D; initalValue.replace(/[^0-9]*/g, &#x27;&#x27;);
                     break;
-                case &#x27;espacio&#x27;:
+                case &#x27;space&#x27;:
                     this._el.nativeElement.value &#x3D; initalValue.replace(/\s+/g, &#x27;&#x27;);
                     break;
-                case &#x27;mayusculaEspacio&#x27;:
+                case &#x27;uppercaseSpace&#x27;:
                     this._el.nativeElement.value &#x3D; initalValue.toUpperCase().replace(/\s+/g, &#x27;&#x27;);
                     break;
-                case &#x27;minusculaEspacio&#x27;:
+                case &#x27;lowercaseSpace&#x27;:
                     this._el.nativeElement.value &#x3D; initalValue.toLowerCase().replace(/\s+/g, &#x27;&#x27;);
                     break;
-                case &#x27;identificador&#x27;:
+                case &#x27;identifier&#x27;:
                     this._el.nativeElement.value &#x3D; initalValue.toUpperCase().replace(/[^0-9ABCDEFGHJKLMNPQRSUVWXYZTI]*/g, &#x27;&#x27;);
                     break;
                 case &#x27;NIF&#x27;:

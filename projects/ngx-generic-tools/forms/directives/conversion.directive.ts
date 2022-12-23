@@ -14,25 +14,25 @@ export class GTConversionDirective {
         const initalValue: string = this._el.nativeElement.value;
         if (this.type) {
             switch (this.type) {
-                case 'mayuscula':
+                case 'uppercase':
                     this._el.nativeElement.value = initalValue.toUpperCase();
                     break;
-                case 'minuscula':
+                case 'lowercase':
                     this._el.nativeElement.value = initalValue.toLowerCase();
                     break;
-                case 'numero':
+                case 'number':
                     this._el.nativeElement.value = initalValue.replace(/[^0-9]*/g, '');
                     break;
-                case 'espacio':
+                case 'space':
                     this._el.nativeElement.value = initalValue.replace(/\s+/g, '');
                     break;
-                case 'mayusculaEspacio':
+                case 'uppercaseSpace':
                     this._el.nativeElement.value = initalValue.toUpperCase().replace(/\s+/g, '');
                     break;
-                case 'minusculaEspacio':
+                case 'lowercaseSpace':
                     this._el.nativeElement.value = initalValue.toLowerCase().replace(/\s+/g, '');
                     break;
-                case 'identificador':
+                case 'identifier':
                     this._el.nativeElement.value = initalValue.toUpperCase().replace(/[^0-9ABCDEFGHJKLMNPQRSUVWXYZTI]*/g, '');
                     break;
                 case 'NIF':

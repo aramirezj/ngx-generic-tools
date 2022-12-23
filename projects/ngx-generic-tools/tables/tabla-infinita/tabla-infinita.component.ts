@@ -3,14 +3,14 @@ import { Overlay } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { BehaviorSubject } from 'rxjs';
-import { GTAccion, GTForm, GT_TF, GTPeticionExpansion, GTSelectMaestroTabla } from 'ngx-generic-tools/models';
+import { GTAccion, GTPeticionExpansion, GTSelectMaestroTabla } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
-import { GTTablaComponent } from '../tabla/tabla.component';
+import { GTTableComponent } from '../tabla/tabla.component';
 import { GTTablaMaestra } from '../TablaMaestra';
 
 /** Componente de la Tabla encargada del listado y tratado de elementos */
 @Component({
-    selector: 'gt-tabla-infinita',
+    selector: 'gt-infinite-table',
     templateUrl: './tabla-infinita.component.html',
     styleUrls: ['./tabla-infinita.component.scss'],
     animations: [
@@ -29,56 +29,56 @@ import { GTTablaMaestra } from '../TablaMaestra';
                 ]
             )])
     ],
-    inputs: GTTablaMaestra.inputComunes
+    inputs: GTTablaMaestra.commonInputs
 })
-export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
-    /** Instancia de la Tabla Hija */
-    @ViewChild(GTTablaComponent, { static: false }) tablaHija: GTTablaComponent;
-    /** Instancia de la Tabla Infinita hija */
-    @ViewChild(GTTablaInfinitaComponent, { static: false }) tablaInfinitaHija: GTTablaInfinitaComponent;
-    /** Acciones con condiciones */
-    @Input() nivelesAccionesCondicionales: GTAccion[][];
-    /** Acciones que se iran sumando a las tablas hijas */
-    @Input() nivelesAcciones: Array<string[]>;
-    /** Niveles de conjuntos de selects pro para ir transmitiendoselas a las tablas hijas */
-    @Input() nivelesSelectsMaestro: GTSelectMaestroTabla[][];
-    /** Columnas a mostrar en la tabla */
-    @Input() visuales: string[][];
-    /** Columnas del modelo de la colección que recibe */
-    @Input() modelos: string[][];
-    /** Colección para saber los nombres de los atributos de los cuales ir sacando las anidaciones */
-    @Input() niveles: string[];
-    /** Colección para saber los titulos de las siguientes tablas */
-    @Input() nivelesTitulos: string[];
-    /** Colección para saber los nombres de los atributos por los que ordenar para las acciones de subir y bajar */
-    @Input() nivelesOrden: string[];
-    /** Petición que se ejecutará al expandir la tabla */
-    @Input() peticionExpansion: GTPeticionExpansion;
-    /** Atributo para ir teniendo constancia de en que paso de la anidación estamos, comienza en 0 */
-    @Input() indiceAnidacion: number = 0;
-    /** Colección de peticiones de expansion de las cuales ir anidando */
-    @Input() peticionesInfinitas: GTPeticionExpansion[];
-    /** Colección de peticiones de actualización para la ordenacion */
-    @Input() peticionesActualizacion: GTPeticionExpansion[];
-    /** Flag que indicará si los hijos siempre serán iguales al padre */
-    @Input() herencia: boolean;
-    /** Colección para saber el modoNumeroHijos de las siguientes tablas */
-    @Input() nivelesModoNumeroHijos: boolean[];
-    /** Si se activa, evaluará si los elementos tienen la propiedad numeroElementosHijos, si es más que 0, muestra expandir, si no no */
-    @Input() modoNumeroHijos: boolean = false;
-    /** Si se activa, la petición expansión solo se cargará la primera vez que se abre, está pensado para guardar los contenidos en bloque */
-    @Input() recargaEnFrio: boolean = false;
-    /** Para indicar los niveles de los fxFlexes a la tabla infinita  */
-    @Input() nivelesFxFlexes: number[][];
-    /** Emite un evento cuando se ha cargado una tabla hija */
-    @Output() hijaCargada: EventEmitter<any> = new EventEmitter<any>();
-    /** Titulo usado para dar informacion de las tablas hijas */
-    tituloHijo: string;
-    /** Atributo para tener constancia cual será la siguiente anidación */
-    nextTabla: string;
-    /** Si está a true, significa que la siguiente anidación, es otra tabla de expansión */
-    nextTablaInfinita: boolean = false;
-    /** Subject para controlar cuando la tabla hija se ha cargado */
+export class GTInfiniteTableComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
+/** Child Table instance */
+@ViewChild(GTTableComponent, { static: false }) childTable: GTTableComponent;
+/** Instance of the Child Infinite Table */
+@ViewChild(GTInfiniteTableComponent, { static: false }) childInfiniteTable: GTInfiniteTableComponent;
+/** Actions with conditions */
+@Input() conditionalActionLevels: GTAccion[][];
+/** Actions that will be added to the child tables */
+@Input() actionLevels: Array<string[]>;
+/** Levels of sets of selects to be transmitted to the child tables */
+@Input() masterSelectLevels: GTSelectMaestroTabla[][];
+/** Columns to show in the table*/
+@Input() visuals: string[][];
+/** Model columns of the collection being received*/
+@Input() models: string[][];
+/** Collection to know the names of the attributes from which to extract the nesting*/
+@Input() levels: string[];
+/** Collection to know the titles of the next tables*/
+@Input() levelTitles: string[];
+/** Collection to know the names of the attributes to sort for the up and down actions*/
+@Input() levelOrder: string[];
+/** Request that will be executed when expanding the table*/
+@Input() expansionRequest: GTPeticionExpansion;
+/** Attribute to keep track of which step of the nesting we are in, starts at 0*/
+@Input() nestingIndex: number = 0;
+/** Collection of expansion requests to nest*/
+@Input() infiniteRequests: GTPeticionExpansion[];
+/** Collection of update requests for sorting*/
+@Input() updateRequests: GTPeticionExpansion[];
+/** Flag that will indicate if the children will always be the same as the parent*/
+@Input() inheritance: boolean;
+/** Collection to know the number of children mode of the next tables*/
+@Input() levelNumberOfChildrenModes: boolean[];
+/** If activated, it will evaluate whether the elements have the numeroElementosHijos property, if more than 0, it shows expand, if not no*/
+@Input() numberOfChildrenMode: boolean = false;
+/** If activated, the expansion request will only be loaded the first time it is opened, it is intended to save the contents in block*/
+@Input() coldReload: boolean = false;
+/** To indicate the fxFlex levels of the infinite table*/
+@Input() levelFxFlexes: number[][];
+/** Emits an event when a child table has been loaded*/
+@Output() childLoaded: EventEmitter<any> = new EventEmitter<any>();
+/** Title used to provide information about the child tables*/
+childTitle: string;
+/** Attribute to keep track of what the next nesting will be*/
+nextTable: string;
+/** If true, it means that the next nesting is another expansion table*/
+nextTableInfinite: boolean = false;
+/** Subject to control when the child table has been loaded */
     childrenLoaded: BehaviorSubject<any> = new BehaviorSubject(0);
 
     constructor(
@@ -93,14 +93,14 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
     }
 
     ngOnInit(): void {
-        this.seleccionable = this.seleccionable === false ? false : true;
+        this.selectable = this.selectable === false ? false : true;
         this.idTabla = `tabla${this.sharedService.recuperaIdTabla()}`;
         this.sharedService.identificadorTabla++;
         this.preparaTabla();
     }
 
     ngAfterViewInit(): void {
-        if (this.elementoPreseleccionado) this.seleccion(this.elementoPreseleccionado.dato);
+        if (this.preselectedElement) this.seleccion(this.preselectedElement.data);
         this.matTableRef = this.elRef.nativeElement.querySelector(`#${this.idTabla}`);
         this.seteaColumnasTamanios(this.matTableRef.clientWidth);
 
@@ -108,34 +108,34 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
 
     /** Preparación inicial de herramientas necesarias para la tabla */
     preparaTabla(): void {
-        this.datos = this.datos ? this.datos : [];
-        this.datosAMostrar = this.datos.slice();
+        this.data = this.data ? this.data : [];
+        this.datosAMostrar = this.data.slice();
 
         this.pageEvent.length = this.datosAMostrar?.length;
         this.pageEvent.pageIndex = 0;
-        if (this.paginacionAsincrona) {
-            this.pageEvent.length = this.paginacionAsincrona.paginacion.numeroRegistrosTotal;
+        if (this.asyncPagination) {
+            this.pageEvent.length = this.asyncPagination.paginacion.numeroRegistrosTotal;
         } else {
             this.paginacion(this.pageEvent);
         }
 
-        this.modelo = this.modelos[this.indiceAnidacion].slice();
-        this.visual = this.visuales[this.indiceAnidacion].slice();
-        this.nivelesAcciones = this.nivelesAcciones ? this.nivelesAcciones : [];
-        this.selectsMaestros = this.nivelesSelectsMaestro ? this.nivelesSelectsMaestro[this.indiceAnidacion] : null;
-        this.acciones = [];
-        this.modoNumeroHijos = this.nivelesModoNumeroHijos ? this.nivelesModoNumeroHijos[this.indiceAnidacion] : this.modoNumeroHijos;
-        this.accionesParsed = this.nivelesAccionesCondicionales ? this.nivelesAccionesCondicionales[this.indiceAnidacion] : GTAccion.parseAcciones(this.nivelesAcciones[this.indiceAnidacion]);
-        this.accionesCondicionales = this.nivelesAccionesCondicionales ? this.nivelesAccionesCondicionales[this.indiceAnidacion] : this.accionesCondicionales;
-        this.orden = this.nivelesOrden ? this.nivelesOrden[this.indiceAnidacion] : this.orden;
-        this.peticionActualizacion = this.peticionesActualizacion ? this.peticionesActualizacion[this.indiceAnidacion] : this.peticionActualizacion;
-        this.nextTabla = this.niveles?.[this.indiceAnidacion];
-        this.tituloHijo = this.nivelesTitulos[this.indiceAnidacion];
-        this.fxFlexes = this.nivelesFxFlexes ? this.nivelesFxFlexes[this.indiceAnidacion] : null;
-        if (this.peticionesInfinitas) this.peticionExpansion = this.peticionesInfinitas[this.indiceAnidacion]
-        if (!this.herencia) this.indiceAnidacion++;
-        if (this.niveles?.[this.indiceAnidacion]) this.nextTablaInfinita = true;
-        if (this.modoCasillas) this.refrescaCasillas();
+        this.model = this.models[this.nestingIndex].slice();
+        this.visual = this.visuals[this.nestingIndex].slice();
+        this.actionLevels = this.actionLevels ? this.actionLevels : [];
+        this.masterSelects = this.masterSelectLevels ? this.masterSelectLevels[this.nestingIndex] : null;
+        this.actions = [];
+        this.numberOfChildrenMode = this.levelNumberOfChildrenModes ? this.levelNumberOfChildrenModes[this.nestingIndex] : this.numberOfChildrenMode;
+        this.accionesParsed = this.conditionalActionLevels ? this.conditionalActionLevels[this.nestingIndex] : GTAccion.parseAcciones(this.actionLevels[this.nestingIndex]);
+        this.conditionalActions = this.conditionalActionLevels ? this.conditionalActionLevels[this.nestingIndex] : this.conditionalActions;
+        this.order = this.levelOrder ? this.levelOrder[this.nestingIndex] : this.order;
+        this.updateRequest = this.updateRequests ? this.updateRequests[this.nestingIndex] : this.updateRequest;
+        this.nextTable = this.levels?.[this.nestingIndex];
+        this.childTitle = this.levelTitles[this.nestingIndex];
+        this.fxFlexes = this.levelFxFlexes ? this.levelFxFlexes[this.nestingIndex] : null;
+        if (this.infiniteRequests) this.expansionRequest = this.infiniteRequests[this.nestingIndex]
+        if (!this.inheritance) this.nestingIndex++;
+        if (this.levels?.[this.nestingIndex]) this.nextTableInfinite = true;
+        if (this.checkboxMode) this.refrescaCasillas();
 
     }
     /**
@@ -144,17 +144,17 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
      * @param datos Datos nuevos
      */
     refrescaTabla(datos: any): void {
-        this.datos = datos ? datos : [];
-        this.datosAMostrar = this.datos.slice();
-        if (this.buscadorApp) this.buscadorApp.form.reset();
+        this.data = datos ? datos : [];
+        this.datosAMostrar = this.data.slice();
+        if (this.searchApp) this.searchApp.form.reset();
         this.reiniciaPaginacion();
         this.refrescaTablasHijas();
     }
 
     /** Refresca las tablas hijas que tengan */
     refrescaTablasHijas(): void {
-        if (this.tablaHija) this.tablaHija.refrescaTabla(this.tablaHija.datos);
-        if (this.tablaInfinitaHija) this.tablaInfinitaHija.refrescaTabla(this.tablaInfinitaHija.datos);
+        if (this.childTable) this.childTable.refrescaTabla(this.childTable.data);
+        if (this.childInfiniteTable) this.childInfiniteTable.refrescaTabla(this.childInfiniteTable.data);
     }
 
     /**
@@ -169,7 +169,7 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
         } else {
             switch (accion) {
                 case 'eliminarT':
-                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.modelo[0], this.visual[0])).subscribe(accept => {
+                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.model[0], this.visual[0])).subscribe(accept => {
                         if (accept) {
                             this.borraElemento(elemento)
                             this.enviaNotificacion({ accion, elemento });
@@ -177,20 +177,20 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
                     });
                     break;
                 case 'eliminar':
-                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.modelo[0], this.visual[0])).subscribe(accept => {
+                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.model[0], this.visual[0])).subscribe(accept => {
                         if (accept) {
                             this.enviaNotificacion({ accion, elemento });
                         }
                     });
                     break;
                 case 'subir':
-                    const elementoSuperior = this.datos.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.orden] === elemento[this.orden] - 1);
+                    const elementoSuperior = this.data.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.order] === elemento[this.order] - 1);
                     if (elementoSuperior) this.cambiarOrdenElementos(elemento, elementoSuperior);
                     else this.sharedService.openSnackBar('No se ha podido cambiar el orden del elemento', 3);
                     this.notify.emit({ accion, elemento });
                     break;
                 case 'bajar':
-                    const elementoInferior = this.datos.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.orden] === elemento[this.orden] + 1);
+                    const elementoInferior = this.data.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.order] === elemento[this.order] + 1);
                     if (elementoInferior) this.cambiarOrdenElementos(elemento, elementoInferior);
                     else this.sharedService.openSnackBar('No se ha podido cambiar el orden del elemento', 3);
                     this.notify.emit({ accion, elemento });
@@ -208,14 +208,14 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
      * @param elementoNuevo Elemento a añadir
      */
     addNuevoElementoHijo(raiz: any, elementoNuevo: any): void {
-        const pos = this.datos.indexOf(raiz);
+        const pos = this.data.indexOf(raiz);
         if (pos !== -1) {
-            this.datos[pos][this.nextTabla] ? this.datos[pos][this.nextTabla].push(elementoNuevo) : this.datos[pos][this.nextTabla] = [elementoNuevo];
+            this.data[pos][this.nextTable] ? this.data[pos][this.nextTable].push(elementoNuevo) : this.data[pos][this.nextTable] = [elementoNuevo];
             this.refrescaTablasHijas();
-            if (this.modoNumeroHijos && raiz.numeroElementosHijos == 0) raiz.numeroElementosHijos++;
+            if (this.numberOfChildrenMode && raiz.numeroElementosHijos == 0) raiz.numeroElementosHijos++;
         }
         else {
-            if (this.tablaInfinitaHija) this.tablaInfinitaHija.addNuevoElementoHijo(raiz, elementoNuevo);
+            if (this.childInfiniteTable) this.childInfiniteTable.addNuevoElementoHijo(raiz, elementoNuevo);
         }
     }
 
@@ -226,38 +226,38 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
      * @param forzado Si está a true, fuerza la ejecución de la lógica de selección aunque ya estuviera
      */
     seleccion(elemento: any, forzado?: boolean): void {
-        if (this.seleccionable) {
-            if (this.peticionExpansion && (!this.recargaEnFrio || !elemento[this.nextTabla])) {
+        if (this.selectable) {
+            if (this.expansionRequest && (!this.coldReload || !elemento[this.nextTable])) {
                 if (this.elementoSeleccionado === elemento && !forzado) {
                     this.elementoSeleccionado = null;
                     this.enviaNotificacion({ accion: 'configurar', elemento: this.elementoSeleccionado });
                 } else {
                     // Lógica de expansión asincrona
-                    const valoresPeticion: any[] = this.peticionExpansion.preparaParametros(elemento);
+                    const valoresPeticion: any[] = this.expansionRequest.preparaParametros(elemento);
                     try {
-                        this.peticionExpansion.peticion(...valoresPeticion).subscribe(result => {
+                        this.expansionRequest.peticion(...valoresPeticion).subscribe(result => {
                             this.elementoSeleccionado = elemento;
-                            if (this.peticionExpansion.herencias) {
+                            if (this.expansionRequest.herencias) {
                                 for (const fila of result) {
-                                    for (const herencia of this.peticionExpansion.herencias) {
+                                    for (const herencia of this.expansionRequest.herencias) {
                                         fila[herencia] = elemento[herencia];
                                     }
                                 }
                             }
-                            elemento[this.nextTabla] = result;
+                            elemento[this.nextTable] = result;
                             this.enviaNotificacion({ accion: 'configurar', elemento: this.elementoSeleccionado });
                             this.childrenLoaded.subscribe(tabla => {
-                                if (tabla !== 0) this.tablaHija = tabla;
-                                this.hijaCargada.emit(this.tablaHija);
+                                if (tabla !== 0) this.childTable = tabla;
+                                this.childLoaded.emit(this.childTable);
                             });
 
                             if (result?.length === 0 || !result) {
-                                this.sharedService.openSnackBar(`No se han recuperado ${this.tituloHijo}`, 1);
+                                this.sharedService.openSnackBar(`No se han recuperado ${this.childTitle}`, 1);
                             }
                         });
                     } catch (error) {
                         //Si da un error, es posiblemente porque la petición pedía un parametro obligatorio y no ha sido satisfecho
-                        this.sharedService.openSnackBar(`No se ha podido recuperar ${this.tituloHijo}`, 1);
+                        this.sharedService.openSnackBar(`No se ha podido recuperar ${this.childTitle}`, 1);
                     }
 
 
@@ -267,8 +267,8 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
                 this.elementoSeleccionado = this.elementoSeleccionado === elemento ? null : elemento;
                 this.childrenLoaded.subscribe(tabla => {
                     this.enviaNotificacion({ accion: 'configurar', elemento: this.elementoSeleccionado });
-                    if (this.recargaEnFrio) this.tablaHija = tabla;
-                    this.hijaCargada.emit(this.tablaHija);
+                    if (this.coldReload) this.childTable = tabla;
+                    this.childLoaded.emit(this.childTable);
                 })
             }
         }
@@ -287,7 +287,7 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
         if (nivel) envio[nivel] = event.elemento;
         if (isExpansion) envio[nivel] = event['raiz'];
         /** Si es una tabla de recursión infinita, dejamos el atributo elemento para no perderlo */
-        if (!this.herencia) delete envio['elemento'];
+        if (!this.inheritance) delete envio['elemento'];
         this.notify.emit(envio);
     }
 
@@ -299,17 +299,17 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
      * @param isExpansion Si es expansión
      * @param elementoPadre elementoPadre del que parte la tabla
      */
-    notifyTablaHija(event: { accion: string, elemento: any }, nivel: string, isExpansion: boolean, elementoPadre: any): void {
-        if (this.modoCasillas) {
+    notifyChildTable(event: { accion: string, elemento: any }, nivel: string, isExpansion: boolean, elementoPadre: any): void {
+        if (this.checkboxMode) {
             if (event.accion === 'marcados' || event.accion === 'desmarcados') {
                 const evento = { accion: event.accion, raiz: elementoPadre };
-                evento[this.nextTabla] = event.elemento;
+                evento[this.nextTable] = event.elemento;
                 this.notify.emit(evento);
-                const marcadosHijos: any[] = elementoPadre[this.nextTabla].filter(dato => dato.tSeleccionado === true);
-                elementoPadre.tSeleccionado = marcadosHijos.length === elementoPadre[this.nextTabla].length;
+                const marcadosHijos: any[] = elementoPadre[this.nextTable].filter(dato => dato.tSeleccionado === true);
+                elementoPadre.tSeleccionado = marcadosHijos.length === elementoPadre[this.nextTable].length;
                 elementoPadre.tIndeterminate = marcadosHijos.length > 0 && elementoPadre.tSeleccionado === false;
             } else {
-                const datosAMostrarHijos: any[] = elementoPadre[this.nextTabla] ?? [];
+                const datosAMostrarHijos: any[] = elementoPadre[this.nextTable] ?? [];
                 const marcadosHijos: any[] = datosAMostrarHijos.filter(dato => dato.tSeleccionado === true);
                 if (this.elementoSeleccionado) {
                     this.elementoSeleccionado.tSeleccionado = marcadosHijos.length === datosAMostrarHijos.length;
@@ -331,9 +331,9 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
      *
      * @returns La instancia de la última tabla
      */
-    obtenUltimaTabla(): GTTablaInfinitaComponent | GTTablaComponent {
-        if (this.tablaHija) return this.tablaHija
-        else if (this.tablaInfinitaHija) return this.tablaInfinitaHija.obtenUltimaTabla();
+    obtenUltimaTabla(): GTInfiniteTableComponent | GTTableComponent {
+        if (this.childTable) return this.childTable
+        else if (this.childInfiniteTable) return this.childInfiniteTable.obtenUltimaTabla();
         else return this;
     }
 
@@ -374,11 +374,11 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
         this.casillaMaestra.all = marcados.length === this.datosAMostrar.length;
         this.casillaMaestra.indeterminate = !this.casillaMaestra.all ? marcados.length > 0 : false;
 
-        if (!elemento[this.nextTabla]?.length) {
+        if (!elemento[this.nextTable]?.length) {
             this.notify.emit({ raiz: elemento, accion });
         } else {
             const agrupacionEventos: any[] = [];
-            elemento[this.nextTabla].forEach(dato => {
+            elemento[this.nextTable].forEach(dato => {
                 // Si ya estaba marcado o desmarcado el hijo, no añado su valor
                 if (dato.tSeleccionado !== event.checked) {
                     dato.tSeleccionado = event.checked;
@@ -386,16 +386,16 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
                 }
             });
             const evento = { accion: accion + 's', raiz: elemento };
-            evento[this.nextTabla] = agrupacionEventos;
-            const marcadosHijos = elemento[this.nextTabla].filter(dato => dato.tSeleccionado === true);
-            elemento.tIndeterminate = marcadosHijos > 0 && marcadosHijos < elemento[this.nextTabla].length;
+            evento[this.nextTable] = agrupacionEventos;
+            const marcadosHijos = elemento[this.nextTable].filter(dato => dato.tSeleccionado === true);
+            elemento.tIndeterminate = marcadosHijos > 0 && marcadosHijos < elemento[this.nextTable].length;
             this.notify.emit(evento);
 
-            // Si tiene tablaHija actualmente abierta, actualizo su casilla maestra
-            const tablaHija = this.tablaHija ?? this.tablaInfinitaHija;
-            if (tablaHija) {
-                tablaHija.casillaMaestra.all = event.checked;
-                tablaHija.casillaMaestra.indeterminate = false;
+            // Si tiene childTable actualmente abierta, actualizo su casilla maestra
+            const childTable = this.childTable ?? this.childInfiniteTable;
+            if (childTable) {
+                childTable.casillaMaestra.all = event.checked;
+                childTable.casillaMaestra.indeterminate = false;
             }
         }
     }

@@ -6,11 +6,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { GTAccionTablaComponent } from './accion-tabla/accion-tabla.component';
 import { GTElementoTablaComponent } from './elemento-tabla/elemento-tabla.component';
 
-import { GTTablaComponent } from './tabla/tabla.component';
+import { GTTableComponent } from './tabla/tabla.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
-import { GTTablaInfinitaComponent } from './tabla-infinita/tabla-infinita.component';
+import { GTInfiniteTableComponent } from './tabla-infinita/tabla-infinita.component';
 import { GTBuscadorComponent } from './buscador/buscador.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,8 +21,8 @@ import { MatInputModule } from '@angular/material/input';
 const components = [
   GTAccionTablaComponent,
   GTElementoTablaComponent,
-  GTTablaComponent,
-  GTTablaInfinitaComponent,
+  GTTableComponent,
+  GTInfiniteTableComponent,
   GTBuscadorComponent
 ]
 

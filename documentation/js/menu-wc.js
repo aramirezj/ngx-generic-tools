@@ -133,13 +133,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/GTTableModule.html" data-type="entity-link" >GTTableModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' : 'data-target="#xs-components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
+                                            'data-target="#components-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' : 'data-target="#xs-components-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' :
-                                            'id="xs-components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' :
+                                            'id="xs-components-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' }>
                                             <li class="link">
                                                 <a href="components/GTBotoneraComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTBotoneraComponent</a>
                                             </li>
@@ -159,13 +159,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' : 'data-target="#xs-directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
+                                        'data-target="#directives-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' : 'data-target="#xs-directives-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' :
-                                        'id="xs-directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' :
+                                        'id="xs-directives-links-module-GTTableModule-ad3602354e9df4c637373d74028048b97e63bedc049c8db11471e4f1b465414c21473332f4e22f7854bfc7a541b7eaa77b706c160ff0b7850e1c9638b490cb4c"' }>
                                         <li class="link">
                                             <a href="directives/GTConversionDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTConversionDirective</a>
                                         </li>
@@ -192,13 +192,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/GTElementoTablaComponent.html" data-type="entity-link" >GTElementoTablaComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/GTTablaComponent.html" data-type="entity-link" >GTTablaComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/GTTablaInfinitaComponent.html" data-type="entity-link" >GTTablaInfinitaComponent</a>
+                                <a href="components/GTInfiniteTableComponent.html" data-type="entity-link" >GTInfiniteTableComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/GTTablaMaestra.html" data-type="entity-link" >GTTablaMaestra</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/GTTableComponent.html" data-type="entity-link" >GTTableComponent</a>
                             </li>
                         </ul>
                     </li>

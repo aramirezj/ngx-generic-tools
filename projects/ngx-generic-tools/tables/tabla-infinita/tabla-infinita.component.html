@@ -1,38 +1,38 @@
 <!-- Busqueda -->
-<gt-buscador *ngIf="buscador" (notify)="busqueda($event)"> </gt-buscador>
+<gt-buscador *ngIf="search" (notify)="busqueda($event)"> </gt-buscador>
 <!-- Tabla en sí-->
 <div class="tablaMaterial" [id]="idTabla">
     <!-- Encabezado de la tabla -->
     <div class="filaEncabezado">
-        <span *ngIf="modoCasillas" class="elementoEncabezado">
+        <span *ngIf="checkboxMode" class="elementoEncabezado">
             <mat-checkbox (click)="$event.stopPropagation();" [checked]="casillaMaestra.all"
                 [indeterminate]="casillaMaestra.indeterminate" (change)="clickTodasCasillas($event)">
             </mat-checkbox>
         </span>
         <div *ngFor="let titulo of visual;let i=index"
-            [class]="'elementoEncabezado pointer ' +idTabla+ '-columna-'+modelo[i]">
-            <span [innerHTML]="titulo" (click)="cambiaOrden(modelo[i])"></span>
+            [class]="'elementoEncabezado pointer ' +idTabla+ '-columna-'+model[i]">
+            <span [innerHTML]="titulo" (click)="cambiaOrden(model[i])"></span>
             <!--Lógica de flechas para la ordenación y el palo para el redimensionamiento-->
             <ng-container [ngTemplateOutlet]="resizeYOrden" [ngTemplateOutletContext]="{i:i}"></ng-container>
         </div>
 
 
-        <!-- Encabezados de los objetos complejos -->
-        <div *ngFor="let objeto of objetos;let i = index"
+        <!-- Encabezados de los objects complejos -->
+        <div *ngFor="let objeto of objects;let i = index"
             [class]="'elementoEncabezado pointer '+idTabla+'-columna-'+objeto.nombreModelo">
             <span>{{objeto.nombreVisual}}</span>
             <ng-container [ngTemplateOutlet]="resizeYOrden"
-                [ngTemplateOutletContext]="{i:i+modelo.length,sinOrden:true}">
+                [ngTemplateOutletContext]="{i:i+model.length,sinOrden:true}">
             </ng-container>
         </div>
 
 
         <!-- Encabezado para los selects pro -->
-        <div *ngFor="let selectMaestro of selectsMaestros;let i = index"
+        <div *ngFor="let selectMaestro of masterSelects;let i = index"
             [class]="'elementoEncabezado selectPro '+idTabla+'-columna-'+selectMaestro.columnaModelo">
             <span>{{selectMaestro.columnaVisual}}</span>
             <ng-container [ngTemplateOutlet]="resizeYOrden"
-                [ngTemplateOutletContext]="{i:i+modelo.length+(objetos ? objetos.length : 0),sinOrden:true}">
+                [ngTemplateOutletContext]="{i:i+model.length+(objects ? objects.length : 0),sinOrden:true}">
             </ng-container>
         </div>
 
@@ -48,9 +48,9 @@
     <!-- Condicional para la paginación, para saber que elementos mostrar en pantalla -->
     <div class="contenidoTabla">
         <ng-container *ngFor="let elemento of datosAMostrar;let i = index">
-            <ng-container [ngTemplateOutlet]="paginacionAsincrona ? paginacionAsincronaT : paginacionLocalT"
+            <ng-container [ngTemplateOutlet]="asyncPagination ? paginacionAsincronaT : paginacionLocalT"
                 [ngTemplateOutletContext]="{elemento:elemento,i:i}"></ng-container>
-            <ng-container *ngIf="elemento===elementoSeleccionado && elemento[nextTabla]?.length > 0"
+            <ng-container *ngIf="elemento===elementoSeleccionado && elemento[nextTable]?.length > 0"
                 [ngTemplateOutlet]="elementoExpandido" [ngTemplateOutletContext]="{elemento:elemento}">
             </ng-container>
         </ng-container>
@@ -58,7 +58,7 @@
 
     </div>
 </div>
-<mat-paginator *ngIf="paginador" [length]="pageEvent.length" [pageSize]="pageEvent.pageSize"
+<mat-paginator *ngIf="paginator" [length]="pageEvent.length" [pageSize]="pageEvent.pageSize"
     [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageEvent.pageIndex" (page)="paginacion($event)">
 </mat-paginator>
 
@@ -66,7 +66,7 @@
 <!-- PAGINACIONLOCAL Template para la evaluación de datos si utiliza la paginación local -->
 <ng-template #paginacionLocalT let-elemento='elemento' let-i='i'>
     <div *ngIf="((pageEvent.pageIndex+1)*pageEvent.pageSize) > i && i >= ((pageEvent.pageIndex)*pageEvent.pageSize)"
-        [class]="elemento === elementoSeleccionado ? 'filaContenido filaSeleccionada pointer' : seleccionable ? 'filaContenido pointer' : 'filaContenido' "
+        [class]="elemento === elementoSeleccionado ? 'filaContenido filaSeleccionada pointer' : selectable ? 'filaContenido pointer' : 'filaContenido' "
         (click)="seleccion(elemento)" (contextmenu)="open($event, elemento); $event.preventDefault();">
         <!--Contenido del TD-->
         <ng-template [ngTemplateOutlet]="TDContenido" [ngTemplateOutletContext]="{elemento:elemento}">
@@ -76,7 +76,7 @@
 
 <!-- PAGINACIONASINCRONA Template para la evaluación de datos si usa la paginación asincrona-->
 <ng-template #paginacionAsincronaT let-elemento='elemento' let-i='i'>
-    <div [class]="elemento === elementoSeleccionado ? 'filaContenido filaSeleccionada pointer' : seleccionable ? 'filaContenido pointer' : 'filaContenido' "
+    <div [class]="elemento === elementoSeleccionado ? 'filaContenido filaSeleccionada pointer' : selectable ? 'filaContenido pointer' : 'filaContenido' "
         (click)="seleccion(elemento)" (contextmenu)="open($event, elemento); $event.preventDefault();">
         <!--Contenido del TD-->
         <ng-template [ngTemplateOutlet]="TDContenido" [ngTemplateOutletContext]="{elemento:elemento}">
@@ -87,33 +87,33 @@
 <!-- TDCONTENIDO Template utilizada para cargar el TD en cuestión -->
 <ng-template #TDContenido let-elemento='elemento'>
 
-    <!--Checkbox si tiene modoCASILLAS-->
-    <span *ngIf="modoCasillas" class="elementoContenido">
+    <!--Checkbox si tiene checkboxMode-->
+    <span *ngIf="checkboxMode" class="elementoContenido">
         <mat-checkbox (click)="$event.stopPropagation()" (change)="clickCasilla(elemento,$event)"
             [checked]="elemento['tSeleccionado']" [indeterminate]="elemento['tIndeterminate']">
         </mat-checkbox>
     </span>
-    <!--Elementos normales del modelo-->
-    <div *ngFor="let atributo of modelo;let i = index" [class]="'elementoContenido ' +idTabla+ '-columna-'+atributo">
-        <!-- Recibe el modelo splitted por si tuviera que hacer una indexación -->
+    <!--Elementos normales del model-->
+    <div *ngFor="let atributo of model;let i = index" [class]="'elementoContenido ' +idTabla+ '-columna-'+atributo">
+        <!-- Recibe el model splitted por si tuviera que hacer una indexación -->
         <ng-template #modeloSplitted let-splitted="splitted" let-atributo="atributo">
             <ng-container [ngSwitch]="splitted.length">
                 <gt-elemento-tabla *ngSwitchCase=1 [campo]="elemento[atributo]" [atributo]="atributo"
-                    [formatoTabla]="formatos">
+                    [formatoTabla]="formats">
                 </gt-elemento-tabla>
                 <gt-elemento-tabla *ngSwitchCase=2 [campo]="elemento[splitted[0]]?.[splitted[1]]" [atributo]="atributo"
-                    [formatoTabla]="formatos">
+                    [formatoTabla]="formats">
                 </gt-elemento-tabla>
                 <gt-elemento-tabla *ngSwitchCase=3 [campo]="elemento[splitted[0]]?.[splitted[1]]?.[splitted[2]]"
-                    [atributo]="atributo" [formatoTabla]="formatos">
+                    [atributo]="atributo" [formatoTabla]="formats">
                 </gt-elemento-tabla>
                 <gt-elemento-tabla *ngSwitchCase=4
                     [campo]="elemento[splitted[0]]?.[splitted[1]]?.[splitted[2]]?.[splitted[3]]" [atributo]="atributo"
-                    [formatoTabla]="formatos">
+                    [formatoTabla]="formats">
                 </gt-elemento-tabla>
                 <gt-elemento-tabla *ngSwitchCase=5
                     [campo]="elemento[splitted[0]][splitted[1]]?.[splitted[2]]?.[splitted[3]]?.[splitted[4]]"
-                    [atributo]="atributo" [formatoTabla]="formatos">
+                    [atributo]="atributo" [formatoTabla]="formats">
                 </gt-elemento-tabla>
             </ng-container>
         </ng-template>
@@ -123,8 +123,8 @@
             [ngTemplateOutletContext]="{atributo:atributo,splitted:atributo.split('.')}">
         </ng-container>
     </div>
-    <!-- Objetos que puede tener la tabla-->
-    <div *ngFor="let objeto of objetos;let j=index"
+    <!-- objects que puede tener la tabla-->
+    <div *ngFor="let objeto of objects;let j=index"
         [class]="'elementoContenido ' +idTabla+ '-columna-'+objeto.nombreModelo">
         <span (click)="$event.stopPropagation()">
             <a class="nombreObjeto" (click)="openInspeccion(elemento,j)" *ngIf="elemento[objeto.nombreModelo]">
@@ -136,25 +136,25 @@
 
     <!-- Acciones de la tabla-->
     <div [class]="'elementoContenido elementosAcciones '+idTabla+'-columna-acciones'">
-        <ng-container *ngIf="!menuAcciones">
+        <ng-container *ngIf="!actionMenu">
             <gt-accion-tabla (click)="$event.stopPropagation()" *ngFor="let accion of accionesParsed" [accion]="accion"
                 [elemento]="elemento" (clicked)="doAccion(elemento,$event)"></gt-accion-tabla>
         </ng-container>
-        <ng-container *ngIf="menuAcciones && accionesParsed">
+        <ng-container *ngIf="actionMenu && accionesParsed">
             <em class="material-icons" [matMenuTriggerFor]="menu">more_vert</em>
             <mat-menu #menu="matMenu">
                 <gt-accion-tabla *ngFor="let accion of accionesParsed" [accion]="accion" [elemento]="elemento"
-                    [menuAcciones]="menuAcciones" (clicked)="doAccion(elemento,$event)"></gt-accion-tabla>
+                    [menuAcciones]="actionMenu" (clicked)="doAccion(elemento,$event)"></gt-accion-tabla>
             </mat-menu>
         </ng-container>
 
-        <em class="material-icons iconExpandir" *ngIf="!peticionExpansion ?
-        elemento[nextTabla]?.length : modoNumeroHijos
+        <em class="material-icons iconExpandir" *ngIf="!expansionRequest ?
+        elemento[nextTable]?.length : numberOfChildrenMode
         ? elemento?.numeroElementosHijos > 0  : true"
             [matTooltip]="elementoSeleccionado === elemento ? 'Contraer elemento': 'Expandir elemento'"
             matTooltipPosition="above">{{elementoSeleccionado === elemento ? 'remove_circle' : 'add_box'}}</em>
 
-        <em class="material-icons iconExpandir hiddenIcon" *ngIf="modoNumeroHijos && !elemento?.numeroElementosHijos"
+        <em class="material-icons iconExpandir hiddenIcon" *ngIf="numberOfChildrenMode && !elemento?.numeroElementosHijos"
             matTooltipPosition="above"></em>
 
 
@@ -167,29 +167,29 @@
     <div class="elementoExpandido" [@inOutAnimation]>
         <!-- Propositos para el funcionamiento -->
         <td class="tdExpandido" colspan="99">
-            <p class="anidacionMensaje">{{tituloHijo}}</p>
-            <gt-tabla *ngIf="!nextTablaInfinita" [datos]="elemento[nextTabla]" [visual]="visuales[indiceAnidacion]"
-                [modelo]="modelos[indiceAnidacion]" [paginador]="false"
-                [fxFlexes]="nivelesFxFlexes ? nivelesFxFlexes[indiceAnidacion] : null"
-                [accionesCondicionales]="nivelesAccionesCondicionales ? nivelesAccionesCondicionales[indiceAnidacion] : null"
-                [acciones]="nivelesAcciones ? nivelesAcciones[indiceAnidacion] : null" [formatos]="formatos"
-                [selectsMaestros]="nivelesSelectsMaestro ? nivelesSelectsMaestro[indiceAnidacion] : null"
-                [modoCasillas]="modoCasillas" [orden]="nivelesOrden ? nivelesOrden[indiceAnidacion] : null"
-                [peticionActualizacion]="peticionesActualizacion ? peticionesActualizacion[indiceAnidacion] : null"
-                [subjectLoaded]="childrenLoaded" (notify)="notifyTablaHija($event, nextTabla,false,elemento)">
-            </gt-tabla>
-            <gt-tabla-infinita *ngIf="nextTablaInfinita" [datos]="elemento[nextTabla]" [visuales]="visuales"
-                [niveles]="niveles" [modelos]="modelos" [nivelesTitulos]="nivelesTitulos"
-                [acciones]="nivelesAcciones ? nivelesAcciones[indiceAnidacion] : null"
-                [fxFlexes]="nivelesFxFlexes ? nivelesFxFlexes[indiceAnidacion] : null"
-                [peticionesInfinitas]="peticionesInfinitas" [paginador]="false" [nivelesTitulos]="nivelesTitulos"
-                [nivelesAccionesCondicionales]="nivelesAccionesCondicionales" [nivelesAcciones]="nivelesAcciones"
-                [formatos]="formatos" [nivelesSelectsMaestro]="nivelesSelectsMaestro"
-                [indiceAnidacion]="indiceAnidacion" [herencia]="herencia" [nivelesOrden]="nivelesOrden"
-                [peticionesActualizacion]="peticionesActualizacion" [nivelesModoNumeroHijos]="nivelesModoNumeroHijos"
-                [modoNumeroHijos]="modoNumeroHijos" [modoCasillas]="modoCasillas"
-                (notify)="notifyTablaHija($event, nextTabla, true, elemento)">
-            </gt-tabla-infinita>
+            <p class="anidacionMensaje">{{childTitle}}</p>
+            <gt-table *ngIf="!nextTableInfinite" [data]="elemento[nextTable]" [visual]="visuals[nestingIndex]"
+            [model]="models[nestingIndex]" [paginator]="false"
+            [fxFlexes]="levelFxFlexes ? levelFxFlexes[nestingIndex] : null"
+            [conditionalActions]="conditionalActionLevels ? conditionalActionLevels[nestingIndex] : null"
+            [actions]="actionLevels ? actionLevels[nestingIndex] : null" [formats]="formats"
+            [masterSelects]="masterSelectLevels ? masterSelectLevels[nestingIndex] : null"
+            [checkboxMode]="checkboxMode" [order]="levelOrder ? levelOrder[nestingIndex] : null"
+            [updateRequest]="updateRequests ? updateRequests[nestingIndex] : null"
+            [subjectLoaded]="childrenLoaded" (notify)="notifyChildTable($event, nextTable,false,elemento)">
+            </gt-table>
+            <gt-infinite-table *ngIf="nextTableInfinite" [data]="elemento[nextTable]" [visuals]="visuals"
+            [levels]="levels" [models]="models" [levelTitles]="levelTitles"
+            [actions]="actionLevels ? actionLevels[nestingIndex] : null"
+            [fxFlexes]="levelFxFlexes ? levelFxFlexes[nestingIndex] : null"
+            [infiniteRequests]="infiniteRequests" [paginator]="false" [levelTitles]="levelTitles"
+            [conditionalActionLevels]="conditionalActionLevels" [actionLevels]="actionLevels"
+            [formats]="formats" [masterSelectLevels]="masterSelectLevels"
+            [nestingIndex]="nestingIndex" [inheritance]="inheritance" [levelOrder]="levelOrder"
+            [updateRequests]="updateRequests" [numberOfChildrenMode]="numberOfChildrenMode"
+            [numberOfChildrenMode]="numberOfChildrenMode" [checkboxMode]="checkboxMode"
+            (notify)="notifyChildTable($event, nextTable, true, elemento)">
+            </gt-infinite-table>
         </td>
 
     </div>
@@ -198,8 +198,8 @@
 
 <!-- Template para invocar el palito de redimensión -->
 <ng-template #resizeYOrden let-i='i' let-sinOrden='sinOrden'>
-    <em *ngIf="ordenActual.modelo !== modelo[i] && !sinOrden" class="material-icons flecha">north</em>
-    <em *ngIf="ordenActual.modelo === modelo[i] && !sinOrden"
+    <em *ngIf="ordenActual.modelo !== model[i] && !sinOrden" class="material-icons flecha">north</em>
+    <em *ngIf="ordenActual.modelo === model[i] && !sinOrden"
         class="material-icons flechaActivada">{{ordenActual.direccion ===
         'ASC' ? 'north' : 'south'}}</em>
     <span class="resize-handle" (mousedown)="onRedimensionarColumna($event, i);$event.stopPropagation();"></span>

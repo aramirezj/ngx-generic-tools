@@ -48,11 +48,11 @@ export class GTGenericEditorComponent implements OnInit, AfterViewChecked {
             this.formulario = data;
             this.modeloDato = this.formulario.modelo;
             this.visualDato = this.formulario.visual;
-            this.dato = this.formulario.tipo === GT_TF.CREACION ? {} : this.formulario.elemento;
+            this.dato = this.formulario.tipo === GT_TF.CREATION ? {} : this.formulario.elemento;
             this.titulo = this.formulario.titulo;
-            this.soloLectura = this.formulario.tipo === GT_TF.INSPECCION;
+            this.soloLectura = this.formulario.tipo === GT_TF.INSPECTION;
             this.aceptar = this.formulario.aceptar;
-            this.borrar = this.formulario.permiteBorrado && this.formulario.tipo === GT_TF.EDICION;
+            this.borrar = this.formulario.permiteBorrado && this.formulario.tipo === GT_TF.EDITION;
         }
     }
 
@@ -94,8 +94,8 @@ export class GTGenericEditorComponent implements OnInit, AfterViewChecked {
     creaFormulario(): void {
         this.tableForm = new FormGroup({});
         switch (this.formulario.tipo) {
-            case GT_TF.EDICION:
-            case GT_TF.INSPECCION:
+            case GT_TF.EDITION:
+            case GT_TF.INSPECTION:
                 this.formulario.elementoOriginal = Object.assign({}, this.formulario.elemento);
                 for (const atributo of this.modeloDato) {
                     const eleFormulario: GTFormElement = this.formulario.getElement(atributo);
@@ -103,10 +103,10 @@ export class GTGenericEditorComponent implements OnInit, AfterViewChecked {
                     this.tableForm.get(atributo).setValue(this.formulario.elemento[atributo]);
                     this.tableForm.get(atributo).enable();
                     if (eleFormulario.tipo === GT_TC.CHECKBOX) this.tableForm.get(atributo).setValue(this.formulario.elemento[atributo] === true ? true : null);
-                    if (eleFormulario.disabled || this.formulario.tipo === GT_TF.INSPECCION) this.tableForm.get(atributo).disable();
+                    if (eleFormulario.disabled || this.formulario.tipo === GT_TF.INSPECTION) this.tableForm.get(atributo).disable();
                 }
                 break;
-            case GT_TF.CREACION:
+            case GT_TF.CREATION:
                 for (const atributo of this.modeloDato) {
                     const eleFormulario: GTFormElement = this.formulario.getElement(atributo);
                     this.tableForm.addControl(atributo, eleFormulario.control);
@@ -183,7 +183,7 @@ export class GTGenericEditorComponent implements OnInit, AfterViewChecked {
                     this.dialogRef.close(this.dato);
                 },
                 error: () => {
-                    if (this.formulario.tipo === GT_TF.EDICION) {
+                    if (this.formulario.tipo === GT_TF.EDITION) {
                         this.rollbackElement();
                     }
                 }

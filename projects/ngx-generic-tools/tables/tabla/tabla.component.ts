@@ -1,17 +1,17 @@
 import { Overlay } from '@angular/cdk/overlay';
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { GTForm, GT_TF, GTAccion } from 'ngx-generic-tools/models';
+import { GTAccion } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
 import { GTTablaMaestra } from '../TablaMaestra';
 /** Componente de la Tabla encargada del listado y tratado de elementos */
 @Component({
-    selector: 'gt-tabla',
+    selector: 'gt-table',
     templateUrl: './tabla.component.html',
     styleUrls: ['./tabla.component.scss'],
-    inputs: GTTablaMaestra.inputComunes
+    inputs: GTTablaMaestra.commonInputs
 })
-export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
+export class GTTableComponent extends GTTablaMaestra implements OnInit, AfterViewInit {
     /** Referencia a la propia tabla */
     override matTableRef: any;
     constructor(
@@ -34,37 +34,37 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
     }
 
     ngAfterViewInit(): void {
-        if (this.elementoPreseleccionado) this.seleccion(this.elementoPreseleccionado.dato, this.elementoPreseleccionado.primaryKey, true);
+        if (this.preselectedElement) this.seleccion(this.preselectedElement.data, this.preselectedElement.primaryKey, true);
         if (this.subjectLoaded) this.subjectLoaded.next(this);
 
 
-        //console.log(this.buscadorApp)
-      //  if(this.buscadorApp) this.buscadorApp.nuevoValor.subscribe(()=> console.log('dawdawdaw'));
+        //console.log(this.searchApp)
+      //  if(this.searchApp) this.searchApp.nuevoValor.subscribe(()=> console.log('dawdawdaw'));
         this.matTableRef = this.elRef.nativeElement.querySelector(`#${this.idTabla}`);
         this.seteaColumnasTamanios(this.matTableRef.clientWidth);
     }
 
     /** Preparación inicial de herramientas necesarias para la tabla */
     preparaTabla(): void {
-        this.datos = this.datos ? this.datos : [];
-        this.datosAMostrar = this.datos.slice();
-        this.accionesParsed = this.accionesCondicionales ? this.accionesCondicionales : GTAccion.parseAcciones(this.acciones);
+        this.data = this.data ? this.data : [];
+        this.datosAMostrar = this.data.slice();
+        this.accionesParsed = this.conditionalActions ? this.conditionalActions : GTAccion.parseAcciones(this.actions);
 
         //Si contiene la acción de configurar, se debe permitir la selección, usado por las tablas infinitas
         const index = this.accionesParsed.findIndex(accion => accion.funcion === 'configurar');
-        if (index !== -1) this.seleccionable = true;
+        if (index !== -1) this.selectable = true;
 
         this.pageEvent.length = this.datosAMostrar?.length;
         this.pageEvent.pageIndex = 0;
-        if (!this.paginador) this.pageEvent.pageSize = 99999;
+        if (!this.paginator) this.pageEvent.pageSize = 99999;
 
-        if (this.paginacionAsincrona) {
-            this.pageEvent.length = this.paginacionAsincrona.paginacion.numeroRegistrosTotal;
+        if (this.asyncPagination) {
+            this.pageEvent.length = this.asyncPagination.paginacion.numeroRegistrosTotal;
         } else {
             this.paginacion(this.pageEvent);
         }
 
-        if (this.modoCasillas) {
+        if (this.checkboxMode) {
             const marcados: any[] = this.datosAMostrar.filter(dato => dato.tSeleccionado === true);
             this.casillaMaestra.all = marcados.length === this.datosAMostrar.length;
             this.casillaMaestra.indeterminate = !this.casillaMaestra.all ? marcados.length > 0 : false;
@@ -78,9 +78,9 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
      * @param bloqueaPagina En caso de true no se reincia la paginación
      */
     refrescaTabla(datos: any, bloqueaPagina?: boolean): void {
-        this.datos = datos ? datos : [];
-        this.datosAMostrar = this.datos.slice();
-        if (this.buscadorApp) this.buscadorApp.form.reset();
+        this.data = datos ? datos : [];
+        this.datosAMostrar = this.data.slice();
+        if (this.searchApp) this.searchApp.form.reset();
         if (!bloqueaPagina) this.reiniciaPaginacion();
     }
     /**
@@ -90,35 +90,35 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
      * @param accion Acción a realizar y devolver
      */
     doAccion(elemento: any, accion: string): void {
-        console.log(this.buscadorApp)
+        console.log(this.searchApp)
         if (!this.accionesAutoGestionadas.includes(accion)) {
             this.notify.emit({ accion, elemento });
         } else {
             switch (accion) {
                 case 'eliminarT':
-                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.modelo[0], this.visual[0])).subscribe(accept => {
+                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.model[0], this.visual[0])).subscribe(accept => {
                         if (accept) {
-                            this.datos.splice(this.datos.indexOf(elemento), 1);
+                            this.data.splice(this.data.indexOf(elemento), 1);
                             this.datosAMostrar.splice(this.datosAMostrar.indexOf(elemento), 1);
                             this.notify.emit({ accion, elemento });
                         }
                     });
                     break;
                 case 'eliminar':
-                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.modelo[0], this.visual[0])).subscribe(accept => {
+                    this.sharedService.muestraConfirmacionCK(this.prepareMessage(elemento, this.model[0], this.visual[0])).subscribe(accept => {
                         if (accept) {
                             this.notify.emit({ accion, elemento });
                         }
                     });
                     break;
                 case 'subir':
-                    const elementoSuperior = this.datos.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.orden] === elemento[this.orden] - 1);
+                    const elementoSuperior = this.data.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.order] === elemento[this.order] - 1);
                     if (elementoSuperior) this.cambiarOrdenElementos(elemento, elementoSuperior);
                     else this.sharedService.openSnackBar('No se ha podido cambiar el orden del elemento', 3);
                     this.notify.emit({ accion, elemento });
                     break;
                 case 'bajar':
-                    const elementoInferior = this.datos.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.orden] === elemento[this.orden] + 1);
+                    const elementoInferior = this.data.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.order] === elemento[this.order] + 1);
                     if (elementoInferior) this.cambiarOrdenElementos(elemento, elementoInferior);
                     else this.sharedService.openSnackBar('No se ha podido cambiar el orden del elemento', 3);
                     this.notify.emit({ accion, elemento });
@@ -139,14 +139,14 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
      * @param preSeleccion Si es true, es que es en el inicio de la tabla que ha detectado que ha de preseleccionar, y no debe devolver evento
      */
     seleccion(elemento: any, atributo?: string, preSeleccion?: boolean): void {
-        if (this.seleccionable) {
+        if (this.selectable) {
             if (atributo) {
                 const elementoEncontrado: any = this.datosAMostrar.find(dato => dato[atributo] === elemento[atributo]);
                 this.elementoSeleccionado = elementoEncontrado;
             } else {
                 this.elementoSeleccionado = this.elementoSeleccionado === elemento ? null : elemento;
             }
-            if (preSeleccion) this.buscadorApp.form.get('busqueda').setValue(elemento[this.modelo[0]])
+            if (preSeleccion) this.searchApp.form.get('busqueda').setValue(elemento[this.model[0]])
 
             this.notify.emit({ accion: 'configurar', elemento: this.elementoSeleccionado });
         }
