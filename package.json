@@ -29,6 +29,7 @@
     "testing": "ng serve testing-project",
     "demo": "ng serve demo",
     "build": "ng build ngx-generic-tools --configuration production",
+    "docs": "npx compodoc -p tsconfig.doc.json",
     "build-library": "ng build ngx-generic-tools",
     "watch": "ng build --watch --configuration development",
     "stats": "ng build testing-project --stats-json && webpack-bundle-analyzer dist/testing-project/stats.json",

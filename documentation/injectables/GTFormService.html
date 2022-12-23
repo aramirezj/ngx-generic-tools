@@ -227,7 +227,7 @@ import { Injectable } from &quot;@angular/core&quot;;
 import { GTForm } from &quot;ngx-generic-tools/models&quot;;
 import { GTGenericEditorComponent } from &quot;./../forms/editar-generico/editar-generico.component&quot;;
 
-@Injectable()
+@Injectable({providedIn:&#x27;root&#x27;})
 export class GTFormService {
     constructor(
         private dialog:Dialog

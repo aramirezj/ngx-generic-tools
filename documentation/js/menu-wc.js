@@ -59,13 +59,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/GTFormModule.html" data-type="entity-link" >GTFormModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' : 'data-target="#xs-components-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' }>
+                                            'data-target="#components-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' : 'data-target="#xs-components-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' :
-                                            'id="xs-components-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' :
+                                            'id="xs-components-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' }>
                                             <li class="link">
                                                 <a href="components/GTBotoneraComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTBotoneraComponent</a>
                                             </li>
@@ -85,29 +85,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' : 'data-target="#xs-directives-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' }>
+                                        'data-target="#directives-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' : 'data-target="#xs-directives-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' :
-                                        'id="xs-directives-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' :
+                                        'id="xs-directives-links-module-GTFormModule-1b61c992caf795c8de460bd5ef006299c39c5eeede446ff5bbdf5baf2ff002e5aa8e2c391c350b123cdc0500f0edc0567a1a098b0261ff0b349c3bd6ce8c4167"' }>
                                         <li class="link">
                                             <a href="directives/GTConversionDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTConversionDirective</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' : 'data-target="#xs-injectables-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' :
-                                        'id="xs-injectables-links-module-GTFormModule-10b8d335aee5345cddfb74955acd4b3a6babdaadbf63480762cee7e999724d493232ce0ba7a2f349230cebdd21c00a64cc5b601976885e54cc00ae9f3050185e"' }>
-                                        <li class="link">
-                                            <a href="injectables/GTFormService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTFormService</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -116,41 +102,27 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/GTSharedModule.html" data-type="entity-link" >GTSharedModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' : 'data-target="#xs-components-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' }>
+                                            'data-target="#components-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' : 'data-target="#xs-components-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' :
-                                            'id="xs-components-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' :
+                                            'id="xs-components-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' }>
                                             <li class="link">
                                                 <a href="components/GTConfirmacionComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTConfirmacionComponent</a>
                                             </li>
                                         </ul>
                                     </li>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' : 'data-target="#xs-injectables-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' :
-                                        'id="xs-injectables-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' }>
-                                        <li class="link">
-                                            <a href="injectables/SharedService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SharedService</a>
-                                        </li>
-                                    </ul>
-                                </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' : 'data-target="#xs-pipes-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' }>
+                                            'data-target="#pipes-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' : 'data-target="#xs-pipes-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' :
-                                            'id="xs-pipes-links-module-GTSharedModule-859bfb492a1644b7a453f78639be99789165f5c76d59a9abb080795a08dea5fe34cc848716ab98cbc8bf2591ba2d1543fe41ba99e87973665df0062318235c3f"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' :
+                                            'id="xs-pipes-links-module-GTSharedModule-59f5e448a343d1b47036d375f3971f307dcd3b191c3b565deaba8d620143108d1139073c5fd74a23168fbc2bb4059760f4a8295f214769e51202be699ee8499b"' }>
                                             <li class="link">
                                                 <a href="pipes/TextoSlicePipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TextoSlicePipe</a>
                                             </li>
@@ -161,13 +133,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/GTTableModule.html" data-type="entity-link" >GTTableModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' : 'data-target="#xs-components-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' }>
+                                            'data-target="#components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' : 'data-target="#xs-components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' :
-                                            'id="xs-components-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' :
+                                            'id="xs-components-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
                                             <li class="link">
                                                 <a href="components/GTBotoneraComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTBotoneraComponent</a>
                                             </li>
@@ -187,13 +159,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' : 'data-target="#xs-directives-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' }>
+                                        'data-target="#directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' : 'data-target="#xs-directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' :
-                                        'id="xs-directives-links-module-GTTableModule-1ebe86bc97aa2367165e0ca42a31d9ba65b460525e2c5920ddc83f3a72bb25f6e9ae3f6824d2992e1746b91a8397efe4462742c7c1ba51fa9fb137aaf1eac2e7"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' :
+                                        'id="xs-directives-links-module-GTTableModule-9060ca53f488b68042896024843535e4d214166fe6dee38c80a558b4b20eb148fc1faf153d9e974e8bdd32f8f2c595b5e4bab7144b4de88371d31f176a4404ca"' }>
                                         <li class="link">
                                             <a href="directives/GTConversionDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GTConversionDirective</a>
                                         </li>
