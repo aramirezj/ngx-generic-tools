@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { GTForm } from "ngx-generic-tools/models";
 import { GTGenericEditorComponent } from "./../forms/editar-generico/editar-generico.component";
 
-@Injectable()
+@Injectable({providedIn:'root'})
 export class GTFormService {
     constructor(
         private dialog:Dialog

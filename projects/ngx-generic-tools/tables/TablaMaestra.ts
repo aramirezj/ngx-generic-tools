@@ -1,6 +1,6 @@
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { Component, EventEmitter, HostListener, Input, Output, Renderer2, TemplateRef, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Optional, Output, Renderer2, TemplateRef, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
 import { BehaviorSubject, filter, fromEvent, Subscription, take } from 'rxjs';
@@ -8,6 +8,7 @@ import { forkJoin } from 'rxjs';
 import { GTAccion, GTForm, GT_TF, GTObjetoTabla, GTPeticionExpansion, GTPeticionPaginacion, GTSelectMaestroTabla, GTFormatosTabla } from 'ngx-generic-tools/models';
 import { SharedService } from 'ngx-generic-tools/shared';
 import { GTBuscadorComponent } from './buscador/buscador.component';
+import { GTFormService } from 'ngx-generic-tools/forms';
 
 
 /** Tabla Maestra de la que partirán las demás implementando sus atributos y funciones comunes */
@@ -121,6 +122,7 @@ export abstract class GTTablaMaestra {
     subscriptionMenuService: Subscription;
     constructor(
         public sharedService: SharedService,
+        @Optional() public formService:GTFormService,
         public renderer: Renderer2,
         public overlay: Overlay,
         public viewContainerRef: ViewContainerRef
@@ -293,12 +295,12 @@ export abstract class GTTablaMaestra {
                 const params = objTabla.peticion.preparaParametros(elemento);
                 objTabla.peticion.peticion(...params).subscribe(resp => {
                     form.elemento = resp;
-                    this.sharedService.muestraFormulario(form).subscribe();
+                    this.formService.showForm(form).subscribe();
                 }
                 );
             } else {
                 form.elemento = elemento[objTabla.nombreModelo];
-                this.sharedService.muestraFormulario(form).subscribe();
+                this.formService.showForm(form).subscribe();
             }
         } else {
             this.sharedService.openSnackBar('Este elemento no tiene ' + objTabla.nombreVisual, 3);

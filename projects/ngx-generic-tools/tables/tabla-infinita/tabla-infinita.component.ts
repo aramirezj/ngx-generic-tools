@@ -89,7 +89,7 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
         private elRef: ElementRef,
 
     ) {
-        super(sharedService, renderer, overlay, viewContainerRef);
+        super(sharedService,null, renderer, overlay, viewContainerRef);
     }
 
     ngOnInit(): void {
@@ -182,31 +182,6 @@ export class GTTablaInfinitaComponent extends GTTablaMaestra implements OnInit, 
                             this.enviaNotificacion({ accion, elemento });
                         }
                     });
-                    break;
-                case 'editarT':
-                    if (this.formulario) {
-                        this.formulario.elemento = elemento;
-                        this.sharedService.muestraFormulario(this.formulario).subscribe(elementModified => {
-                            if (elementModified) {
-                                elemento = elementModified;
-                                this.enviaNotificacion({ accion, elemento });
-                            }
-                        });
-                    } else {
-                        const form = new GTForm(GT_TF.EDICION, this.modelo, this.visual, 'Edición del elemento');
-                        form.elemento = elemento;
-                        this.sharedService.muestraFormulario(form).subscribe(resp => {
-                            if (resp) {
-                                if (this.clavePrimaria) {
-                                    if (!this.sharedService.findRepeat(this.datos.slice().concat([resp]), this.clavePrimaria)) {
-                                        this.enviaNotificacion({ accion, elemento });
-                                    }
-                                } else {
-                                    this.enviaNotificacion({ accion, elemento });
-                                }
-                            }
-                        });
-                    }
                     break;
                 case 'subir':
                     const elementoSuperior = this.datos.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.orden] === elemento[this.orden] - 1);

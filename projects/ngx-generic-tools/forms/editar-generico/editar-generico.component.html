@@ -25,7 +25,14 @@
                             {{formulario.controles[atributo].label}}</mat-checkbox>
                         <!--Control de Fecha-->
                      
-                            <input *ngSwitchCase="'fecha'" class="eleFormulario" type="date" id="datepicker" [formControlName]="atributo" [max]="maxDate" />
+                        <mat-form-field *ngSwitchCase="'fecha'" appearance="outline" class="eleFormulario">
+                            <mat-label>{{visualDato[i]}}</mat-label>
+                            <input matInput [formControlName]="atributo" [matDatepicker]="picker" placeholder="dd/mm/aaaa"
+                                [max]="maxDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker touchUi #picker></mat-datepicker>
+                            <mat-error>La fecha es inválida</mat-error>
+                        </mat-form-field>
                         
                         <!--Control de Select simple-->
                         <mat-form-field *ngSwitchCase="'select'" appearance="outline" class="eleFormulario">

@@ -1,13 +1,12 @@
 //Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 //Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -19,9 +18,9 @@ import { GTGenericEditorComponent } from './editar-generico/editar-generico.comp
 
 import { GTConversionDirective } from './directives/conversion.directive';
 import { GTMatErrorMessagesDirective } from './directives/matErrorMessages.directive';
-import { GTFormService } from './form.service';
-
-
+import { DialogModule } from '@angular/cdk/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -32,7 +31,11 @@ const materialModules: any[] = [
   MatIconModule,
   MatTooltipModule,
   MatSnackBarModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  DialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule
+  
 ];
 
 const components: any[] = [
@@ -44,16 +47,17 @@ const components: any[] = [
   GTMatErrorMessagesDirective
 ]
 
+/** Module for forms componentes and utilities */
 @NgModule({
   declarations: components,
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     ...materialModules
   ],
   exports: [
-    ...components
-  ], providers: [GTFormService]
+    ...components,
+    ...materialModules
+  ], providers: []
 })
 export class GTFormModule { }

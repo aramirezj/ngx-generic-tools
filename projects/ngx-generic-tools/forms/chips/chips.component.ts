@@ -1,7 +1,7 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-/** Control de formulario Si/No */
+/** Control de formulario Yes/No */
 @Component({
   selector: 'gt-chips',
   templateUrl: './chips.component.html',

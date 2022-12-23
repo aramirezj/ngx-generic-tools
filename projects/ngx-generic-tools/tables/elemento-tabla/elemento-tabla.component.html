@@ -10,7 +10,7 @@
     </span>
     <span *ngSwitchCase="'texto'" matTooltip="{{campo}}" [matTooltipHideDelay]="500"
         class="elmentText">
-        {{campo | textoSlice:numCaracteres}}
+        {{campo}}
     </span>
     <span *ngSwitchCase="'boolean'">
         <span *ngIf="campo === 'true' || campo === true">Si</span>

@@ -5,7 +5,7 @@ import { Subject, Subscription } from 'rxjs';
 import { GTPeticionExpansion } from 'ngx-generic-tools/models';
 
 
-/** Selector génerico que admite tanto listados de elementos como APIs. */
+/** Generic select that can receive for an array for a observable for retrieving the data */
 @Component({
     selector: 'gt-select-maestro',
     templateUrl: './select-maestro.component.html',

@@ -2,17 +2,17 @@ import { Component, OnInit, ChangeDetectorRef, Inject, Output, EventEmitter, Aft
 import { FormGroup } from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { GTForm, GTFormElement, GT_TC, GT_TF,GT_TC_F, GTPeticionExpansion } from 'ngx-generic-tools/models';
+import { GTForm, GTFormElement, GT_TC, GT_TF, GT_TC_F, GTPeticionExpansion } from 'ngx-generic-tools/models';
 import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 
-/** Componente encargado de mostrar el modelo GTForm en un modal */
+/** Component for opening through the service. It uses an object GTForm and displays it with the configuration provided */
 @Component({
     selector: 'gt-editar-generico',
     templateUrl: './editar-generico.component.html',
     styleUrls: ['./editar-generico.component.scss']
 })
 export class GTGenericEditorComponent implements OnInit, AfterViewChecked {
-    GT_TC_F:typeof GT_TC_F = GT_TC_F;
+    GT_TC_F: typeof GT_TC_F = GT_TC_F;
     /** Evento de click de borrado  */
     @Output() eventoBorrado = new EventEmitter<string>();
     /** Elemento a modificar */
@@ -40,7 +40,7 @@ export class GTGenericEditorComponent implements OnInit, AfterViewChecked {
     constructor(
         private dialogRef: DialogRef<GTGenericEditorComponent>,
         private cdRef: ChangeDetectorRef,
-        @Inject(DIALOG_DATA) data,
+        @Inject(DIALOG_DATA) data: GTForm,
         private snackBar: MatSnackBar,
         public dialog: Dialog
     ) {

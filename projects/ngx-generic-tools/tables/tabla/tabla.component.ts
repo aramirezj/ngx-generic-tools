@@ -22,7 +22,7 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
         public override viewContainerRef: ViewContainerRef
 
     ) {
-        super(sharedService, renderer,overlay,viewContainerRef);
+        super(sharedService,null, renderer,overlay,viewContainerRef);
     }
 
 
@@ -110,31 +110,6 @@ export class GTTablaComponent extends GTTablaMaestra implements OnInit, AfterVie
                             this.notify.emit({ accion, elemento });
                         }
                     });
-                    break;
-                case 'editarT':
-                    if (this.formulario) {
-                        this.formulario.elemento = elemento;
-                        this.sharedService.muestraFormulario(this.formulario).subscribe(elementModified => {
-                            if (elementModified) {
-                                elemento = elementModified;
-                                this.notify.emit({ accion, elemento });
-                            }
-                        });
-                    } else {
-                        const form = new GTForm(GT_TF.EDICION, this.modelo, this.visual, 'Edición del elemento');
-                        form.elemento = elemento;
-                        this.sharedService.muestraFormulario(form).subscribe(resp => {
-                            if (resp) {
-                                if (this.clavePrimaria) {
-                                    if (!this.sharedService.findRepeat(this.datos.slice().concat([resp]), this.clavePrimaria)) {
-                                        this.notify.emit({ accion, elemento });
-                                    }
-                                } else {
-                                    this.notify.emit({ accion, elemento });
-                                }
-                            }
-                        });
-                    }
                     break;
                 case 'subir':
                     const elementoSuperior = this.datos.find(elementoEnPosicionDestino => elementoEnPosicionDestino[this.orden] === elemento[this.orden] - 1);
