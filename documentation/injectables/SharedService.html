@@ -1,0 +1,2489 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-workspace documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-workspace documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >SharedService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/ngx-generic-tools/shared/shared.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio de utilidades para la aplicación</p>
+
+            </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ckDialog" >ckDialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#identificadorTabla" >identificadorTabla</a>
+                            </li>
+                            <li>
+                                <a href="#mensajes" >mensajes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#menuContextualAbierto" >menuContextualAbierto</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#arrayEquals" >arrayEquals</a>
+                            </li>
+                            <li>
+                                <a href="#comparaFechas" >comparaFechas</a>
+                            </li>
+                            <li>
+                                <a href="#dateFormat" >dateFormat</a>
+                            </li>
+                            <li>
+                                <a href="#dateFormatBackend" >dateFormatBackend</a>
+                            </li>
+                            <li>
+                                <a href="#dateTimeFormat" >dateTimeFormat</a>
+                            </li>
+                            <li>
+                                <a href="#findInvalidControlsRecursive" >findInvalidControlsRecursive</a>
+                            </li>
+                            <li>
+                                <a href="#findRepeat" >findRepeat</a>
+                            </li>
+                            <li>
+                                <a href="#findRepeatRecursivo" >findRepeatRecursivo</a>
+                            </li>
+                            <li>
+                                <a href="#gestionaNotificaciones" >gestionaNotificaciones</a>
+                            </li>
+                            <li>
+                                <a href="#isNumber" >isNumber</a>
+                            </li>
+                            <li>
+                                <a href="#muestraConfirmacionCK" >muestraConfirmacionCK</a>
+                            </li>
+                            <li>
+                                <a href="#muestraFormulario" >muestraFormulario</a>
+                            </li>
+                            <li>
+                                <a href="#openGenericDialog" >openGenericDialog</a>
+                            </li>
+                            <li>
+                                <a href="#openSnackBar" >openSnackBar</a>
+                            </li>
+                            <li>
+                                <a href="#recuperaIdTabla" >recuperaIdTabla</a>
+                            </li>
+                            <li>
+                                <a href="#redireccionTimed" >redireccionTimed</a>
+                            </li>
+                            <li>
+                                <a href="#setCaracteres" >setCaracteres</a>
+                            </li>
+                            <li>
+                                <a href="#setFormatos" >setFormatos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ckDialog: Dialog, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBar: MatSnackBar)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ckDialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>Dialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="arrayEquals"></a>
+                    <span class="name">
+                        <span ><b>arrayEquals</b></span>
+                        <a href="#arrayEquals"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>arrayEquals(a: any[], b: any[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="290"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:290</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba si dos arrays son exactamente iguales</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>a</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Primer array</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>b</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Segundo array</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Si son iguales o no</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comparaFechas"></a>
+                    <span class="name">
+                        <span ><b>comparaFechas</b></span>
+                        <a href="#comparaFechas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>comparaFechas(fecha1: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, fecha2: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="317"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:317</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Compara dos fechas, devuelve true si la primera fecha es ANTES que la segunda</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fecha1</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Primera fecha</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fecha2</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Segunda fecha</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Resultado de la comparación</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateFormat"></a>
+                    <span class="name">
+                        <span ><b>dateFormat</b></span>
+                        <a href="#dateFormat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dateFormat(date: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, locale?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="259"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:259</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función encargada de realizar las conversiones de las fechas</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>fecha a la que dar formato</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>locale</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametro utilizado para decidir si se formatea al formato español o al requerido por el back</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateFormatBackend"></a>
+                    <span class="name">
+                        <span ><b>dateFormatBackend</b></span>
+                        <a href="#dateFormatBackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dateFormatBackend(date: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="269"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:269</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función encargada de realizar las conversiones de las fechas solo para el back</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>fecha a la que dar formato</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>La fecha formateada</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateTimeFormat"></a>
+                    <span class="name">
+                        <span ><b>dateTimeFormat</b></span>
+                        <a href="#dateTimeFormat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dateTimeFormat(date: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, locale?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="280"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:280</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función encargada de realizar las conversiones de las fechas</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>fecha a la que dar formato</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>locale</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>parametro utilizado para decidir si se formatea al formato español o al requerido por el back</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>La fecha formateada</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findInvalidControlsRecursive"></a>
+                    <span class="name">
+                        <span ><b>findInvalidControlsRecursive</b></span>
+                        <a href="#findInvalidControlsRecursive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findInvalidControlsRecursive(formToInvestigate: FormGroup | UntypedFormArray, scroll?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:174</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que devuelve una colección con los nombres de los campos que tengan error</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formToInvestigate</td>
+                                    <td>
+                                            <code>FormGroup | UntypedFormArray</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>GTForm a procesar</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>scroll</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Si debe hacer scroll hasta el elemento</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findRepeat"></a>
+                    <span class="name">
+                        <span ><b>findRepeat</b></span>
+                        <a href="#findRepeat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findRepeat(datos: any[], clavePrimaria: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que busca campos que tengan cierto atributo repetido</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>datos</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Coleccion de datos</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>clavePrimaria</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Nombre del atributo</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Si está repetido</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findRepeatRecursivo"></a>
+                    <span class="name">
+                        <span ><b>findRepeatRecursivo</b></span>
+                        <a href="#findRepeatRecursivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findRepeatRecursivo(datos: any[], clavePrimaria: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, elementoNuevo: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:141</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que busca en un listado un elemento repetido con claves primarias anidadas</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>datos</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Listado de datos</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>clavePrimaria</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Clave primaria compleja</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>elementoNuevo</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Elemento nuevo</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Si está repetido</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gestionaNotificaciones"></a>
+                    <span class="name">
+                        <span ><b>gestionaNotificaciones</b></span>
+                        <a href="#gestionaNotificaciones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gestionaNotificaciones(sizePrevia: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, sizeNueva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, editar?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="246"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:246</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que llamaran las tablas para mostrar una notificación correspondiente a la operación
+que se haya realizado</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sizePrevia</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Longitud previa de la tabla</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>sizeNueva</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Longitud nueva de la tabla</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>editar</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Booleano opcional para indicar si el mensaje es de una modificación</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNumber"></a>
+                    <span class="name">
+                        <span ><b>isNumber</b></span>
+                        <a href="#isNumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isNumber(valor: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:196</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función para averiguar si de verdad de la buena, un elemento es un número</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>valor</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Valor a evaluar</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Si es númerico</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muestraConfirmacionCK"></a>
+                    <span class="name">
+                        <span ><b>muestraConfirmacionCK</b></span>
+                        <a href="#muestraConfirmacionCK"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>muestraConfirmacionCK(mensaje: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que gestiona la apertura de un dialogo de confirmación</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mensaje</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Observable del dialogo</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muestraFormulario"></a>
+                    <span class="name">
+                        <span ><b>muestraFormulario</b></span>
+                        <a href="#muestraFormulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>muestraFormulario(form: <a href="../classes/GTForm.html" target="_self">GTForm</a>, size?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que abre un EditarGenerico a traves de un formulario</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>form</td>
+                                    <td>
+                                                <code><a href="../classes/GTForm.html" target="_self" >GTForm</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>GTForm a mostrar</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>size</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>VW del dialogo</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Observable del dialogo</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openGenericDialog"></a>
+                    <span class="name">
+                        <span ><b>openGenericDialog</b></span>
+                        <a href="#openGenericDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openGenericDialog(component: ComponentType<>, data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, size?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, height?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, directInject?: any[], disableClose?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Apertura de un dialogo para un componente a recibir</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>component</td>
+                                    <td>
+                                            <code>ComponentType&lt;&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Componente a invocar</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Datos a transmitir al componente</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>size</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Ancho de la ventana emergente</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>height</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Altura de la ventana emergente</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>directInject</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Si debe injectar atributos en el componente</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>disableClose</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Si debe deshabilitar el cierre clicando fuera</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSnackBar"></a>
+                    <span class="name">
+                        <span ><b>openSnackBar</b></span>
+                        <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openSnackBar(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, seconds: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, tipo?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="327"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:327</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que prepara la creación de notificaciones</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Mensaje a mostrar</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>seconds</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Segundos que debe durar la notificación</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>tipo</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recuperaIdTabla"></a>
+                    <span class="name">
+                        <span ><b>recuperaIdTabla</b></span>
+                        <a href="#recuperaIdTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>recuperaIdTabla()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Recupera un identificador de la tabla y le hace un mas uno</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>El id</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redireccionTimed"></a>
+                    <span class="name">
+                        <span ><b>redireccionTimed</b></span>
+                        <a href="#redireccionTimed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>redireccionTimed(ruta: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, segundos: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="305"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:305</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Realiza una redirección guiada</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ruta</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Ruta a redirigir, podrá ser un objeto</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>segundos</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Segundos que deberá tardar en redirigir</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCaracteres"></a>
+                    <span class="name">
+                        <span ><b>setCaracteres</b></span>
+                        <a href="#setCaracteres"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setCaracteres(c: any[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="230"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:230</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función que transforma el objecto con el tamaño en caracteres de los campos en el formato interno de las tablas</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c</td>
+                                    <td>
+                                            <code>any[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>CaracteresRaw</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Objeto con los tamaños por caracter</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFormatos"></a>
+                    <span class="name">
+                        <span ><b>setFormatos</b></span>
+                        <a href="#setFormatos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFormatos(f: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="206"
+                            class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:206</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Preparo un objecto con los formatos y en ellos declaro los atributos que lo utilizan.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>f</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>FormatosRaw</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Objeto con los formatos</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ckDialog"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ckDialog</b></span>
+                        <a href="#ckDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Dialog</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="identificadorTabla"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>identificadorTabla</b></span>
+                        <a href="#identificadorTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mensajes"></a>
+                    <span class="name">
+                        <span ><b>mensajes</b></span>
+                        <a href="#mensajes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        eliminarGenerico: &#x27;¿Está seguro de que desea eliminar este elemento?&#x27;,
+        eliminarGenerico2: &#x27;¿Está seguro de que desea eliminar el elemento con ?? : \??\?&#x27;,
+        guardarGenerico: &#x27;¿Está seguro de guardar el elemento&#x27;
+    }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensajes posibles para dialogos de confirmación</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuContextualAbierto"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>menuContextualAbierto</b></span>
+                        <a href="#menuContextualAbierto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/ngx-generic-tools/shared/shared.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>s</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Injectable } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { formatDate } from &#x27;@angular/common&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { MatSnackBar, MatSnackBarConfig } from &#x27;@angular/material/snack-bar&#x27;;
+import { FormGroup, UntypedFormArray } from &#x27;@angular/forms&#x27;;
+import { GTForm } from &#x27;ngx-generic-tools/models&#x27;;
+import { GTConfirmacionComponent } from &#x27;./confirmacion/confirmacion.component&#x27;;
+import { Dialog, DialogConfig } from &#x27;@angular/cdk/dialog&#x27;;
+import { ComponentType } from &#x27;@angular/cdk/portal&#x27;;
+//import { GTForm, GT_TF } from &#x27;./model/Formulario&#x27;;
+//import { GTGenericEditorComponent } from &#x27;./forms/editar-generico/editar-generico.component&#x27;;
+
+
+//import { IframeComponent } from &#x27;./iframe/iframe.component&#x27;;
+//import { TablaGenericaComponent } from &#x27;./tablas/tabla-dialogo/tabla-dialogo.component&#x27;;
+//import { TablaDialogo } from &#x27;./forms/interfaces/TablaDialogo&#x27;;
+
+/** Servicio de utilidades para la aplicación */
+@Injectable()
+export class SharedService {
+    /** Mensajes posibles para dialogos de confirmación */
+    mensajes: object &#x3D; {
+        eliminarGenerico: &#x27;¿Está seguro de que desea eliminar este elemento?&#x27;,
+        eliminarGenerico2: &#x27;¿Está seguro de que desea eliminar el elemento con ?? : \??\?&#x27;,
+        guardarGenerico: &#x27;¿Está seguro de guardar el elemento&#x27;
+    };
+    public identificadorTabla: number &#x3D; 0;
+    /** s */
+    public menuContextualAbierto: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter();
+
+    constructor(
+        public ckDialog: Dialog,
+        private router: Router,
+        private snackBar: MatSnackBar
+    ) {
+    }
+
+    /**
+     * Recupera un identificador de la tabla y le hace un mas uno
+     *
+     * @returns El id
+     */
+    recuperaIdTabla(): number {
+        return this.identificadorTabla;
+    }
+
+
+
+    /**
+     * Función que abre un EditarGenerico a traves de un formulario
+     *
+     * @param form GTForm a mostrar
+     * @param size VW del dialogo
+     * @returns Observable del dialogo
+     */
+    muestraFormulario(form: GTForm, size?: string): Observable&lt;any&gt; {
+        return null;
+        //return this.openGenericDialog(GTGenericEditorComponent, form, size ? size : &#x27;45vw&#x27;, null, null, true);
+    }
+
+    /**
+    * Función que gestiona la apertura de un dialogo de confirmación
+    *
+    * @param tipo El identificador del catálogo de mensajes, si no lo encuentra, el tipo actua de mensajes
+    * @param elemento Elemento del que se pide confirmación
+    * @param atributo Atributo del que se cogerá el identificador en caso de ser necesario
+    * @param visual Texto a mostrar para el atributo
+    * @returns Observable del dialogo
+    */
+    muestraConfirmacionCK(mensaje:string, options?: string[]): Observable&lt;any&gt; {
+        const dialogRef &#x3D; this.ckDialog.open(GTConfirmacionComponent, {
+            width: &#x27;30vw&#x27;,
+            data : {mensaje,options}
+        })
+        return dialogRef.closed;
+    }
+
+
+    /**
+     * Apertura de un dialogo para un componente a recibir
+     *
+     * @param component Componente a invocar
+     * @param data Datos a transmitir al componente
+     * @param size Ancho de la ventana emergente
+     * @param height Altura de la ventana emergente
+     * @param directInject Si debe injectar atributos en el componente
+     * @param disableClose Si debe deshabilitar el cierre clicando fuera
+     */
+    openGenericDialog(component: ComponentType&lt;unknown&gt;, data: any, size?: string, height?: string, directInject?: any[], disableClose?: boolean): Observable&lt;any&gt; {
+        const dialogConfig &#x3D; new DialogConfig();
+        dialogConfig.autoFocus &#x3D; false;
+        dialogConfig.data &#x3D; data;
+        dialogConfig.width &#x3D; size ? size : &#x27;fit-content&#x27;;
+        dialogConfig.maxWidth &#x3D; size ? size : &#x27;fit-content&#x27;;
+        dialogConfig.height &#x3D; height ? height : null;
+        dialogConfig.maxHeight &#x3D; height ? height : null;
+        dialogConfig.disableClose &#x3D; disableClose ? disableClose : false;
+        const dialogRef &#x3D; this.ckDialog.open(component,dialogConfig as any);
+        if (directInject) {
+            directInject.forEach(direct &#x3D;&gt; dialogRef.componentInstance[direct.name] &#x3D; direct.value)
+        }
+        return new Observable(observer &#x3D;&gt; {
+            dialogRef.closed.subscribe(valor &#x3D;&gt; {
+                observer.next(valor);
+                observer.complete();
+            })
+        });
+    }
+
+
+
+
+    /**
+     * Función que busca campos que tengan cierto atributo repetido
+     *
+     * @param datos Coleccion de datos
+     * @param clavePrimaria Nombre del atributo
+     * @returns Si está repetido
+     */
+    findRepeat(datos: any[], clavePrimaria: string): boolean {
+        let repetido &#x3D; false;
+        for (const dato of datos) {
+            if (!repetido) {
+                if (datos.filter(datoF &#x3D;&gt; datoF[clavePrimaria] &#x3D;&#x3D;&#x3D; dato[clavePrimaria]).length &gt; 1) {
+                    repetido &#x3D; true;
+                }
+            }
+        }
+        if (repetido) { this.openSnackBar(&#x27;No se ha podido añadir el elemento, su clave está repetida&#x27;, 3); }
+        return repetido;
+    }
+
+    /**
+     * Función que busca en un listado un elemento repetido con claves primarias anidadas
+     * @param datos Listado de datos
+     * @param clavePrimaria Clave primaria compleja
+     * @param elementoNuevo Elemento nuevo
+     * @returns Si está repetido
+     */
+    findRepeatRecursivo(datos: any[], clavePrimaria: string, elementoNuevo: any) {
+        const campos: string[] &#x3D; clavePrimaria.split(&#x27;.&#x27;);
+        let repetido: boolean &#x3D; false;
+
+        let PKEleNuevo &#x3D; Object.assign({}, elementoNuevo);
+        for (let i &#x3D; 0; i &lt; campos.length; i++) {
+            PKEleNuevo &#x3D; PKEleNuevo[campos[i]];
+            if (!PKEleNuevo) break;
+        }
+
+        //Si su PK supuesta no está asignada, devolvemos que no está repetida
+        if (!PKEleNuevo) return false;
+        //Con esto tenemos el valor PK del elemento nuevo
+        for (const dato of datos) {
+            if (campos.length &gt; 1) {
+                let eleFinal &#x3D; Object.assign({}, dato);
+                for (let i &#x3D; 0; i &lt; campos.length; i++) {
+                    eleFinal &#x3D; eleFinal[campos[i]];
+                    if (!eleFinal) break;
+                }
+                if (eleFinal &#x3D;&#x3D;&#x3D; PKEleNuevo) repetido &#x3D; true;
+            }
+        }
+        if (repetido) this.openSnackBar(&#x27;No se ha podido añadir el elemento, su clave está repetida&#x27;, 3, &#x27;error&#x27;);
+        return repetido;
+    }
+
+    /**
+     * Función que devuelve una colección con los nombres de los campos que tengan error
+     *
+     * @param formToInvestigate GTForm a procesar
+     * @param scroll Si debe hacer scroll hasta el elemento
+     */
+    findInvalidControlsRecursive(formToInvestigate: FormGroup | UntypedFormArray, scroll?: boolean): string[] {
+        const invalidControls: string[] &#x3D; [];
+        const recursiveFunc &#x3D; (form: FormGroup | UntypedFormArray): void &#x3D;&gt; {
+            Object.keys(form.controls).forEach(field &#x3D;&gt; {
+                const control &#x3D; form.get(field);
+                if (control.invalid) { invalidControls.push(field); }
+                if (control instanceof FormGroup) {
+                    recursiveFunc(control);
+                } else if (control instanceof UntypedFormArray) {
+                    recursiveFunc(control);
+                }
+            });
+        };
+        recursiveFunc(formToInvestigate);
+        return invalidControls;
+    }
+    /**
+     * Función para averiguar si de verdad de la buena, un elemento es un número
+     *
+     * @param valor Valor a evaluar
+     * @returns Si es númerico
+     */
+    isNumber(valor: any): boolean {
+        return !isNaN(valor) &amp;&amp; valor !&#x3D;&#x3D; true &amp;&amp; valor !&#x3D;&#x3D; false &amp;&amp; typeof valor !&#x3D;&#x3D; &#x27;object&#x27;;
+    }
+
+    /**
+     * Preparo un objecto con los formatos y en ellos declaro los atributos que lo utilizan.
+     *
+     * @param f FormatosRaw
+     * @returns Objeto con los formatos
+     */
+    setFormatos(f: any): object {
+        const fReady: object &#x3D; {};
+
+        f.numero &#x3D; !f.numero ? [] : f.numero;
+        f.euro &#x3D; !f.euro ? [] : f.euro;
+        f.porcentaje &#x3D; !f.porcentaje ? [] : f.porcentaje;
+        f.texto &#x3D; !f.texto ? [] : f.texto;
+        f.date &#x3D; !f.date ? [] : f.date;
+
+        f.numero.forEach(atributo &#x3D;&gt; fReady[atributo] &#x3D; &#x27;numero&#x27;);
+        f.euro.forEach(atributo &#x3D;&gt; fReady[atributo] &#x3D; &#x27;euro&#x27;);
+        f.porcentaje.forEach(atributo &#x3D;&gt; fReady[atributo] &#x3D; &#x27;porcentaje&#x27;);
+        f.texto.forEach(atributo &#x3D;&gt; fReady[atributo] &#x3D; &#x27;texto&#x27;);
+        f.date.forEach(atributo &#x3D;&gt; fReady[atributo] &#x3D; &#x27;date&#x27;);
+
+        return fReady;
+    }
+
+    /**
+     * Función que transforma el objecto con el tamaño en caracteres de los campos en el formato interno de las tablas
+     *
+     * @param c CaracteresRaw
+     * @returns Objeto con los tamaños por caracter
+     */
+    setCaracteres(c: any[]): object {
+        const cReady &#x3D; {};
+        for (const caracter of c) {
+            cReady[caracter.nombreModelo] &#x3D; caracter.caracteres;
+        }
+        return cReady;
+    }
+
+    /**
+     * Función que llamaran las tablas para mostrar una notificación correspondiente a la operación
+     * que se haya realizado
+     *
+     * @param sizePrevia Longitud previa de la tabla
+     * @param sizeNueva Longitud nueva de la tabla
+     * @param editar Booleano opcional para indicar si el mensaje es de una modificación
+     */
+    gestionaNotificaciones(sizePrevia: number, sizeNueva: number, editar?: boolean): void {
+        let message &#x3D; &#x27;&#x27;;
+        message &#x3D; sizePrevia &lt; sizeNueva ? &#x27;Se ha añadido un elemento&#x27; : &#x27;Se ha eliminado un elemento&#x27;;
+        message &#x3D; editar ? &#x27;Se ha modificado el elemento correctamente&#x27; : message;
+        this.openSnackBar(message, 4);
+    }
+
+    /**
+     * Función encargada de realizar las conversiones de las fechas
+     *
+     * @param date fecha a la que dar formato
+     * @param locale parametro utilizado para decidir si se formatea al formato español o al requerido por el back
+     */
+    dateFormat(date: any, locale?: string): string {
+        return locale &#x3D;&#x3D;&#x3D; &#x27;es&#x27; ? formatDate(date, &#x27;dd/MM/yyyy&#x27;, &#x27;es-es&#x27;) : formatDate(date, &#x27;yyyy/MM/dd&#x27;, &#x27;es-es&#x27;);
+    }
+
+    /**
+     * Función encargada de realizar las conversiones de las fechas solo para el back
+     *
+     * @param date fecha a la que dar formato
+     * @returns La fecha formateada
+     */
+    dateFormatBackend(date: any): string {
+        return formatDate(date, &#x27;yyyy-MM-dd&#x27;, &#x27;es-es&#x27;);
+    }
+
+    /**
+     * Función encargada de realizar las conversiones de las fechas
+     *
+     * @param date fecha a la que dar formato
+     * @param locale parametro utilizado para decidir si se formatea al formato español o al requerido por el back
+     * @returns La fecha formateada
+     */
+    dateTimeFormat(date: any, locale?: string): string {
+        return locale &#x3D;&#x3D;&#x3D; &#x27;es&#x27; ? formatDate(date, &#x27;dd/MM/yyyy HH:mm&#x27;, &#x27;es-es&#x27;) : formatDate(date, &#x27;yyyy-MM-ddTHH:mm:ss.SSS&#x27;, &#x27;es-es&#x27;);
+    }
+    /**
+     * Comprueba si dos arrays son exactamente iguales
+     *
+     * @param a Primer array
+     * @param b Segundo array
+     * @returns Si son iguales o no
+     */
+    arrayEquals(a: any[], b: any[]): boolean {
+        if (!a &amp;&amp; !b || !a &amp;&amp; !b.length || !a.length &amp;&amp; !b) return true; else {
+            return Array.isArray(a) &amp;&amp;
+                Array.isArray(b) &amp;&amp;
+                a.length &#x3D;&#x3D;&#x3D; b.length &amp;&amp;
+                a.every((val, index) &#x3D;&gt; val &#x3D;&#x3D;&#x3D; b[index]);
+        }
+
+    }
+    /**
+     * Realiza una redirección guiada
+     *
+     * @param ruta Ruta a redirigir, podrá ser un objeto
+     * @param segundos Segundos que deberá tardar en redirigir
+     */
+    redireccionTimed(ruta: any, segundos: number): void {
+        setTimeout(() &#x3D;&gt; {
+            this.router.navigate(ruta)
+        }, segundos * 1000);
+    }
+    /**
+     * Compara dos fechas, devuelve true si la primera fecha es ANTES que la segunda
+     *
+     * @param fecha1 Primera fecha
+     * @param fecha2 Segunda fecha
+     * @returns Resultado de la comparación
+     */
+    comparaFechas(fecha1: any, fecha2: any): boolean {
+        return fecha1 &amp;&amp; fecha2 ? new Date(fecha1) &lt; new Date(fecha2) : true;
+    }
+
+    /**
+     * Función que prepara la creación de notificaciones
+     *
+     * @param message Mensaje a mostrar
+     * @param seconds Segundos que debe durar la notificación
+     */
+    openSnackBar(message: string, seconds: number, tipo?: string): void {
+        const snackBarConfig: MatSnackBarConfig &#x3D; new MatSnackBarConfig();
+
+        snackBarConfig.duration &#x3D; seconds * 1000;
+        snackBarConfig.horizontalPosition &#x3D; &#x27;center&#x27;;
+        snackBarConfig.verticalPosition &#x3D; &#x27;bottom&#x27;;
+        snackBarConfig.panelClass &#x3D; tipo &#x3D;&#x3D;&#x3D; &#x27;error&#x27; ? &#x27;errorSnackbar&#x27; : &#x27;customSnackbar&#x27;;
+        if (message &amp;&amp; message !&#x3D;&#x3D; &#x27;&#x27;) {
+            const openedSnackbar &#x3D; this.snackBar._openedSnackBarRef;
+            if (openedSnackbar &amp;&amp; !tipo &amp;&amp; openedSnackbar?.containerInstance?.snackBarConfig?.panelClass &#x3D;&#x3D;&#x3D; &#x27;customSnackbar&#x27;) {
+                // Detecta que ya hay una notificación mostrada, recoge su info y lanza una nueva concatenando la info
+                const nuevoMensaje &#x3D; &#x60;${openedSnackbar.instance.data.message}\n- ${message}&#x60;;
+                snackBarConfig.duration +&#x3D; openedSnackbar.containerInstance.snackBarConfig.duration;
+                this.snackBar.open(nuevoMensaje, &#x27;Cerrar&#x27;, snackBarConfig);
+            } else {
+                this.snackBar.open(&#x27;- &#x27; + message, &#x27;Cerrar&#x27;, snackBarConfig);
+            }
+        }
+    }
+
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'SharedService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1966 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-workspace documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-workspace documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  GTSelectMaestroComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Selector génerico que admite tanto listados de elementos como APIs.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>gt-select-maestro</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./select-maestro.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./select-maestro.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#controlFormat" >controlFormat</a>
+                            </li>
+                            <li>
+                                <a href="#controlInput" >controlInput</a>
+                            </li>
+                            <li>
+                                <a href="#datosFiltrados" >datosFiltrados</a>
+                            </li>
+                            <li>
+                                <a href="#reInit" >reInit</a>
+                            </li>
+                            <li>
+                                <a href="#suscriptionChange" >suscriptionChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#compareObjects" >compareObjects</a>
+                            </li>
+                            <li>
+                                <a href="#compruebaOrigenDatos" >compruebaOrigenDatos</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#reinicia" >reinicia</a>
+                            </li>
+                            <li>
+                                <a href="#search" >search</a>
+                            </li>
+                            <li>
+                                <a href="#toggledSelect" >toggledSelect</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#_datos" >_datos</a>
+                            </li>
+                            <li>
+                                <a href="#buscador" >buscador</a>
+                            </li>
+                            <li>
+                                <a href="#control" >control</a>
+                            </li>
+                            <li>
+                                <a href="#customSearch" >customSearch</a>
+                            </li>
+                            <li>
+                                <a href="#datos" >datos</a>
+                            </li>
+                            <li>
+                                <a href="#datosListado" >datosListado</a>
+                            </li>
+                            <li>
+                                <a href="#elementoAsociado" >elementoAsociado</a>
+                            </li>
+                            <li>
+                                <a href="#hint" >hint</a>
+                            </li>
+                            <li>
+                                <a href="#key" >key</a>
+                            </li>
+                            <li>
+                                <a href="#label" >label</a>
+                            </li>
+                            <li>
+                                <a href="#modeloAsociado" >modeloAsociado</a>
+                            </li>
+                            <li>
+                                <a href="#multiple" >multiple</a>
+                            </li>
+                            <li>
+                                <a href="#peticionCambio" >peticionCambio</a>
+                            </li>
+                            <li>
+                                <a href="#placeholder" >placeholder</a>
+                            </li>
+                            <li>
+                                <a href="#precargaUnico" >precargaUnico</a>
+                            </li>
+                            <li>
+                                <a href="#preset" >preset</a>
+                            </li>
+                            <li>
+                                <a href="#secondLabel" >secondLabel</a>
+                            </li>
+                            <li>
+                                <a href="#value" >value</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#elementoAsociadoCambiado" >elementoAsociadoCambiado</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#datos" >datos</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:68</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_datos"></a>
+                        <b>_datos</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:18</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datos de origen, array plano o observable</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buscador"></a>
+                        <b>buscador</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:34</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Para controlar que aparezca el buscador o no</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="control"></a>
+                        <b>control</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:22</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Control de formulario asociado</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="customSearch"></a>
+                        <b>customSearch</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:38</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Para pasarle un buscador customizado. Los parametros recibidos en la función de busqueda deben ser (term: string, item: any)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="datos"></a>
+                        <b>datos</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:16</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datos recibidos</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="datosListado"></a>
+                        <b>datosListado</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:20</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datos procesados, por si el origen era un observable</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="elementoAsociado"></a>
+                        <b>elementoAsociado</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:41</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>USADO EN TABLA Elemento asociado al control. Su lógica es que en el valueChanges del formulario, asocie el resultado al elemento</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hint"></a>
+                        <b>hint</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:32</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Información abajo del selector</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="key"></a>
+                        <b>key</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:63</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Para cotejar los objetos por una PK</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="label"></a>
+                        <b>label</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:26</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Si es un objeto, para saber que propiedad mostrar de ese objeto en el listado</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modeloAsociado"></a>
+                        <b>modeloAsociado</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:43</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>USADO EN TABLA Codependiente del elementoAsociado, para saber a que atributo asignar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="multiple"></a>
+                        <b>multiple</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:36</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Para controlar que el selector admita varias selecciones o no</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="peticionCambio"></a>
+                        <b>peticionCambio</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GTPeticionExpansion.html" target="_self" >GTPeticionExpansion</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:47</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>USADO EN TABLA, si contiene una petición cambio, después del value changes, actualizará el elemento lanzando la api</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="placeholder"></a>
+                        <b>placeholder</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:30</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Placeholder del selector</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="precargaUnico"></a>
+                        <b>precargaUnico</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:45</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>USADO EN TABLA, si es verdadero el select-maestro preseleccionara el unico elemento disponible si solo existe uno donde elegir</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preset"></a>
+                        <b>preset</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:66</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Para cotejar los objetos por una PK</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="secondLabel"></a>
+                        <b>secondLabel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:28</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Si es un objeto, para mostrar una segunda propiedad en el listado</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <b>value</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:24</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Si es un objeto, para al seleccionar un elemento del listado, el valor del formulario sea el valor de la propiedad de ese elemento</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="elementoAsociadoCambiado"></a>
+                        <b>elementoAsociadoCambiado</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:49</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>USADO EN TABLA, para notificar el cambio del elemento completo y que la tabla haga una sustitución</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="compareObjects"></a>
+                    <span class="name">
+                        <span ><b>compareObjects</b></span>
+                        <a href="#compareObjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>compareObjects(o1: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, o2: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:212</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función para comparar dos objetos. Si el selector tiene un value seteado, lo cogerá de la propiedad
+key del select asignado previamente. Compara los objetos ya sea por entero o por key</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>o1</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Objeto 1</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>o2</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Objeto 2</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Si son iguales</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="compruebaOrigenDatos"></a>
+                    <span class="name">
+                        <span ><b>compruebaOrigenDatos</b></span>
+                        <a href="#compruebaOrigenDatos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>compruebaOrigenDatos()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba si los datos se han pasado es un listado de datos o un observable</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reinicia"></a>
+                    <span class="name">
+                        <span ><b>reinicia</b></span>
+                        <a href="#reinicia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>reinicia()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:163</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función lanzada al pulsar la X del selector. Reiniciamos todo.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="search"></a>
+                    <span class="name">
+                        <span ><b>search</b></span>
+                        <a href="#search"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>search(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:185</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Función de busqueda, el valor escrito lo pasa a minuscula, y compara los objetos. Si label está setted, filtra por los label</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Valor escrito</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggledSelect"></a>
+                    <span class="name">
+                        <span ><b>toggledSelect</b></span>
+                        <a href="#toggledSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggledSelect(abierto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:176</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evento que se lanza al abrir y cerrar el selector. Al cierre, reiniciamos buscador y listado filtrado</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>abierto</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Si se ha abierto</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controlFormat"></a>
+                    <span class="name">
+                        <span ><b>controlFormat</b></span>
+                        <a href="#controlFormat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controlInput"></a>
+                    <span class="name">
+                        <span ><b>controlInput</b></span>
+                        <a href="#controlInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormControl()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instancia del input de busqueda</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="datosFiltrados"></a>
+                    <span class="name">
+                        <span ><b>datosFiltrados</b></span>
+                        <a href="#datosFiltrados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Listado de datos que se mostarán en ese momento en el listado</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reInit"></a>
+                    <span class="name">
+                        <span ><b>reInit</b></span>
+                        <a href="#reInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Para reiniciar el origen de datos</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="suscriptionChange"></a>
+                    <span class="name">
+                        <span ><b>suscriptionChange</b></span>
+                        <a href="#suscriptionChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>USADO EN TABLA, para cargarse luego la suscripción</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="datos"></a>
+                        <span class="name"><b>datos</b><a href="#datos"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>datos(datos: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/ngx-generic-tools/forms/select-maestro/select-maestro.component.ts:16</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Datos recibidos</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>datos</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from &#x27;@angular/core&#x27;;
+import { AbstractControl, FormControl } from &#x27;@angular/forms&#x27;;
+
+import { Subject, Subscription } from &#x27;rxjs&#x27;;
+import { GTPeticionExpansion } from &#x27;ngx-generic-tools/models&#x27;;
+
+
+/** Selector génerico que admite tanto listados de elementos como APIs. */
+@Component({
+    selector: &#x27;gt-select-maestro&#x27;,
+    templateUrl: &#x27;./select-maestro.component.html&#x27;,
+    styleUrls: [&#x27;./select-maestro.component.scss&#x27;]
+})
+export class GTSelectMaestroComponent implements OnInit, OnDestroy {
+    /** Datos recibidos */
+    @Input() set datos(datos: any) { this._datos &#x3D; datos ? datos : []; this.reInit.next(1) }
+    /** Datos de origen, array plano o observable */
+    @Input() _datos: any &#x3D; [];
+    /** Datos procesados, por si el origen era un observable */
+    @Input() datosListado: any[] &#x3D; [];
+    /** Control de formulario asociado */
+    @Input() control: AbstractControl &#x3D; new FormControl();
+    /** Si es un objeto, para al seleccionar un elemento del listado, el valor del formulario sea el valor de la propiedad de ese elemento */
+    @Input() value: string;
+    /** Si es un objeto, para saber que propiedad mostrar de ese objeto en el listado */
+    @Input() label: string;
+    /** Si es un objeto, para mostrar una segunda propiedad en el listado */
+    @Input() secondLabel: string;
+    /** Placeholder del selector */
+    @Input() placeholder: string;
+    /** Información abajo del selector  */
+    @Input() hint: string;
+    /** Para controlar que aparezca el buscador o no */
+    @Input() buscador: boolean &#x3D; true;
+    /** Para controlar que el selector admita varias selecciones o no */
+    @Input() multiple: boolean &#x3D; false;
+    /** Para pasarle un buscador customizado. Los parametros recibidos en la función de busqueda deben ser (term: string, item: any) */
+    @Input() customSearch: any;
+
+    /** USADO EN TABLA Elemento asociado al control. Su lógica es que en el valueChanges del formulario, asocie el resultado al elemento */
+    @Input() elementoAsociado: any;
+    /** USADO EN TABLA Codependiente del elementoAsociado, para saber a que atributo asignar */
+    @Input() modeloAsociado: string;
+    /** USADO EN TABLA, si es verdadero el select-maestro preseleccionara el unico elemento disponible si solo existe uno donde elegir */
+    @Input() precargaUnico &#x3D; false;
+    /** USADO EN TABLA, si contiene una petición cambio, después del value changes, actualizará el elemento lanzando la api */
+    @Input() peticionCambio: GTPeticionExpansion;
+    /** USADO EN TABLA, para notificar el cambio del elemento completo y que la tabla haga una sustitución */
+    @Output() elementoAsociadoCambiado: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+    /** USADO EN TABLA, para cargarse luego la suscripción  */
+    suscriptionChange: Subscription;
+
+
+    /** Listado de datos que se mostarán en ese momento en el listado */
+    datosFiltrados: any[];
+    /** Instancia del input de busqueda */
+    controlInput: FormControl &#x3D; new FormControl();
+
+    /** Para reiniciar el origen de datos **/
+    reInit &#x3D; new Subject&lt;any&gt;();
+
+    /** Para cotejar los objetos por una PK */
+    @Input() key: string;
+
+    /** Para cotejar los objetos por una PK */
+    @Input() preset: string;
+
+    controlFormat:FormControl;
+
+    constructor() { 
+        this.controlFormat &#x3D; this.control as FormControl;
+    }
+
+    ngOnInit() {
+        /** Para en linea principalmente, si tiene preset TV, cotejamos por valVal y devolvemos objeto entero */
+        if (this.preset &#x3D;&#x3D;&#x3D; &#x27;TV&#x27;) {
+            this.key &#x3D; this.key ?? &#x27;valVal&#x27;;
+            this.label &#x3D; this.label ?? &#x27;valDesCom&#x27;;
+            this.value &#x3D; null;
+        }
+
+        /** Si tiene un valor asignado, no nos hace falta key para cotejar */
+        if (this.value) this.key &#x3D; null;
+
+        if (this.elementoAsociado) {
+            const nuevoControl &#x3D; new FormControl();
+            if (this.control) {
+                nuevoControl.statusChanges[&#x27;observers&#x27;] &#x3D; this.control.statusChanges[&#x27;observers&#x27;];
+                this.control &#x3D; nuevoControl;
+            } else {
+                this.control &#x3D; new FormControl(this.elementoAsociado[this.modeloAsociado]);
+            }
+        }
+
+        this.compruebaOrigenDatos();
+        this.reInit.subscribe(() &#x3D;&gt; this.compruebaOrigenDatos());
+        if (this.key) this.control[&#x27;key&#x27;] &#x3D; this.key;
+    }
+
+    ngAfterViewInit() {
+        this.control.valueChanges.subscribe(nuevoValor &#x3D;&gt; {
+            if (this.elementoAsociado) {
+                //Si tiene petición cambio y es de tabla, lanza una api y cambia el elemento en caso de detectar cambio
+                if (this.peticionCambio &amp;&amp; this.elementoAsociado[this.modeloAsociado] !&#x3D;&#x3D; nuevoValor) {
+                    const posibleRollBack: any &#x3D; Object.assign({}, this.elementoAsociado);
+                    this.elementoAsociado[this.modeloAsociado] &#x3D; nuevoValor;
+                    const params: any[] &#x3D; this.peticionCambio.preparaParametros(this.elementoAsociado);
+                    this.suscriptionChange &#x3D; this.peticionCambio.peticion(...params).subscribe({
+                        next: (nuevoElemento) &#x3D;&gt; {
+                            this.elementoAsociadoCambiado.emit({ viejo: this.elementoAsociado, nuevo: nuevoElemento });
+                        },
+                        error: (err) &#x3D;&gt; {
+                            this.elementoAsociado &#x3D; posibleRollBack;
+                            this.control.setValue(posibleRollBack[this.modeloAsociado], { emitEvent: false });
+                        }
+
+                    });
+                }
+            }
+
+        });
+    }
+
+    ngOnDestroy(): void {
+        if (this.suscriptionChange) this.suscriptionChange.unsubscribe();
+    }
+
+
+    /** Comprueba si los datos se han pasado es un listado de datos o un observable */
+    compruebaOrigenDatos(): void {
+        if (Array.isArray(this._datos)) {
+            this.datosListado &#x3D; this._datos as [];
+            this.datosFiltrados &#x3D; this.datosListado;
+        } else {
+            //Proviene de tablas, tiene GTPeticionExpansion
+            if (this.elementoAsociado) {
+                const peticionExpansion &#x3D; this._datos as GTPeticionExpansion;
+                const params: any[] &#x3D; peticionExpansion.preparaParametros(this.elementoAsociado);
+                //nos suscribimos y lo asignamos
+                peticionExpansion.peticion(...params).subscribe(data &#x3D;&gt; {
+                    this.datosListado &#x3D; data;
+                    this.datosFiltrados &#x3D; this.datosListado;
+                    //Tenemos que buscar del listado lo que tiene asociado y setearlo al formulario sin enviar evento
+                    if (this.elementoAsociado[this.modeloAsociado]) {
+                        const datoCotejado &#x3D; this.datosFiltrados.find(dato &#x3D;&gt; dato[this.value] &#x3D;&#x3D;&#x3D; this.elementoAsociado[this.modeloAsociado]);
+                        this.control.setValue(datoCotejado[this.value], { emitEvent: false });
+                    }
+                });
+            } else {
+                //nos suscribimos y lo asignamos
+                this._datos.subscribe(data &#x3D;&gt; {
+                    //No asignamos el value ya que queremos que nos lo devuelva entero, asignamos la key para que el cotejamiento sea correcto igualmente.
+                    this.datosListado &#x3D; data;
+                    this.datosFiltrados &#x3D; this.datosListado;
+                });
+            }
+
+        }
+    }
+
+
+    /** Función lanzada al pulsar la X del selector. Reiniciamos todo. */
+    reinicia() {
+        this.control.setValue(null);
+        this.controlInput.setValue(null);
+        //Touched para mostrar error
+        this.control.markAllAsTouched();
+        //Dirty para cambiar pristine y dirty
+        this.control.markAsDirty();
+        this.datosFiltrados &#x3D; this.datosListado.slice();
+    }
+    /**
+     * Evento que se lanza al abrir y cerrar el selector. Al cierre, reiniciamos buscador y listado filtrado
+     * @param abierto Si se ha abierto
+     */
+    toggledSelect(abierto: boolean): void {
+        if (!abierto) this.controlInput.reset();
+        this.datosFiltrados &#x3D; this.datosListado.slice();
+    }
+
+    /**
+     * Función de busqueda, el valor escrito lo pasa a minuscula, y compara los objetos. Si label está setted, filtra por los label
+     * @param value Valor escrito
+     */
+    search(value: string): void {
+        if (this.customSearch) {
+            //Es una busqueda customizadas, por lo que en el segundo parametro pasamos la query
+            this.datosFiltrados &#x3D; this.datosListado.filter(this.customSearch.bind(null, value))
+        } else {
+            let filter &#x3D; value.toString().toLowerCase();
+            if (!this.secondLabel) {
+                this.datosFiltrados &#x3D; this.datosListado.filter(option &#x3D;&gt;
+                    this.label ? option[this.label].toLowerCase().indexOf(filter) &gt; -1 : option.toString().toLowerCase().indexOf(filter.toString()) &gt; -1
+                );
+            } else {
+                this.datosFiltrados &#x3D; this.datosListado.filter(option &#x3D;&gt;
+                    option[this.label]?.toLowerCase().indexOf(filter) &gt; -1 || option[this.secondLabel]?.toLowerCase().indexOf(filter) &gt; -1
+                );
+            }
+
+        }
+
+    }
+
+    /**
+     * Función para comparar dos objetos. Si el selector tiene un value seteado, lo cogerá de la propiedad
+     * key del select asignado previamente. Compara los objetos ya sea por entero o por key
+     * @param o1 Objeto 1
+     * @param o2 Objeto 2
+     * @returns Si son iguales
+     */
+    compareObjects(o1: any, o2: any): boolean {
+        const key: string &#x3D; this[&#x27;ngControl&#x27;][&#x27;form&#x27;][&#x27;key&#x27;];
+        if (o1 &amp;&amp; o2) {
+            if (key) {
+                if (o1[key] !&#x3D;&#x3D; undefined &amp;&amp; o1[key] !&#x3D;&#x3D; null) {
+                    return o1[key] &#x3D;&#x3D;&#x3D; o2[key];
+                }else{
+                    return false;
+                }
+            } else {
+                return o1 &#x3D;&#x3D;&#x3D; o2;
+            }
+
+        }else{
+            return false;
+        }
+
+    }
+
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">
+
+&lt;mat-form-field [hintLabel]&#x3D;&quot;hint&quot; appearance&#x3D;&quot;outline&quot; *ngIf&#x3D;&quot;datosFiltrados&quot;&gt;
+    &lt;mat-label&gt;{{placeholder}}&lt;/mat-label&gt;
+    &lt;mat-select [formControl]&#x3D;&quot;controlFormat&quot; [compareWith]&#x3D;&quot;compareObjects&quot; [multiple]&#x3D;&quot;multiple&quot;
+        (openedChange)&#x3D;&quot;toggledSelect($event)&quot;&gt;
+
+        &lt;div *ngIf&#x3D;&quot;buscador&quot;&gt;
+            &lt;input placeholder&#x3D;&quot;Escribe...&quot; [formControl]&#x3D;&quot;controlInput&quot; id&#x3D;&quot;inputBusqueda&quot; type&#x3D;&quot;text&quot;
+                (keyup)&#x3D;&quot;search($event.target[&#x27;value&#x27;])&quot; (keydown)&#x3D;&quot;$event.stopPropagation()&quot; autocomplete&#x3D;&quot;off&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;mat-option *ngIf&#x3D;&quot;datosFiltrados.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;Sin resultados&lt;/mat-option&gt;
+
+        &lt;mat-option *ngFor&#x3D;&quot;let dato of datosFiltrados&quot; [value]&#x3D;&quot;this.value ? dato[value] : dato&quot;&gt;
+            {{
+            label &amp;&amp; !secondLabel ? dato[label] :
+            secondLabel ? dato[label] + &#x27; - &#x27; + dato[secondLabel] :
+            dato
+            }}&lt;/mat-option&gt;
+    &lt;/mat-select&gt;
+
+    &lt;button *ngIf&#x3D;&quot;control.value &amp;&amp; !control.disabled&quot; [disabled]&#x3D;&quot;control.disabled&quot; icon-button type&#x3D;&quot;button&quot;
+        aria-label&#x3D;&quot;Clear&quot; (click)&#x3D;&quot;reinicia();$event.stopPropagation()&quot;&gt;
+        &lt;mat-icon&gt;close&lt;/mat-icon&gt;
+    &lt;/button&gt;
+
+    &lt;mat-error gt-matErrorMessages&gt;&lt;/mat-error&gt;
+&lt;/mat-form-field&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./select-maestro.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../styles/buttons.scss&quot;;
+p {
+  font-family: Lato;
+}
+
+input {
+  background: #ffffff;
+  height: 50px;
+}
+
+div {
+  background-color: #ffffff;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-icon {
+  color: rgba(0, 0, 0, .54);
+  line-height: 1 !important;
+}
+
+.mat-option {
+  white-space: unset !important;
+  overflow: unset !important;
+  text-overflow: ellipsis !important;
+  height: unset !important;
+  line-height: 1.2 !important;
+  padding: 12px;
+}
+
+#inputBusqueda {
+  box-sizing: border-box;
+  padding: 8px;
+  border: none;
+  width: 100%;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-form-field [hintLabel]="hint" appearance="outline" *ngIf="datosFiltrados">    <mat-label>{{placeholder}}</mat-label>    <mat-select [formControl]="controlFormat" [compareWith]="compareObjects" [multiple]="multiple"        (openedChange)="toggledSelect($event)">        <div *ngIf="buscador">            <input placeholder="Escribe..." [formControl]="controlInput" id="inputBusqueda" type="text"                (keyup)="search($event.target[\'value\'])" (keydown)="$event.stopPropagation()" autocomplete="off">        </div>        <mat-option *ngIf="datosFiltrados.length === 0">Sin resultados</mat-option>        <mat-option *ngFor="let dato of datosFiltrados" [value]="this.value ? dato[value] : dato">            {{            label && !secondLabel ? dato[label] :            secondLabel ? dato[label] + \' - \' + dato[secondLabel] :            dato            }}</mat-option>    </mat-select>    <button *ngIf="control.value && !control.disabled" [disabled]="control.disabled" icon-button type="button"        aria-label="Clear" (click)="reinicia();$event.stopPropagation()">        <mat-icon>close</mat-icon>    </button>    <mat-error gt-matErrorMessages></mat-error></mat-form-field></div>'
+    var COMPONENTS = [{'name': 'GTAccionTablaComponent', 'selector': 'gt-accion-tabla'},{'name': 'GTBotoneraComponent', 'selector': 'gt-botonera-flotante'},{'name': 'GTBuscadorComponent', 'selector': 'gt-buscador'},{'name': 'GTChipsComponent', 'selector': 'gt-chips'},{'name': 'GTConfirmacionComponent', 'selector': 'gt-confirmacion'},{'name': 'GTElementoTablaComponent', 'selector': 'gt-elemento-tabla'},{'name': 'GTGenericEditorComponent', 'selector': 'gt-editar-generico'},{'name': 'GTMatErrorMessagesDirective', 'selector': '[gt-matErrorMessages]'},{'name': 'GTSelectMaestroComponent', 'selector': 'gt-select-maestro'},{'name': 'GTTablaComponent', 'selector': 'gt-tabla'},{'name': 'GTTablaInfinitaComponent', 'selector': 'gt-tabla-infinita'},{'name': 'GTTablaMaestra', 'selector': 'gt-TablaMaestra'}];
+    var DIRECTIVES = [{'name': 'GTConversionDirective', 'selector': '[gtConversion]'}];
+    var ACTUAL_COMPONENT = {'name': 'GTSelectMaestroComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GTSelectMaestroComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -568,6 +568,21 @@ export abstract class GTTablaMaestra {
     }
 
 
+    /**
+     * Prepare the message for deleting
+     * @param element Element to delete
+     * @param model From where should it take the information
+     * @param visual How should it show it to the user
+     * @returns The message
+     */
+    protected prepareMessage(element: any, model: string, visual: string): string {
+
+        return `Are you sure about deleting the element with the ${visual} : ${element[model]}?`;
+
+
+    }
+
+
 
 
 

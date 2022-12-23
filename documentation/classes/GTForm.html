@@ -1,0 +1,2264 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-workspace documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-workspace documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li >GTForm</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/ngx-generic-tools/models/classes/Formulario.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en GTGenericEditorComponent</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#aceptar" >aceptar</a>
+                            </li>
+                            <li>
+                                <a href="#controles" >controles</a>
+                            </li>
+                            <li>
+                                <a href="#elemento" >elemento</a>
+                            </li>
+                            <li>
+                                <a href="#elementoOriginal" >elementoOriginal</a>
+                            </li>
+                            <li>
+                                <a href="#extraActions" >extraActions</a>
+                            </li>
+                            <li>
+                                <a href="#idRequerir" >idRequerir</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#modelo" >modelo</a>
+                            </li>
+                            <li>
+                                <a href="#numeroColumnas" >numeroColumnas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#permiteBorrado" >permiteBorrado</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#peticionesAPI" >peticionesAPI</a>
+                            </li>
+                            <li>
+                                <a href="#requerir" >requerir</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#tipo" >tipo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#titulo" >titulo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#visual" >visual</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addElement" >addElement</a>
+                            </li>
+                            <li>
+                                <a href="#addElements" >addElements</a>
+                            </li>
+                            <li>
+                                <a href="#addRequired" >addRequired</a>
+                            </li>
+                            <li>
+                                <a href="#cambiarColumnas" >cambiarColumnas</a>
+                            </li>
+                            <li>
+                                <a href="#changeType" >changeType</a>
+                            </li>
+                            <li>
+                                <a href="#changeTypeForm" >changeTypeForm</a>
+                            </li>
+                            <li>
+                                <a href="#disableControls" >disableControls</a>
+                            </li>
+                            <li>
+                                <a href="#eliminaControles" >eliminaControles</a>
+                            </li>
+                            <li>
+                                <a href="#enableControls" >enableControls</a>
+                            </li>
+                            <li>
+                                <a href="#getElement" >getElement</a>
+                            </li>
+                            <li>
+                                <a href="#sanitizaModelo" >sanitizaModelo</a>
+                            </li>
+                            <li>
+                                <a href="#setFormato" >setFormato</a>
+                            </li>
+                            <li>
+                                <a href="#setFxFlexes" >setFxFlexes</a>
+                            </li>
+                            <li>
+                                <a href="#setValidaciones" >setValidaciones</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(tipo: <a href="../undefineds/GT_TF.html" target="_self">GT_TF | string</a>, modelo: string[], visual: string[], titulo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, aceptar?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:73</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>tipo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../miscellaneous/enumerations.html#GT_TF" target="_self" >GT_TF | string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modelo</td>
+                                                  
+                                                        <td>
+                                                                    <code>string[]</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>visual</td>
+                                                  
+                                                        <td>
+                                                                    <code>string[]</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>titulo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>aceptar</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aceptar"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>aceptar</b></span>
+                        <a href="#aceptar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controles"></a>
+                    <span class="name">
+                        <span ><b>controles</b></span>
+                        <a href="#controles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GTFormElement[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:56</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de GTFormElement con el que trabaja</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elemento"></a>
+                    <span class="name">
+                        <span ><b>elemento</b></span>
+                        <a href="#elemento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Elemento que se trata en caso de ser de tipo edición o inspección el formulario</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elementoOriginal"></a>
+                    <span class="name">
+                        <span ><b>elementoOriginal</b></span>
+                        <a href="#elementoOriginal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Elemento original, se utiliza en los formularios de edición para tener constancia del elemento original</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extraActions"></a>
+                    <span class="name">
+                        <span ><b>extraActions</b></span>
+                        <a href="#extraActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Funciones extras que se ejecutarán a través de botones</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idRequerir"></a>
+                    <span class="name">
+                        <span ><b>idRequerir</b></span>
+                        <a href="#idRequerir"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Primary key del elemento</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modelo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>modelo</b></span>
+                        <a href="#modelo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numeroColumnas"></a>
+                    <span class="name">
+                        <span ><b>numeroColumnas</b></span>
+                        <a href="#numeroColumnas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:60</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Número de columnas que tendrá el formulario a mostrar</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permiteBorrado"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>permiteBorrado</b></span>
+                        <a href="#permiteBorrado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:71</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>En el caso de estar seteado se permitirá el borrado con la petición definida en peticionesAPI de edición</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="peticionesAPI"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>peticionesAPI</b></span>
+                        <a href="#peticionesAPI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Conjunto de peticiones para ejecutar al previo cierre del dialogo, se ordenan según el tipo del formulario</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="requerir"></a>
+                    <span class="name">
+                        <span ><b>requerir</b></span>
+                        <a href="#requerir"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opción exclusiva para los requerimientos. Contiene la tabla asociada</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tipo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>tipo</b></span>
+                        <a href="#tipo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#GT_TF" target="_self" >GT_TF | string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titulo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>titulo</b></span>
+                        <a href="#titulo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visual"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>visual</b></span>
+                        <a href="#visual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addElement"></a>
+                    <span class="name">
+                        <span ><b>addElement</b></span>
+                        <a href="#addElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addElement(nombre: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, elemento: <a href="../classes/GTFormElement.html" target="_self">GTFormElement</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:135</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Inserta/Sustituye un elemento personalizado en el formulario.</p>
+<p>En caso de que el elemento ya exista, se conserva su configuración de FxFlex previa.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nombre</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>nombre del control del elemento</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>elemento</td>
+                                    <td>
+                                                <code><a href="../classes/GTFormElement.html" target="_self" >GTFormElement</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>elemento a insertar</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GTFormElement.html" target="_self" >GTFormElement</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addElements"></a>
+                    <span class="name">
+                        <span ><b>addElements</b></span>
+                        <a href="#addElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addElements(nombres: string[], elementos: GTFormElement[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Inserta un elemento personalizado en el formulario</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nombres</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>elementos</td>
+                                    <td>
+                                            <code>GTFormElement[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addRequired"></a>
+                    <span class="name">
+                        <span ><b>addRequired</b></span>
+                        <a href="#addRequired"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addRequired(atributos: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:114</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Agrega la validación Obligatorio a una serie de controles</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>atributos</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de controles</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiarColumnas"></a>
+                    <span class="name">
+                        <span ><b>cambiarColumnas</b></span>
+                        <a href="#cambiarColumnas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambiarColumnas(modelo: string[], visual: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="220"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:220</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cambia las columnas de modelo y visuales para el formulario</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>modelo</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Columnas modelo</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>visual</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Columnas visuales</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeType"></a>
+                    <span class="name">
+                        <span ><b>changeType</b></span>
+                        <a href="#changeType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeType(tipo: <a href="../undefineds/GT_TC.html" target="_self">GT_TC | string</a>, atributos: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:184</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cambia el tipo de control a una serie de controles</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tipo</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#GT_TC" target="_self" >GT_TC | string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Tipo al que cambiar. EJ: &#39;fecha | euro | porcentaje | orden | texto | numero | checkbox | select | selectPro | selectBooleano&#39;</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>atributos</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de nombres de controles</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeTypeForm"></a>
+                    <span class="name">
+                        <span ><b>changeTypeForm</b></span>
+                        <a href="#changeTypeForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeTypeForm(elemento?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, tipo?: <a href="../undefineds/GT_TF.html" target="_self">GT_TF | string</a>, titulo?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cambia el tipo de formulario que es</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elemento</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Elemento asociado por si es de edición o inspección</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>tipo</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#GT_TF" target="_self" >GT_TF | string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Tipo de formulario, puede ser creación, edición e inspección</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>titulo</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Titulo a mostrar para el formulario</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disableControls"></a>
+                    <span class="name">
+                        <span ><b>disableControls</b></span>
+                        <a href="#disableControls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>disableControls(atributos?: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Deshabilita una lista de controles</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>atributos</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de nombre de controles</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminaControles"></a>
+                    <span class="name">
+                        <span ><b>eliminaControles</b></span>
+                        <a href="#eliminaControles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminaControles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Limpia los controles actuales</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableControls"></a>
+                    <span class="name">
+                        <span ><b>enableControls</b></span>
+                        <a href="#enableControls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableControls(atributos: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:171</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Habilita una lista de controles</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>atributos</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de nombre de controles</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getElement"></a>
+                    <span class="name">
+                        <span ><b>getElement</b></span>
+                        <a href="#getElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getElement(elemento: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Recupera un elemento del formulario</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elemento</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Nombre del elemento a recuperar</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GTFormElement.html" target="_self" >GTFormElement</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sanitizaModelo"></a>
+                    <span class="name">
+                        <span ><b>sanitizaModelo</b></span>
+                        <a href="#sanitizaModelo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sanitizaModelo(modelo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Si el modelo que nos han pasado, se usa en tablas, puede ser que tenga anidación compleja y use los puntos
+Aquí nos lo cargamos para poder usarlo bien</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>modelo</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Modelo a usar</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFormato"></a>
+                    <span class="name">
+                        <span ><b>setFormato</b></span>
+                        <a href="#setFormato"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFormato(formato: <a href="../undefineds/GT_TC.html" target="_self">GT_TC | string</a>, atributos: string[], mask?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank">object</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:232</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Para cambiar el formato que pueden tener los campos</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formato</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#GT_TC" target="_self" >GT_TC | string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Formato a asignar. EJ: &#39;euro&#39;</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>atributos</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de nombres de controles al que modificarselo</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>mask</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Objeto opcional con parametros especificos de formato (suffix, decimal, thousands...)</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFxFlexes"></a>
+                    <span class="name">
+                        <span ><b>setFxFlexes</b></span>
+                        <a href="#setFxFlexes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFxFlexes(fxFlexes: number[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="241"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:241</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Para cambiar el tamaño de los campos, especificandose por número de orden</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fxFlexes</td>
+                                    <td>
+                                            <code>number[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de tamaños</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setValidaciones"></a>
+                    <span class="name">
+                        <span ><b>setValidaciones</b></span>
+                        <a href="#setValidaciones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setValidaciones(validaciones: ValidatorFn[], atributos?: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">projects/ngx-generic-tools/models/classes/Formulario.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>REMPLAZA una serie de validaciones a una serie de atributos. IMPORTANTE, REMPLAZA, no agrega</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>validaciones</td>
+                                    <td>
+                                            <code>ValidatorFn[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de Validators</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>atributos</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>Lista de nombres de atributos de los campos</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ValidatorFn, Validators } from &#x27;@angular/forms&#x27;;
+import { GTFormElement } from &#x27;./ElementoFormulario&#x27;;
+import { GTPeticionExpansion } from &#x27;./PeticionExpansion&#x27;;
+
+/** Lista de controles que soporta el modelo GTForm */
+export enum GT_TC {
+    TEXTO &#x3D; &#x27;texto&#x27;,
+    NUMERO &#x3D; &#x27;numero&#x27;,
+    EURO &#x3D; &#x27;euro&#x27;,
+    PORCENTAJE &#x3D; &#x27;porcentaje&#x27;,
+    ORDEN &#x3D; &#x27;orden&#x27;,
+    CHECKBOX &#x3D; &#x27;checkbox&#x27;,
+    FECHA &#x3D; &#x27;fecha&#x27;,
+    SELECT &#x3D; &#x27;select&#x27;,
+    SELECTOBJETO &#x3D; &#x27;selectObjeto&#x27;,
+    SELECTBOOLEAN &#x3D; &#x27;selectBoolean&#x27;,
+    SELECTMAESTRO &#x3D; &#x27;selectMaestro&#x27;,
+    SELECTAUTOCOMPLETADO &#x3D; &#x27;selectAutocompletado&#x27;,
+    PLANO &#x3D; &#x27;plano&#x27;,
+    TEXTAREA &#x3D; &#x27;textArea&#x27;,
+    SLIDER &#x3D; &#x27;slider&#x27;,
+    identificador &#x3D; &#x27;identificador&#x27;,
+    NIE &#x3D; &#x27;NIE&#x27;,
+    CIF &#x3D; &#x27;CIF&#x27;
+}
+
+/** Lista de formatos de los tipos de controles */
+export enum GT_TC_F {
+    MAYUSCULA &#x3D; &#x27;mayuscula&#x27;,
+    MINUSCULA &#x3D; &#x27;minuscula&#x27;,
+    NUMERO &#x3D; &#x27;numero&#x27;,
+    EURO &#x3D; &#x27;euro&#x27;,
+    PORCENTAJE &#x3D; &#x27;porcentaje&#x27;,
+    ORDEN &#x3D; &#x27;orden&#x27;,
+    ESPACIO &#x3D; &#x27;espacio&#x27;,
+    MAYUSCULAESPACIO &#x3D; &#x27;mayusculaEspacio&#x27;,
+    MINUSCULAESPACIO &#x3D; &#x27;minusculaEspacio&#x27;,
+    identificador &#x3D; &#x27;identificador&#x27;,
+    NIF &#x3D; &#x27;NIF&#x27;,
+    NIE &#x3D; &#x27;NIE&#x27;,
+    CIF &#x3D; &#x27;CIF&#x27;
+}
+
+/** Listado de tipos posibles para un GTForm */
+export enum GT_TF {
+    CREACION &#x3D; &#x27;creacion&#x27;,
+    EDICION &#x3D; &#x27;edicion&#x27;,
+    INSPECCION &#x3D; &#x27;inspeccion&#x27;
+}
+
+/** Clase utilizada para la gestión de formularios genéricos y especificos, mostrandose luego en GTGenericEditorComponent */
+export class GTForm {
+    /** Elemento que se trata en caso de ser de tipo edición o inspección el formulario */
+    elemento: any;
+    /** Lista de GTFormElement con el que trabaja */
+    controles: GTFormElement[] &#x3D; [];
+    /** Elemento original, se utiliza en los formularios de edición para tener constancia del elemento original */
+    elementoOriginal: any;
+    /** Número de columnas que tendrá el formulario a mostrar */
+    numeroColumnas: number &#x3D; 1;
+    /** Opción exclusiva para los requerimientos. Contiene la tabla asociada  */
+    requerir: string;
+    /** Primary key del elemento */
+    idRequerir: string;
+    /** Conjunto de peticiones para ejecutar al previo cierre del dialogo, se ordenan según el tipo del formulario */
+    peticionesAPI?: {
+        creacion?: GTPeticionExpansion,
+        edicion?: GTPeticionExpansion
+    } &#x3D; {};
+    /** En el caso de estar seteado se permitirá el borrado con la petición definida en peticionesAPI de edición*/
+    permiteBorrado?: boolean &#x3D; false;
+    /** Funciones extras que se ejecutarán a través de botones */
+    extraActions: { label: string, function: Function, close: boolean }[] &#x3D; [];
+    constructor(
+        public tipo: GT_TF | string,
+        public modelo: string[],
+        public visual: string[],
+        public titulo: string,
+        public aceptar?: boolean,
+    ) {
+        this.modelo &#x3D; modelo.map(this.sanitizaModelo);
+        this.modelo.forEach(atributo &#x3D;&gt; {
+            this.addElement(atributo, new GTFormElement(atributo, GT_TC.TEXTO, this.tipo &#x3D;&#x3D;&#x3D; GT_TF.INSPECCION));
+        });
+        this.visual.forEach(atributo &#x3D;&gt; atributo &#x3D; atributo.replace(&#x27;&lt;br&gt;&#x27;, &#x27; &#x27;));
+        this.elemento &#x3D; {};
+    }
+
+    /**
+     * Si el modelo que nos han pasado, se usa en tablas, puede ser que tenga anidación compleja y use los puntos
+     * Aquí nos lo cargamos para poder usarlo bien
+     * @param modelo Modelo a usar
+     */
+    sanitizaModelo(modelo: string) {
+        return modelo.split(&#x27;.&#x27;)[0];
+    }
+
+    /**
+     * REMPLAZA una serie de validaciones a una serie de atributos. IMPORTANTE, REMPLAZA, no agrega
+     *
+     * @param validaciones Lista de Validators
+     * @param atributos Lista de nombres de atributos de los campos
+     */
+    setValidaciones(validaciones: ValidatorFn[], atributos?: string[]): void {
+        atributos ?
+            atributos.forEach(atributo &#x3D;&gt; this.getElement(atributo).control.setValidators(validaciones)) :
+            this.modelo.forEach(atributo &#x3D;&gt; this.getElement(atributo).control.setValidators(validaciones))
+    }
+    /**
+     * Agrega la validación Obligatorio a una serie de controles
+     *
+     * @param atributos Lista de controles
+     */
+    addRequired(atributos: string[]): void {
+        atributos.forEach(atributo &#x3D;&gt; this.getElement(atributo).control.setValidators([Validators.required]));
+    }
+
+    /**
+     * Recupera un elemento del formulario
+     *
+     * @param elemento Nombre del elemento a recuperar
+     */
+    getElement(elemento: string): GTFormElement {
+        return this.controles[elemento];
+    }
+
+    /**
+     * Inserta/Sustituye un elemento personalizado en el formulario.
+     *
+     * En caso de que el elemento ya exista, se conserva su configuración de FxFlex previa.
+     *
+     * @param nombre nombre del control del elemento
+     * @param elemento elemento a insertar
+     */
+    addElement(nombre: string, elemento: GTFormElement): GTFormElement {
+        if (this.controles[nombre]) {
+            elemento.fxFlex &#x3D; this.controles[nombre].fxFlex;
+        }
+        this.controles[nombre] &#x3D; elemento;
+        return elemento;
+    }
+    /**
+     * Inserta un elemento personalizado en el formulario
+     *
+     * @param nombre nombre del control del elemento
+     * @param elemento elemento a insertar
+     */
+    addElements(nombres: string[], elementos: GTFormElement[]): void {
+        let i &#x3D; 0;
+        nombres.forEach(nombre &#x3D;&gt; { this.controles[nombre] &#x3D; elementos[i]; i++; });
+    }
+
+    /**
+     * Deshabilita una lista de controles
+     *
+     * @param atributos Lista de nombre de controles
+     */
+    disableControls(atributos?: string[]): void {
+        atributos &#x3D; atributos ?? this.modelo;
+        atributos.forEach(atributo &#x3D;&gt; {
+            this.getElement(atributo).disabled &#x3D; true;
+            this.getElement(atributo).control.disable();
+        });
+    }
+
+    /**
+     * Habilita una lista de controles
+     *
+     * @param atributos Lista de nombre de controles
+     */
+    enableControls(atributos: string[]): void {
+        atributos.forEach(atributo &#x3D;&gt; {
+            this.getElement(atributo).control.enable();
+            this.getElement(atributo).disabled &#x3D; false;
+        });
+    }
+
+    /**
+     * Cambia el tipo de control a una serie de controles
+     *
+     * @param tipo Tipo al que cambiar. EJ: &#x27;fecha | euro | porcentaje | orden | texto | numero | checkbox | select | selectPro | selectBooleano&#x27;
+     * @param atributos Lista de nombres de controles
+     */
+    changeType(tipo: GT_TC | string, atributos: string[]): void {
+        if (tipo &#x3D;&#x3D;&#x3D; GT_TC.EURO || tipo &#x3D;&#x3D;&#x3D; GT_TC.PORCENTAJE || tipo &#x3D;&#x3D;&#x3D; GT_TC.ORDEN) {
+            atributos.forEach(atributo &#x3D;&gt; {
+                const ele: GTFormElement &#x3D; this.getElement(atributo);
+                if (ele) ele.setFormatoNumero(tipo);
+            });
+        } else {
+            atributos.forEach(atributo &#x3D;&gt; { if (this.getElement(atributo)) this.getElement(atributo).tipo &#x3D; tipo });
+        }
+
+    }
+
+    /**
+     * Cambia el tipo de formulario que es
+     *
+     * @param elemento Elemento asociado por si es de edición o inspección
+     * @param tipo Tipo de formulario, puede ser creación, edición e inspección
+     * @param titulo Titulo a mostrar para el formulario
+     */
+    changeTypeForm(elemento?: any, tipo?: GT_TF | string, titulo?: string): void {
+        if (this.tipo &#x3D;&#x3D;&#x3D; GT_TF.INSPECCION &amp;&amp; tipo !&#x3D;&#x3D; GT_TF.INSPECCION) {
+            for (const value of Object.values(this.controles)) {
+                value.disabled &#x3D; false;
+                value.control.enable();
+            }
+        }
+        this.elemento &#x3D; elemento;
+        this.tipo &#x3D; tipo ? tipo : this.tipo;
+        this.titulo &#x3D; titulo ? titulo : this.titulo;
+    }
+
+    /**
+     * Cambia las columnas de modelo y visuales para el formulario
+     * @param modelo Columnas modelo
+     * @param visual Columnas visuales
+     */
+    cambiarColumnas(modelo: string[], visual: string[]) {
+        this.modelo &#x3D; modelo;
+        this.visual &#x3D; visual;
+    }
+
+    /**
+     * Para cambiar el formato que pueden tener los campos
+     *
+     * @param formato Formato a asignar. EJ: &#x27;euro&#x27;
+     * @param atributos Lista de nombres de controles al que modificarselo
+     * @param mask Objeto opcional con parametros especificos de formato (suffix, decimal, thousands...)
+     */
+    setFormato(formato: GT_TC | string, atributos: string[], mask?: object): void {
+        atributos.forEach(atributo &#x3D;&gt; this.getElement(atributo).setFormatoNumero(formato, mask));
+    }
+
+    /**
+     * Para cambiar el tamaño de los campos, especificandose por número de orden
+     *
+     * @param fxFlexes Lista de tamaños
+     */
+    setFxFlexes(fxFlexes: number[]): void {
+        for (let i &#x3D; 0; i &lt; fxFlexes.length; i++) {
+            if (this.controles[this.modelo[i]]) this.controles[this.modelo[i]].fxFlex &#x3D; fxFlexes[i];
+        }
+    }
+
+    /** Limpia los controles actuales */
+    eliminaControles() {
+        this.controles &#x3D; [];
+    }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'GTForm.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -4,12 +4,9 @@ import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FormGroup, UntypedFormArray } from '@angular/forms';
-import { GTForm } from 'ngx-generic-tools/models';
 import { GTConfirmacionComponent } from './confirmacion/confirmacion.component';
 import { Dialog, DialogConfig } from '@angular/cdk/dialog';
 import { ComponentType } from '@angular/cdk/portal';
-//import { GTForm, GT_TF } from './model/Formulario';
-//import { GTGenericEditorComponent } from './forms/editar-generico/editar-generico.component';
 
 
 //import { IframeComponent } from './iframe/iframe.component';
@@ -17,7 +14,7 @@ import { ComponentType } from '@angular/cdk/portal';
 //import { TablaDialogo } from './forms/interfaces/TablaDialogo';
 
 /** Servicio de utilidades para la aplicación */
-@Injectable()
+@Injectable({providedIn:'root'})
 export class SharedService {
     /** Mensajes posibles para dialogos de confirmación */
     mensajes: object = {
@@ -43,20 +40,6 @@ export class SharedService {
      */
     recuperaIdTabla(): number {
         return this.identificadorTabla;
-    }
-
-
-
-    /**
-     * Función que abre un EditarGenerico a traves de un formulario
-     *
-     * @param form GTForm a mostrar
-     * @param size VW del dialogo
-     * @returns Observable del dialogo
-     */
-    muestraFormulario(form: GTForm, size?: string): Observable<any> {
-        return null;
-        //return this.openGenericDialog(GTGenericEditorComponent, form, size ? size : '45vw', null, null, true);
     }
 
     /**

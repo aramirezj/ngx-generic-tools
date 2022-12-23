@@ -42,7 +42,6 @@ const materialModules = [
     components
   ],
   imports: [
-    GTSharedModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
